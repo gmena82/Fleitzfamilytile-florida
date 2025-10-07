@@ -1,9 +1,20 @@
 import Link from "next/link";
+import type { Route } from "next";
+import type { UrlObject } from "url";
 
 import { siteConfig } from "@/config/site";
 import { Container } from "../ui/container";
 
-const footerLinks = [
+type FooterLinkItem =
+  | { label: string; href: Route | UrlObject }
+  | { label: string; description: string };
+
+type FooterLinkGroup = {
+  title: string;
+  items: FooterLinkItem[];
+};
+
+const footerLinks: FooterLinkGroup[] = [
   {
     title: "Showroom",
     items: siteConfig.locations.map((location) => ({
@@ -16,7 +27,7 @@ const footerLinks = [
     items: [
       { label: "About", href: "/about" },
       { label: "Projects", href: "/marketplace" },
-      { label: "Careers", href: "/about#careers" }
+      { label: "Careers", href: { pathname: "/about", hash: "careers" } }
     ]
   },
   {
@@ -57,7 +68,7 @@ export function SiteFooter() {
               {group.items.map((item) => (
                 <li key={item.label}>
                   {"href" in item ? (
-                    <Link href={item.href!} className="transition hover:text-white">
+                    <Link href={item.href} className="transition hover:text-white">
                       {item.label}
                     </Link>
                   ) : (
@@ -85,14 +96,24 @@ export function SiteFooter() {
           </p>
           <div className="flex items-center gap-4 text-sm">
             {siteConfig.socialLinks.facebook && (
-              <Link href={siteConfig.socialLinks.facebook} className="transition hover:text-white">
+              <a
+                href={siteConfig.socialLinks.facebook}
+                className="transition hover:text-white"
+                rel="noreferrer"
+                target="_blank"
+              >
                 Facebook
-              </Link>
+              </a>
             )}
             {siteConfig.socialLinks.instagram && (
-              <Link href={siteConfig.socialLinks.instagram} className="transition hover:text-white">
+              <a
+                href={siteConfig.socialLinks.instagram}
+                className="transition hover:text-white"
+                rel="noreferrer"
+                target="_blank"
+              >
                 Instagram
-              </Link>
+              </a>
             )}
           </div>
         </div>
