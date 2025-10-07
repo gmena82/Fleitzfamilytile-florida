@@ -120,7 +120,7 @@ export default function HomePage() {
         title="Let's design a surface story unique to your home."
         description="Book a complimentary consultation at our Florida showroom or virtual appointment to explore collections, review budgets, and align on timelines."
         primaryCta={{ href: "/contact", label: "Request consultation" }}
-        secondaryCta={{ href: `tel:${siteConfig.contact.phone.replace(/[^\d+]/g, "")}`, label: "Call the showroom" }}
+        secondaryCta={{ href: `tel:${siteConfig.contact.phone.replace(/[^\d+]/g, "")}`, label: "Call the showroom", isExternal: true }}
       />
     </>
   );
