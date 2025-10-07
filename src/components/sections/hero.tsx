@@ -1,4 +1,5 @@
 import Link from "next/link";
+import type { Route } from "next";
 
 import { Container } from "../ui/container";
 
@@ -6,8 +7,8 @@ interface HeroSectionProps {
   eyebrow: string;
   title: string;
   description: string;
-  primaryCta: { label: string; href: string };
-  secondaryCta: { label: string; href: string };
+  primaryCta: { label: string; href: Route };
+  secondaryCta: { label: string; href: Route };
 }
 
 export function HeroSection({ eyebrow, title, description, primaryCta, secondaryCta }: HeroSectionProps) {

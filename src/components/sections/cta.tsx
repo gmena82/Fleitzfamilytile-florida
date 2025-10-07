@@ -1,13 +1,20 @@
 import Link from "next/link";
+import type { Route } from "next";
 
 import { Container } from "../ui/container";
+
+type InternalCta = { href: Route; label: string };
+type ExternalCta = { href: string; label: string; isExternal: true };
 
 interface CtaSectionProps {
   title: string;
   description: string;
-  primaryCta: { href: string; label: string };
-  secondaryCta?: { href: string; label: string };
+  primaryCta: InternalCta;
+  secondaryCta?: InternalCta | ExternalCta;
 }
+
+const isExternalLink = (cta: InternalCta | ExternalCta): cta is ExternalCta =>
+  "isExternal" in cta && cta.isExternal;
 
 export function CtaSection({ title, description, primaryCta, secondaryCta }: CtaSectionProps) {
   return (
@@ -25,14 +32,22 @@ export function CtaSection({ title, description, primaryCta, secondaryCta }: Cta
               >
                 {primaryCta.label}
               </Link>
-              {secondaryCta && (
-                <Link
-                  href={secondaryCta.href}
-                  className="inline-flex items-center justify-center rounded-full border border-slate-300 px-6 py-3 text-sm font-semibold text-slate-700 transition hover:border-slate-400 hover:text-slate-900"
-                >
-                  {secondaryCta.label}
-                </Link>
-              )}
+              {secondaryCta &&
+                (isExternalLink(secondaryCta) ? (
+                  <a
+                    href={secondaryCta.href}
+                    className="inline-flex items-center justify-center rounded-full border border-slate-300 px-6 py-3 text-sm font-semibold text-slate-700 transition hover:border-slate-400 hover:text-slate-900"
+                  >
+                    {secondaryCta.label}
+                  </a>
+                ) : (
+                  <Link
+                    href={secondaryCta.href}
+                    className="inline-flex items-center justify-center rounded-full border border-slate-300 px-6 py-3 text-sm font-semibold text-slate-700 transition hover:border-slate-400 hover:text-slate-900"
+                  >
+                    {secondaryCta.label}
+                  </Link>
+                ))}
             </div>
           </div>
           <div className="relative h-full min-h-[240px] rounded-2xl bg-[radial-gradient(circle_at_top_left,#f8fafc,transparent_70%),linear-gradient(120deg,#334155,#0f172a)]" aria-hidden />
