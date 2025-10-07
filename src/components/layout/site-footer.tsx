@@ -14,7 +14,7 @@ type FooterLinkGroup = {
   items: FooterLinkItem[];
 };
 
-const footerLinks: FooterLinkGroup[] = [
+const footerLinks = [
   {
     title: "Showroom",
     items: siteConfig.locations.map((location) => ({
@@ -34,11 +34,11 @@ const footerLinks: FooterLinkGroup[] = [
     title: "Support",
     items: [
       { label: "Contact", href: "/contact" },
-      { label: "FAQ", href: "/resources#faq" },
+      { label: "FAQ", href: { pathname: "/resources", hash: "faq" } },
       { label: "Policies", href: "/legal" }
     ]
   }
-];
+] satisfies FooterLinkGroup[];
 
 export function SiteFooter() {
   const phoneHref = siteConfig.contact.phone.replace(/[^\d+]/g, "");
