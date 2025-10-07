@@ -3,16 +3,20 @@ import Link from "next/link";
 import { Container } from "@/components/ui/container";
 import { PageHeader } from "@/components/sections/page-header";
 
-const resourceLinks = [
+const resourceLinks: {
+  title: string;
+  description: string;
+  href?: { hash: string };
+}[] = [
   {
     title: "Tile care guide",
     description: "Step-by-step cleaning, sealing, and maintenance recommendations for common surfaces.",
-    href: "#care-guide"
+    href: { hash: "care-guide" }
   },
   {
     title: "Installation checklist",
     description: "Timeline and prep list to align designers, builders, and homeowners before install day.",
-    href: "#installation"
+    href: { hash: "installation" }
   },
   {
     title: "Trade program",
