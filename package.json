@@ -16,6 +16,8 @@
     "db:studio": "drizzle-kit studio"
   },
   "dependencies": {
+    "@hookform/resolvers": "^3.3.4",
+    "clsx": "^2.1.1",
     "drizzle-orm": "^0.32.2",
     "framer-motion": "^11.2.6",
     "lucide-react": "^0.448.0",
@@ -24,31 +26,28 @@
     "react": "18.3.1",
     "react-dom": "18.3.1",
     "react-hook-form": "^7.53.0",
-    "tailwindcss": "4.0.0-alpha.16",
-    "zod": "^3.23.8",
-    "clsx": "^2.1.1",
     "tailwind-merge": "^2.3.0",
-    "@hookform/resolvers": "^3.3.4"
+    "tailwindcss": "4.1.14",
+    "zod": "^3.23.8"
   },
   "devDependencies": {
     "@playwright/test": "^1.45.0",
+    "@tailwindcss/postcss": "^4.1.14",
+    "@testing-library/jest-dom": "^6.4.2",
     "@types/node": "^20.14.10",
     "@types/react": "^18.3.3",
     "@types/react-dom": "^18.3.0",
-    "autoprefixer": "^10.4.19",
     "drizzle-kit": "^0.26.2",
     "eslint": "^9.6.0",
     "eslint-config-next": "14.2.5",
     "eslint-config-prettier": "^9.1.0",
     "husky": "^9.1.0",
     "lint-staged": "^15.2.5",
-    "postcss": "^8.4.39",
+    "postcss": "^8.5.6",
     "prettier": "^3.3.3",
     "prettier-plugin-tailwindcss": "^0.5.14",
     "typescript": "^5.4.5",
-    "vitest": "^1.6.0",
-    "@testing-library/jest-dom": "^6.4.2",
-    "@tailwindcss/postcss": "^4.0.0"
+    "vitest": "^1.6.0"
   },
   "lint-staged": {
     "*.{js,jsx,ts,tsx}": [
