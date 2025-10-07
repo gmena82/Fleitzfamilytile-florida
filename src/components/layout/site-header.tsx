@@ -1,5 +1,6 @@
 "use client";
 
+import type { Route } from "next";
 import Link from "next/link";
 import { Menu, Phone } from "lucide-react";
 import { useState } from "react";
@@ -16,7 +17,7 @@ const navigation = [
   { href: "/about", label: "About" },
   { href: "/contact", label: "Contact" },
   { href: "/blog", label: "Blog" }
-];
+] as const satisfies readonly { href: Route; label: string }[];
 
 export function SiteHeader() {
   const [isOpen, setIsOpen] = useState(false);
@@ -44,10 +45,10 @@ export function SiteHeader() {
           ))}
         </nav>
         <div className="hidden items-center gap-4 lg:flex">
-          <Link href={`tel:${phoneHref}`} className="flex items-center gap-2 text-sm font-semibold text-slate-900">
+          <a href={`tel:${phoneHref}`} className="flex items-center gap-2 text-sm font-semibold text-slate-900">
             <Phone className="h-4 w-4" />
             <span>{siteConfig.contact.phone}</span>
-          </Link>
+          </a>
           <Link
             href="/contact"
             className="rounded-full bg-slate-900 px-4 py-2 text-sm font-semibold text-white transition hover:bg-slate-700"
@@ -81,10 +82,10 @@ export function SiteHeader() {
               {item.label}
             </Link>
           ))}
-          <Link href={`tel:${phoneHref}`} className="inline-flex items-center gap-2 text-sm font-semibold text-slate-900">
+          <a href={`tel:${phoneHref}`} className="inline-flex items-center gap-2 text-sm font-semibold text-slate-900">
             <Phone className="h-4 w-4" />
             <span>{siteConfig.contact.phone}</span>
-          </Link>
+          </a>
           <Link
             href="/contact"
             className="inline-flex items-center justify-center rounded-full bg-slate-900 px-4 py-2 text-sm font-semibold text-white"
