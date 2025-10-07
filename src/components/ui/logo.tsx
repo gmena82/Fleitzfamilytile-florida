@@ -26,7 +26,7 @@ export function Logo({
       aria-label="Fleitz Family Tile Home"
     >
       <Image
-        src="/images/Fleitz-Logo-on-White.png"
+        src="/images/Fleitz-Family-Tile-Logo.png"
         alt="Fleitz Family Tile Logo"
         width={width}
         height={height}
