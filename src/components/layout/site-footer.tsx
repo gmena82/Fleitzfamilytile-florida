@@ -1,130 +1,45 @@
 import Link from "next/link";
-import type { Route } from "next";
-import type { UrlObject } from "url";
 
-import { siteConfig } from "@/config/site";
-import { Container } from "../ui/container";
-
-type FooterLinkItem =
-  | { label: string; href: Route | UrlObject }
-  | { label: string; description: string };
-
-type FooterLinkGroup = {
-  title: string;
-  items: FooterLinkItem[];
-};
-
-const footerLinks = [
-  {
-    title: "Showroom",
-    items: siteConfig.locations.map((location) => ({
-      label: `${location.label}`,
-      description: `${location.address}, ${location.city}`
-    }))
-  },
-  {
-    title: "Company",
-    items: [
-      { label: "About", href: "/about" },
-      { label: "Projects", href: "/marketplace" },
-      { label: "Careers", href: { pathname: "/about", hash: "careers" } }
-    ]
-  },
-  {
-    title: "Support",
-    items: [
-      { label: "Contact", href: "/contact" },
-      { label: "FAQ", href: { pathname: "/resources", hash: "faq" } },
-      { label: "Policies", href: "/legal" }
-    ]
-  }
-] satisfies FooterLinkGroup[];
+import { Logo } from "@/components/ui/logo";
+import { navigation } from "@/config/navigation";
 
 export function SiteFooter() {
-  const phoneHref = siteConfig.contact.phone.replace(/[^\d+]/g, "");
-  const emailHref = siteConfig.contact.email;
+  const currentYear = new Date().getFullYear();
 
   return (
-    <footer className="border-t border-slate-200 bg-slate-950 text-slate-300">
-      <Container className="grid gap-12 py-16 sm:grid-cols-2 lg:grid-cols-4">
-        <div className="space-y-4">
-          <span className="text-xs font-semibold uppercase tracking-[0.2em] text-slate-400">
-            {siteConfig.name}
-          </span>
-          <p className="text-sm leading-relaxed text-slate-400">{siteConfig.description}</p>
-          <div className="text-sm font-semibold text-white">
-            <a href={`tel:${phoneHref}`} className="block">
-              {siteConfig.contact.phone}
-            </a>
-            <a href={`mailto:${emailHref}`} className="block">
-              {siteConfig.contact.email}
-            </a>
+    <footer className="border-t bg-gray-50">
+      <div className="mx-auto max-w-7xl px-4 py-12 sm:px-6 lg:px-8 lg:py-16">
+        <div className="xl:grid xl:grid-cols-3 xl:gap-8">
+          <div className="space-y-8">
+            <Logo width={120} height={120} />
+            <p className="text-sm text-gray-500">
+              Providing high-quality tile installation services throughout Florida.
+            </p>
           </div>
-        </div>
-        {footerLinks.map((group) => (
-          <div key={group.title} className="space-y-4">
-            <h3 className="text-sm font-semibold uppercase tracking-wide text-slate-200">{group.title}</h3>
-            <ul className="space-y-2 text-sm text-slate-400">
-              {group.items.map((item) => (
-                <li key={item.label}>
-                  {"href" in item ? (
-                    <Link href={item.href} className="transition hover:text-white">
+
+          <div className="mt-12 grid grid-cols-2 gap-8 xl:col-span-2 xl:mt-0">
+            <div>
+              <h3 className="text-sm font-semibold uppercase tracking-wider text-gray-900">
+                Company
+              </h3>
+              <ul className="mt-4 space-y-4">
+                {navigation.map((item) => (
+                  <li key={item.label}>
+                    <Link href={item.href} className="text-sm text-gray-500 hover:text-gray-900">
                       {item.label}
                     </Link>
-                  ) : (
-                    <span className="block text-slate-400">
-                      <span className="font-medium text-white">{item.label}</span>
-                      <br />
-                      <span className="text-xs uppercase tracking-wide">{item.description}</span>
-                    </span>
-                  )}
-                </li>
-              ))}
-            </ul>
-          </div>
-        ))}
-        <div className="space-y-4">
-          <h3 className="text-sm font-semibold uppercase tracking-wide text-slate-200">Visit</h3>
-          <p className="text-sm text-slate-400">
-            Hours
-            <br />
-            {siteConfig.hours.weekdays}
-            <br />
-            {siteConfig.hours.saturday}
-            <br />
-            {siteConfig.hours.sunday}
-          </p>
-          <div className="flex items-center gap-4 text-sm">
-            {siteConfig.socialLinks.facebook && (
-              <a
-                href={siteConfig.socialLinks.facebook}
-                className="transition hover:text-white"
-                rel="noreferrer"
-                target="_blank"
-              >
-                Facebook
-              </a>
-            )}
-            {siteConfig.socialLinks.instagram && (
-              <a
-                href={siteConfig.socialLinks.instagram}
-                className="transition hover:text-white"
-                rel="noreferrer"
-                target="_blank"
-              >
-                Instagram
-              </a>
-            )}
+                  </li>
+                ))}
+              </ul>
+            </div>
           </div>
         </div>
-      </Container>
-      <div className="border-t border-white/10 py-6">
-        <Container className="flex flex-col gap-4 text-xs text-slate-500 sm:flex-row sm:items-center sm:justify-between">
-          <span>© {new Date().getFullYear()} {siteConfig.name}. All rights reserved.</span>
-          <span>
-            Crafted on Next.js 14 • Tailwind CSS 4 • Deployed with pnpm
-          </span>
-        </Container>
+
+        <div className="mt-12 border-t border-gray-200 pt-8">
+          <p className="text-sm text-gray-500">
+            &copy; {currentYear} Fleitz Family Tile. All rights reserved.
+          </p>
+        </div>
       </div>
     </footer>
   );
