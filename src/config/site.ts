@@ -11,14 +11,14 @@ export const siteConfig = {
   url: "https://www.fleitzfamilytile.com",
   ogImage: "/images/branding/og-image.jpg",
   contact: {
-    phone: "(000) 000-0000",
-    email: "info@fleitzfamilytile.com"
+    phone: "502-714-0544",
+    email: "fleitzfamilytile@gmail.com"
   },
   locations: [
     {
-      label: "Primary Showroom",
-      address: "Update with verified street address",
-      city: "Florida (update with city)",
+      label: "Head Office",
+      address: "4504 22nd Ave W",
+      city: "Bradenton, FL 34209",
       coordinates: null
     }
   ],
