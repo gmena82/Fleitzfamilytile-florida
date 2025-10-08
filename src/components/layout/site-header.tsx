@@ -29,7 +29,7 @@ export function SiteHeader() {
   const emailHref = emailAddress ? `mailto:${emailAddress}` : undefined;
 
   return (
-    <header id="site-header" className="border-b border-slate-200 bg-white text-slate-900">
+    <header id="site-header" className="relative z-50 border-b border-slate-200 bg-white text-slate-900">
       <div className="utility border-b border-slate-200 bg-slate-900 text-xs font-semibold uppercase tracking-[0.3em] text-white">
         <div className="mx-auto flex max-w-7xl flex-wrap items-center justify-between gap-4 px-4 py-2 sm:px-6 lg:px-8">
           <div className="flex flex-wrap items-center gap-4 text-[0.65rem] sm:text-[0.7rem]">
@@ -93,18 +93,20 @@ export function SiteHeader() {
                       >
                         {item.label}
                       </Link>
-                      <ul className="dropdown absolute left-0 top-full mt-3 hidden w-56 space-y-1 rounded-2xl border border-slate-200 bg-white p-3 text-sm text-slate-600 shadow-xl group-hover:block">
-                        {item.items.map((service) => (
-                          <li key={service.href}>
-                            <Link
-                              href={service.href}
-                              className="flex items-center justify-between rounded-xl px-3 py-2 font-medium transition hover:bg-slate-100 hover:text-slate-900"
-                            >
-                              {service.label}
-                            </Link>
-                          </li>
-                        ))}
-                      </ul>
+                      <div className="dropdown absolute left-0 top-full z-50 hidden w-56 pt-3 group-hover:block group-focus-within:block">
+                        <ul className="w-full space-y-1 rounded-2xl border border-slate-200 bg-white p-3 text-sm text-slate-600 shadow-xl">
+                          {item.items.map((service) => (
+                            <li key={service.href}>
+                              <Link
+                                href={service.href}
+                                className="flex items-center justify-between rounded-xl px-3 py-2 font-medium transition hover:bg-slate-100 hover:text-slate-900"
+                              >
+                                {service.label}
+                              </Link>
+                            </li>
+                          ))}
+                        </ul>
+                      </div>
                     </li>
                   );
                 }
