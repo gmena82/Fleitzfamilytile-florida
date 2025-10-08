@@ -114,7 +114,7 @@ export function SiteHeader() {
 
         <nav className="hidden items-center gap-8 text-sm font-semibold text-slate-600 lg:flex">
           {navigation.main.map((item) => {
-            if (item.items) {
+            if ("items" in item && item.items) {
               return (
                 <div
                   key={item.label}
