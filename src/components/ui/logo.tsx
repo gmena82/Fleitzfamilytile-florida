@@ -26,7 +26,6 @@ export function Logo({
     >
       <PlaceholderImage
         className="flex items-center justify-center rounded-none border-2 border-slate-900 bg-slate-50"
-        label="Image Here"
         style={{ width, height }}
       />
     </Link>

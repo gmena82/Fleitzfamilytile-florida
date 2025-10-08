@@ -1,10 +1,34 @@
 import type { Route } from "next";
 
-export const navigation = [
+export type ServiceLink = {
+  href: Route;
+  label: string;
+};
+
+export type MainNavItem = {
+  href: Route;
+  label: string;
+  items?: readonly ServiceLink[];
+};
+
+export const serviceLinks = [
+  { href: "/kitchen-backsplashes" as Route, label: "Kitchen Backsplashes" },
+  { href: "/bathroom-shower" as Route, label: "Bathroom & Shower" },
+  { href: "/floor-tile-installation" as Route, label: "Floor Tile Installation" },
+  { href: "/fireplaces" as Route, label: "Fireplaces" },
+  { href: "/special-projects" as Route, label: "Special Projects" }
+] as const satisfies readonly ServiceLink[];
+
+export const mainNavigation = [
   { href: "/" as Route, label: "Home" },
-  { href: "/about", label: "About" },
-  { href: "/services", label: "Services" },
-  { href: "/gallery", label: "Gallery" },
-  { href: "/testimonials", label: "Testimonials" },
-  { href: "/contact", label: "Contact" }
-] as const satisfies readonly { href: Route; label: string }[];
+  { href: "/about" as Route, label: "About Us" },
+  { href: serviceLinks[0]!.href, label: "Services", items: serviceLinks },
+  { href: "/gallery" as Route, label: "Gallery" },
+  { href: "/contact" as Route, label: "Contact" },
+  { href: "/blog" as Route, label: "Blog" }
+] as const satisfies readonly MainNavItem[];
+
+export const navigation = {
+  main: mainNavigation,
+  services: serviceLinks
+} as const;

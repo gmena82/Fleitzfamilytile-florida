@@ -5,41 +5,60 @@ import { Container } from "@/components/ui/container";
 import { PlaceholderImage } from "@/components/ui/placeholder-image";
 
 export default function ContactPage() {
+  const phoneNumber = siteConfig.contact.phone;
+  const phoneDigits = phoneNumber.replace(/[^\d+]/g, "");
+  const phoneHref = phoneDigits ? `tel:${phoneDigits}` : undefined;
+  const emailAddress = siteConfig.contact.email;
+  const emailHref = emailAddress ? `mailto:${emailAddress}` : undefined;
+  const addressLine2 = `${siteConfig.headquarters.city}, ${siteConfig.headquarters.state} ${siteConfig.headquarters.postalCode}`;
+
   return (
     <>
       <PageHeader
         eyebrow="Contact"
         title="Connect with Fleitz Family Tile."
-        description="Share your project goals, schedule a showroom visit, or request an on-site consultation. Our team responds within one business day."
+        description="Share your project goals, schedule a site visit, or request an on-site consultation. Our team responds within one business day."
       />
       <section className="py-16">
         <Container className="grid gap-12 lg:grid-cols-[minmax(0,0.9fr)_minmax(0,1fr)]">
           <div className="space-y-8">
             <div className="space-y-4">
-              <h2 className="text-2xl font-semibold text-slate-900">Showroom & contact details</h2>
+              <h2 className="text-2xl font-semibold text-slate-900">Bradenton headquarters</h2>
               <p className="text-sm leading-relaxed text-slate-600">
-                Visit our Bradenton head office to browse tile collections, review design inspirations, and discuss timelines with our team.
+                Visit our Bradenton base to review material samples, talk through waterproofing details, and map out schedules for your next tile installation.
               </p>
               <div className="space-y-3 text-sm text-slate-600">
                 <p>
                   <span className="font-semibold text-slate-900">Address:</span>
                   <br />
-                  {siteConfig.locations[0]?.address}
+                  {siteConfig.headquarters.street}
                   <br />
-                  {siteConfig.locations[0]?.city}
+                  {addressLine2}
                 </p>
-                <p>
-                  <span className="font-semibold text-slate-900">Phone:</span>{" "}
-                  <a href={`tel:${siteConfig.contact.phone.replace(/[^\d+]/g, "")}`} className="text-slate-900 underline-offset-4 hover:underline">
-                    {siteConfig.contact.phone}
-                  </a>
-                </p>
-                <p>
-                  <span className="font-semibold text-slate-900">Email:</span>{" "}
-                  <a href={`mailto:${siteConfig.contact.email}`} className="text-slate-900 underline-offset-4 hover:underline">
-                    {siteConfig.contact.email}
-                  </a>
-                </p>
+                {phoneNumber && (
+                  <p>
+                    <span className="font-semibold text-slate-900">Phone:</span>{" "}
+                    {phoneHref ? (
+                      <a href={phoneHref} className="text-slate-900 underline-offset-4 hover:underline">
+                        {phoneNumber}
+                      </a>
+                    ) : (
+                      <span>{phoneNumber}</span>
+                    )}
+                  </p>
+                )}
+                {emailAddress && (
+                  <p>
+                    <span className="font-semibold text-slate-900">Email:</span>{" "}
+                    {emailHref ? (
+                      <a href={emailHref} className="text-slate-900 underline-offset-4 hover:underline">
+                        {emailAddress}
+                      </a>
+                    ) : (
+                      <span>{emailAddress}</span>
+                    )}
+                  </p>
+                )}
                 <p>
                   <span className="font-semibold text-slate-900">Hours:</span>
                   <br />
@@ -51,14 +70,14 @@ export default function ContactPage() {
                 </p>
               </div>
             </div>
-            <PlaceholderImage className="h-64 w-full" label="Image Here" />
+            <PlaceholderImage className="h-64 w-full" />
           </div>
           <div className="rounded-3xl border border-slate-200 bg-white p-8 shadow-sm">
             <div className="space-y-2 pb-6">
               <span className="text-xs font-semibold uppercase tracking-[0.3em] text-slate-500">Request information</span>
               <h2 className="text-2xl font-semibold text-slate-900">Tell us about your project</h2>
               <p className="text-sm text-slate-600">
-                Share your project scope, location, and timeline. We'll follow up with next steps and schedule a consultation.
+                Share your project scope, location, and timeline. We&apos;ll follow up with next steps and schedule a consultation.
               </p>
             </div>
             <ContactForm />

@@ -1,18 +1,24 @@
 export const faqs = [
   {
-    question: "Do you offer professional installation?",
-    answer:
-      "Yes. Our in-house installation specialists handle every project detail, from surface preparation to finishing touches."
+    question: "Do you provide free estimates in Bradenton?",
+    answer: "Yes—share your project details and photos, and we’ll schedule a site visit in Bradenton or nearby."
   },
   {
-    question: "Can I schedule a design consultation?",
-    answer:
-      "Absolutely—book a complimentary design appointment to explore material palettes, layouts, and trim options tailored to your project."
+    question: "Are you licensed and insured in Florida?",
+    answer: "Yes. We maintain appropriate licensing and insurance for residential tile work."
   },
   {
-    question: "What tile brands do you carry?",
+    question: "Do you handle demolition, prep, and cleanup?",
+    answer: "Absolutely. We perform tidy demo, surface prep, and daily cleanup to protect your home."
+  },
+  {
+    question: "What tile types do you install?",
     answer:
-      "We curate premium domestic and imported collections, including porcelain, ceramic, natural stone, glass, and mosaic tiles."
+      "Porcelain, ceramic, natural stone, glass, and large-format panels—with guidance on grout, trims, and profiles."
+  },
+  {
+    question: "Do you service Sarasota and Lakewood Ranch?",
+    answer: "Yes—Bradenton first, with frequent projects in Sarasota and Lakewood Ranch."
   }
 ];
 
