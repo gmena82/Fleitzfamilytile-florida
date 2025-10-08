@@ -1,13 +1,17 @@
 import { siteConfig } from "@/config/site";
 
 export function LocalBusinessJsonLd() {
-  const addresses = siteConfig.locations.map((location) => ({
-    '@type': 'PostalAddress',
-    streetAddress: location.address,
-    addressLocality: location.city,
-    addressRegion: 'FL',
-    addressCountry: 'US'
-  }));
+  const hq = siteConfig.headquarters;
+  const addresses = [
+    {
+      '@type': 'PostalAddress',
+      streetAddress: hq.street,
+      addressLocality: hq.city,
+      addressRegion: hq.state,
+      postalCode: hq.postalCode,
+      addressCountry: 'US'
+    }
+  ];
 
   const payload = {
     '@context': 'https://schema.org',
