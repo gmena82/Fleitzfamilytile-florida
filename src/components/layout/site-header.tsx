@@ -114,7 +114,7 @@ export function SiteHeader() {
 
         <nav className="hidden items-center gap-8 text-sm font-semibold text-slate-600 lg:flex">
           {navigation.main.map((item) => {
-            if (item.items) {
+            if ("items" in item && item.items) {
               return (
                 <div
                   key={item.label}
@@ -168,11 +168,15 @@ export function SiteHeader() {
               );
             }
 
-            return (
-              <Link key={item.href} href={item.href} className="transition hover:text-slate-900">
-                {item.label}
-              </Link>
-            );
+            if ("href" in item && item.href) {
+              return (
+                <Link key={item.href} href={item.href} className="transition hover:text-slate-900">
+                  {item.label}
+                </Link>
+              );
+            }
+
+            return null;
           })}
         </nav>
 
@@ -216,7 +220,7 @@ export function SiteHeader() {
               </div>
               <nav className="grid gap-4 text-base font-medium text-slate-700">
                 {navigation.main.map((item) => {
-                  if (item.items) {
+                  if ("items" in item && item.items) {
                     return (
                       <div key={item.label} className="space-y-2">
                         <span className="text-sm font-semibold uppercase tracking-[0.2em] text-slate-500">
@@ -235,13 +239,17 @@ export function SiteHeader() {
                     );
                   }
 
-                  return (
-                    <SheetClose key={item.href} asChild>
-                      <Link href={item.href} className="rounded-xl border border-slate-200 px-3 py-2">
-                        {item.label}
-                      </Link>
-                    </SheetClose>
-                  );
+                  if ("href" in item && item.href) {
+                    return (
+                      <SheetClose key={item.href} asChild>
+                        <Link href={item.href} className="rounded-xl border border-slate-200 px-3 py-2">
+                          {item.label}
+                        </Link>
+                      </SheetClose>
+                    );
+                  }
+
+                  return null;
                 })}
               </nav>
               <SheetClose asChild>
