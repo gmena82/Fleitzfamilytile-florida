@@ -94,6 +94,11 @@ const homeFaqs = [
   {
     question: "Do you service Sarasota and Lakewood Ranch?",
     answer: "Yes—Bradenton first, with frequent projects in Sarasota and Lakewood Ranch."
+  },
+  {
+    question: "How quickly can you start once we approve the estimate?",
+    answer:
+      "Most projects begin within 2–3 weeks. We lock in your dates after the proposal is signed and materials are confirmed."
   }
 ];
 
@@ -383,7 +388,7 @@ export default function HomePage() {
               <span>Workmanship Warranty</span>
             </div>
           </div>
-          <HomeCtaForm services={services} />
+          <HomeCtaForm />
         </Container>
       </section>
 

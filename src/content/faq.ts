@@ -19,6 +19,11 @@ export const faqs = [
   {
     question: "Do you service Sarasota and Lakewood Ranch?",
     answer: "Yes—Bradenton first, with frequent projects in Sarasota and Lakewood Ranch."
+  },
+  {
+    question: "How soon can the team begin after materials arrive?",
+    answer:
+      "We schedule installation as soon as your selections are on site—typically within 2–3 weeks depending on project scope."
   }
 ];
 

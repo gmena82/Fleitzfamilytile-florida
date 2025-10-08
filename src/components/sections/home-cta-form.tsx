@@ -2,14 +2,7 @@
 
 import { useState, type FormEvent } from "react";
 
-interface HomeCtaFormProps {
-  services: readonly {
-    title: string;
-    href: string;
-  }[];
-}
-
-export function HomeCtaForm({ services }: HomeCtaFormProps) {
+export function HomeCtaForm() {
   const [formStatus, setFormStatus] = useState<"idle" | "submitting" | "success" | "error">("idle");
 
   async function handleSubmit(event: FormEvent<HTMLFormElement>) {
@@ -52,59 +45,15 @@ export function HomeCtaForm({ services }: HomeCtaFormProps) {
             placeholder="you@example.com"
           />
         </label>
-        <label className="flex flex-col gap-2 text-sm font-medium text-slate-200">
-          Phone <span className="text-xs font-normal text-slate-300">(optional)</span>
-          <input
-            name="phone"
-            type="tel"
-            className="rounded-full border border-white/20 bg-white/10 px-4 py-3 text-sm text-white placeholder:text-slate-400 focus:border-white focus:outline-none"
-            placeholder="(941) 000-0000"
-          />
-        </label>
-        <label className="flex flex-col gap-2 text-sm font-medium text-slate-200">
-          City
-          <select
-            name="city"
-            className="rounded-full border border-white/20 bg-white/10 px-4 py-3 text-sm text-white focus:border-white focus:outline-none"
-            defaultValue=""
-            required
-          >
-            <option value="" disabled>
-              Select your city
-            </option>
-            <option value="Bradenton">Bradenton</option>
-            <option value="Sarasota">Sarasota</option>
-            <option value="Lakewood Ranch">Lakewood Ranch</option>
-            <option value="Other">Other Gulf-Coast Community</option>
-          </select>
-        </label>
       </div>
-      <label className="flex flex-col gap-2 text-sm font-medium text-slate-200">
-        Service
-        <select
-          name="service"
-          className="rounded-full border border-white/20 bg-white/10 px-4 py-3 text-sm text-white focus:border-white focus:outline-none"
-          defaultValue=""
-          required
-        >
-          <option value="" disabled>
-            Select a service
-          </option>
-          {services.map((service) => (
-            <option key={service.href} value={service.title}>
-              {service.title}
-            </option>
-          ))}
-        </select>
-      </label>
       <label className="flex flex-col gap-2 text-sm font-medium text-slate-200">
         Message
         <textarea
           name="message"
           required
           rows={4}
-          className="min-h-[120px] rounded-2xl border border-white/20 bg-white/10 px-4 py-3 text-sm text-white placeholder:text-slate-400 focus:border-white focus:outline-none"
-          placeholder="Share project details, timelines, and photos."
+          className="min-h-[140px] rounded-2xl border border-white/20 bg-white/10 px-4 py-3 text-sm text-white placeholder:text-slate-400 focus:border-white focus:outline-none"
+          placeholder="Share your project goals, timelines, and inspiration."
         />
       </label>
       <button

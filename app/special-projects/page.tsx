@@ -114,6 +114,11 @@ const faqItems = [
     answer:
       "Schedule a consultation and share photos or drawings. We’ll review your goals, gather measurements, and create mockups or layout options before ordering materials.",
   },
+  {
+    question: "What timelines should I expect for custom work?",
+    answer:
+      "Simple accents can be scheduled within a couple of weeks, while large mosaics or outdoor projects may require 3–4 weeks for fabrication and planning before installation begins.",
+  },
 ] as const;
 
 const serviceJsonLd = {

@@ -6,21 +6,6 @@ import { Container } from "@/components/ui/container";
 import { PlaceholderImage } from "@/components/ui/placeholder-image";
 import { siteConfig } from "@/config/site";
 
-const ctaServices = [
-  {
-    title: "Bathroom & Shower Tile Installation",
-    href: "/bathroom-shower"
-  },
-  {
-    title: "Kitchen Backsplash Installation",
-    href: "/kitchen-backsplashes"
-  },
-  {
-    title: "Floor Tile Installation",
-    href: "/floor-tile-installation"
-  }
-] as const;
-
 const faqItems = [
   {
     question: "How long does a shower tile remodel take?",
@@ -243,7 +228,7 @@ export default function BathroomShowerPage() {
               <p><span className="font-semibold text-white">What to expect:</span> Prompt scheduling, transparent pricing, and craftsmen who respect your home.</p>
             </div>
           </div>
-          <HomeCtaForm services={ctaServices} />
+          <HomeCtaForm />
         </Container>
       </section>
 

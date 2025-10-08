@@ -6,21 +6,6 @@ import { Container } from "@/components/ui/container";
 import { PlaceholderImage } from "@/components/ui/placeholder-image";
 import { siteConfig } from "@/config/site";
 
-const ctaServices = [
-  {
-    title: "Bathroom & Shower Tile Installation",
-    href: "/bathroom-shower"
-  },
-  {
-    title: "Kitchen Backsplash Installation",
-    href: "/kitchen-backsplashes"
-  },
-  {
-    title: "Floor Tile Installation",
-    href: "/floor-tile-installation"
-  }
-] as const;
-
 const faqItems = [
   {
     question: "What tile styles hold up best around fireplace heat?",
@@ -36,6 +21,11 @@ const faqItems = [
     question: "How should I prepare my home before the crew arrives?",
     answer:
       "Clear furnishings from the work zone, secure pets, and plan for a dust barrier if we are cutting inside. We bring surface protection, ventilation fans, and cleanup tools so your home stays tidy from layout to final polish."
+  },
+  {
+    question: "Can you coordinate mantel carpentry or electrical work?",
+    answer:
+      "Yes. We partner with trusted trades for mantels, lighting, and TV mounting so the finished fireplace looks seamless and functions safely."
   }
 ] as const;
 
@@ -207,7 +197,7 @@ export default function FireplacesPage() {
               Tell us about your fireplace vision and timeline. We will review materials, layout, ventilation needs, and coordinate with your designer or builder to keep the project on pace.
             </p>
           </div>
-          <HomeCtaForm services={ctaServices} />
+          <HomeCtaForm />
         </Container>
       </section>
 
