@@ -1,46 +1,55 @@
-import { ContentGrid } from "@/components/sections/content-grid";
 import { PageHeader } from "@/components/sections/page-header";
+import { Container } from "@/components/ui/container";
+import { PlaceholderImage } from "@/components/ui/placeholder-image";
 
-const services = [
+const servicePackages = [
   {
-    title: "Residential transformations",
+    title: "Kitchen tile & backsplashes",
     description:
-      "Tailored tile packages for kitchens, baths, main flooring, and outdoor living spaces with an emphasis on lasting performance.",
-    bullets: [
-      "Design consultations and 3D concept support",
-      "Waterproofing and heated-floor solutions",
-      "Dedicated project managers for remodels"
-    ]
+      "Full demolition, surface preparation, and installation for custom backsplashes, islands, and flooring with precise trim details."
   },
   {
-    title: "Custom builder program",
+    title: "Bathroom & shower systems",
     description:
-      "Surface packages engineered for production and semi-custom builders seeking reliable schedules and standout model homes.",
-    bullets: [
-      "Specification documentation and takeoffs",
-      "Model merchandising and buyer upgrade paths",
-      "Trade coordination and punch services"
-    ]
+      "Waterproofed showers, soaking tubs, and vanities finished with mosaics, niches, benches, and heated flooring options."
   },
   {
-    title: "Commercial environments",
+    title: "Whole-home flooring",
     description:
-      "Tile sourcing and installation for lobbies, amenities, restaurants, medical suites, and hospitality properties across Florida.",
-    bullets: [
-      "Large-format porcelain slab handling",
-      "Slip-resistant and antimicrobial selections",
-      "Night and phased installation options"
-    ]
+      "Large-format porcelain, luxury plank, and natural stone layouts aligned to architectural sightlines and transitions."
   },
   {
-    title: "Specialty fabrication",
+    title: "Outdoor living & pools",
     description:
-      "Custom mosaics, feature walls, fireplace surrounds, and waterline details fabricated in-house for a precise fit on-site.",
-    bullets: [
-      "Waterjet cutting and pattern layout",
-      "Edge profiling and miters",
-      "Sample boards and finish mockups"
-    ]
+      "Lanais, patios, and pool decks built with slip-resistant tiles, coping, and waterline details engineered for Florida weather."
+  },
+  {
+    title: "Commercial & builder partnerships",
+    description:
+      "Specification support, model merchandising, and phased installations for hospitality, multifamily, and retail environments."
+  },
+  {
+    title: "Custom features & accents",
+    description:
+      "Fireplaces, feature walls, stair risers, and mosaics fabricated to size with miters, profiles, and edge treatments."
+  }
+];
+
+const serviceSteps = [
+  {
+    title: "Consultation & measurement",
+    description:
+      "We visit your home or jobsite to capture measurements, discuss scope, and gather inspiration that informs product curation."
+  },
+  {
+    title: "Material selection & proposal",
+    description:
+      "Our team assembles samples, creates mood boards, and delivers a detailed scope outlining labor, materials, and scheduling."
+  },
+  {
+    title: "Project management & installation",
+    description:
+      "Licensed installers execute demolition, prep, tile setting, and finishing while coordinators provide updates from start to finish."
   }
 ];
 
@@ -49,10 +58,54 @@ export default function ServicesPage() {
     <>
       <PageHeader
         eyebrow="Services"
-        title="White-glove tile services for homes, builders, and commercial spaces."
-        description="Bring your designs to life with a showroom stocked for inspiration and field crews equipped for excellence."
+        title="Comprehensive tile services tailored to your space."
+        description="From concept to completion, Fleitz Family Tile delivers curated materials, precise craftsmanship, and proactive communication for every project."
       />
-      <ContentGrid sections={services} />
+
+      <section className="py-16">
+        <Container className="space-y-10">
+          <div className="space-y-3 text-center">
+            <h2 className="text-3xl font-semibold text-slate-900">What we install</h2>
+            <p className="mx-auto max-w-2xl text-sm text-slate-600">
+              Whether you are refreshing a single room or coordinating a multi-home development, our team manages demolition, prep, installation, and finishing with a detail-driven approach.
+            </p>
+          </div>
+          <div className="grid gap-6 sm:grid-cols-2 lg:grid-cols-3">
+            {servicePackages.map((service) => (
+              <article key={service.title} className="flex flex-col gap-4 rounded-3xl border border-slate-200 bg-white p-6 shadow-sm">
+                <PlaceholderImage className="h-36 w-full" />
+                <div>
+                  <h3 className="text-lg font-semibold text-slate-900">{service.title}</h3>
+                  <p className="mt-2 text-sm text-slate-600">{service.description}</p>
+                </div>
+              </article>
+            ))}
+          </div>
+        </Container>
+      </section>
+
+      <section className="bg-slate-100 py-16">
+        <Container className="grid gap-10 lg:grid-cols-[minmax(0,0.9fr)_minmax(0,1fr)]">
+          <div className="space-y-6">
+            <h2 className="text-3xl font-semibold text-slate-900">Working with Fleitz Family Tile</h2>
+            <p className="text-base leading-relaxed text-slate-600">
+              Our coordinators handle scheduling, material logistics, and crew management so your project stays organized. You receive regular updates and walk every step with a dedicated point of contact.
+            </p>
+            <p className="text-base leading-relaxed text-slate-600">
+              We collaborate with interior designers, builders, and homeowners, providing transparent pricing and craftsmanship that respects your timelines and budget.
+            </p>
+          </div>
+          <div className="space-y-6">
+            {serviceSteps.map((step, index) => (
+              <article key={step.title} className="rounded-3xl border border-slate-200 bg-white p-6 shadow-sm">
+                <p className="text-xs font-semibold uppercase tracking-[0.3em] text-slate-500">Phase {index + 1}</p>
+                <h3 className="mt-2 text-lg font-semibold text-slate-900">{step.title}</h3>
+                <p className="mt-2 text-sm text-slate-600">{step.description}</p>
+              </article>
+            ))}
+          </div>
+        </Container>
+      </section>
     </>
   );
 }

@@ -1,27 +1,30 @@
 import { Container } from "@/components/ui/container";
+import { PlaceholderImage } from "@/components/ui/placeholder-image";
 import { PageHeader } from "@/components/sections/page-header";
 
-const milestones = [
+const values = [
   {
-    year: "1994",
-    title: "Family beginnings",
-    description: "Fleitz Family Tile opened its first Florida showroom with a focus on craftsmanship and personalized service."
+    title: "Family-led service",
+    description:
+      "From your first consultation to final walkthrough, you work directly with a family-owned team that values clear communication and accountability."
   },
   {
-    year: "2005",
-    title: "Installation teams expand",
-    description: "We added licensed crews and project managers to deliver turnkey tile installations across the region."
+    title: "Craftsmanship without compromise",
+    description:
+      "Licensed installers follow detailed prep standards, waterproofing methods, and finishing techniques refined over decades."
   },
   {
-    year: "2016",
-    title: "Design studio upgrade",
-    description: "The showroom evolved into an appointment-driven design center with curated vignettes and private sampling rooms."
-  },
-  {
-    year: "Today",
-    title: "Trusted by homeowners & builders",
-    description: "Our family-led team continues to support renovations, new construction, and commercial environments throughout Florida."
+    title: "Design-forward guidance",
+    description:
+      "Our showroom consultants curate palettes that balance trend-forward aesthetics with timeless appeal and everyday durability."
   }
+];
+
+const credentials = [
+  "Licensed and insured tile contractors",
+  "Schluter®-trained waterproofing installers",
+  "Certified to handle large-format porcelain and natural stone",
+  "Trusted trade partner for builders across the Gulf Coast"
 ];
 
 export default function AboutPage() {
@@ -29,28 +32,51 @@ export default function AboutPage() {
     <>
       <PageHeader
         eyebrow="About"
-        title="Family-owned tile expertise grounded in craftsmanship and service."
-        description="For decades, Fleitz Family Tile has paired curated surfaces with skilled installers to help Floridians elevate their homes and businesses."
+        title="A Bradenton family dedicated to tile and stone excellence."
+        description="Fleitz Family Tile combines a neighborhood showroom with meticulous installation teams, helping homeowners, designers, and builders create inviting spaces throughout Florida."
       />
+
       <section className="py-16">
-        <Container className="grid gap-12 lg:grid-cols-[minmax(0,0.7fr)_minmax(0,1fr)]">
+        <Container className="grid gap-12 lg:grid-cols-[minmax(0,1.1fr)_minmax(0,0.9fr)]">
           <div className="space-y-6">
-            <h2 className="text-2xl font-semibold text-slate-900">Our philosophy</h2>
-            <p className="text-sm leading-relaxed text-slate-600">
-              We believe tile should be both beautiful and enduring. That means guiding clients through selections that balance design vision with daily performance, then installing every surface with uncompromising detail.
+            <h2 className="text-3xl font-semibold text-slate-900">Our story</h2>
+            <p className="text-base leading-relaxed text-slate-600">
+              What began as a small installation crew has grown into a full-service showroom and project management team. The Fleitz family built the business on trust—showing up when promised, finishing details with care, and standing behind every installation long after the grout cures.
             </p>
-            <p className="text-sm leading-relaxed text-slate-600">
-              As a family-run company, relationships matter. We invest in long-term partnerships with homeowners, designers, and builders by staying transparent, responsive, and accountable at every stage.
+            <p className="text-base leading-relaxed text-slate-600">
+              Today, we guide clients through material selections, provide transparent proposals, and coordinate licensed craftsmen who respect your home or jobsite. Whether it's a single-room refresh or a multi-phase commercial build, you can expect the same attentive experience.
+            </p>
+            <div className="grid gap-4 sm:grid-cols-2">
+              {values.map((value) => (
+                <article key={value.title} className="rounded-3xl border border-slate-200 bg-white p-6 shadow-sm">
+                  <h3 className="text-lg font-semibold text-slate-900">{value.title}</h3>
+                  <p className="mt-2 text-sm text-slate-600">{value.description}</p>
+                </article>
+              ))}
+            </div>
+          </div>
+          <PlaceholderImage className="h-full min-h-[400px] w-full" />
+        </Container>
+      </section>
+
+      <section className="bg-slate-100 py-16">
+        <Container className="grid gap-10 lg:grid-cols-[minmax(0,0.8fr)_minmax(0,1fr)]">
+          <div className="space-y-6">
+            <h2 className="text-2xl font-semibold text-slate-900">Dedicated to your project timeline</h2>
+            <p className="text-base text-slate-600">
+              We treat every home as if it were our own. Our project coordinators provide updates throughout demolition, prep, installation, and finishing so you always know what happens next.
+            </p>
+            <p className="text-base text-slate-600">
+              The crew tidies job sites daily, protects adjacent surfaces, and inspects each installation against our internal checklist before presenting the finished space.
             </p>
           </div>
-          <div className="space-y-4">
-            <h2 className="text-2xl font-semibold text-slate-900">Milestones</h2>
-            <ul className="space-y-4">
-              {milestones.map((milestone) => (
-                <li key={milestone.year} className="rounded-3xl border border-slate-200 bg-white p-6 shadow-sm">
-                  <span className="text-xs font-semibold uppercase tracking-[0.3em] text-slate-500">{milestone.year}</span>
-                  <h3 className="mt-2 text-lg font-semibold text-slate-900">{milestone.title}</h3>
-                  <p className="mt-2 text-sm text-slate-600">{milestone.description}</p>
+          <div className="rounded-3xl border border-slate-200 bg-white p-8 shadow-sm">
+            <h3 className="text-lg font-semibold text-slate-900">Credentials & partnerships</h3>
+            <ul className="mt-4 space-y-3 text-sm text-slate-600">
+              {credentials.map((item) => (
+                <li key={item} className="flex items-start gap-2">
+                  <span className="mt-1 h-1.5 w-1.5 rounded-full bg-slate-900" aria-hidden />
+                  <span>{item}</span>
                 </li>
               ))}
             </ul>

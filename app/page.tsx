@@ -1,127 +1,312 @@
-import { CtaSection } from "@/components/sections/cta";
-import { FaqSection } from "@/components/sections/faq";
-import { HeroSection } from "@/components/sections/hero";
-import { ProcessSection } from "@/components/sections/process";
-import { ServiceGallery } from "@/components/sections/service-gallery";
-import { TestimonialsSection } from "@/components/sections/testimonials";
-import { ValuePropsSection } from "@/components/sections/value-props";
+import Link from "next/link";
+import { ArrowRight, CheckCircle2, Mail, MapPin, Phone } from "lucide-react";
+
+import { PlaceholderImage } from "@/components/ui/placeholder-image";
+import { Container } from "@/components/ui/container";
 import { siteConfig } from "@/config/site";
 
-const serviceCategories = [
+const serviceHighlights = [
   {
-    title: "Luxury Residential",
-    description: "Complete surface packages for kitchens, baths, outdoor living, and specialty rooms.",
-    bullets: [
-      "Porcelain & ceramic flooring systems",
-      "Waterproof shower assemblies",
-      "Pool & lanai tile upgrades"
-    ]
+    title: "Custom tile design studio",
+    description:
+      "Work one-on-one with our designers to choose surfaces for kitchens, bathrooms, flooring, pools, and outdoor living areas."
   },
   {
-    title: "Design Studio",
-    description: "Collaborate with our design consultants to craft palettes tailored to your architecture.",
-    bullets: [
-      "Private slab-viewing appointments",
-      "Custom mosaic design",
-      "Material sampling & take-home boards"
-    ]
+    title: "Licensed installation crews",
+    description:
+      "Experienced craftsmen handle demolition, surface prep, waterproofing, and precise installation for lasting performance."
   },
   {
-    title: "Commercial & Trade",
-    description: "Dedicated project management for hospitality, multifamily, and custom builder partners.",
-    bullets: [
-      "Specification support",
-      "Logistics & warehousing",
-      "Site coordination & punch services"
-    ]
+    title: "Project coordination",
+    description:
+      "From material ordering to punch-list walkthroughs, our team keeps your remodel or new build on schedule and on budget."
   }
 ];
 
-const valueProps = [
+const featuredServices = [
   {
-    title: "Curated Showroom Experience",
-    description: "Navigate hundreds of surface options organized by style, color story, and performance—all guided by a seasoned design team."
+    title: "Kitchen & bath remodels",
+    description: "Backsplashes, showers, tubs, and floors finished with resilient grout systems and detailed trim work."
   },
   {
-    title: "Licensed Installation Teams",
-    description: "Our tile artisans deliver meticulous installation, waterproofing, and finishing to meet Florida building standards."
+    title: "Whole-home flooring",
+    description: "Large-format porcelain, natural stone, and luxury plank layouts tailored to open-concept living."
   },
   {
-    title: "Builder & Designer Partnerships",
-    description: "We integrate with your construction schedules, provide detailed takeoffs, and communicate proactively with trade partners."
+    title: "Outdoor & pool decks",
+    description: "Slip-resistant selections for lanais, patios, summer kitchens, and pool waterlines built for the Florida climate."
   },
   {
-    title: "Concierge Project Support",
-    description: "Expect proactive updates, transparent pricing, and a dedicated point of contact from ordering through final walkthrough."
+    title: "Commercial environments",
+    description: "Lobby, restaurant, and wellness spaces supported with documentation, logistics, and phased installation plans."
   }
+];
+
+const galleryPreview = [
+  "Spa-inspired primary bath",
+  "Statement kitchen backsplash",
+  "Coastal outdoor retreat",
+  "Custom mosaic fireplace",
+  "Modern lobby renovation",
+  "Luxury condo flooring"
 ];
 
 const processSteps = [
   {
-    step: "Step 01",
-    title: "Vision & discovery",
-    description: "We map out your goals, architectural style, and investment level, then assemble inspiration palettes tailored to the space."
+    title: "Showroom consultation",
+    description:
+      "Discuss your vision, review inspiration photos, and explore curated palettes during a guided visit or virtual appointment."
   },
   {
-    step: "Step 02",
     title: "Material curation",
-    description: "Your consultant sources samples, secures lead times, and finalizes specifications with precise quantities."
+    description:
+      "We source samples, confirm availability, and provide detailed proposals with timelines and investment options."
   },
   {
-    step: "Step 03",
-    title: "Installation logistics",
-    description: "Our project management team coordinates delivery windows, staging, and qualified installation crews."
-  },
-  {
-    step: "Step 04",
-    title: "Final detailing",
-    description: "We finish with protective sealing, punch-list touchups, and handover documentation so you can enjoy the finished space."
+    title: "Installation & detailing",
+    description:
+      "Licensed tile setters prepare surfaces, install with precision, and finish with sealers and care instructions."
   }
 ];
 
 const testimonials = [
   {
-    quote: "The design team narrowed hundreds of options into a cohesive plan that perfectly fit our waterfront home.",
-    name: "Jordan & Casey L.",
-    project: "Coastal renovation"
+    quote:
+      "Fleitz Family Tile handled our entire remodel—from design choices to installation. The team was punctual, courteous, and the tile work is flawless.",
+    name: "Megan & Aaron P.",
+    location: "Bradenton, FL"
   },
   {
-    quote: "Reliable communication and craftsmanship—we trust them with every model home we build in the region.",
-    name: "Harborline Developments",
-    project: "Builder partnership"
-  },
-  {
-    quote: "Installation was meticulous down to the last mosaic. Our spa clients rave about the finished space.",
-    name: "Solstice Wellness",
-    project: "Commercial spa"
+    quote:
+      "As a builder, communication matters. Their crews stayed on schedule and delivered model homes that wowed our buyers.",
+    name: "Gulfside Homes",
+    location: "Sarasota, FL"
   }
 ];
 
 export default function HomePage() {
   return (
     <>
-      <HeroSection
-        eyebrow="Florida's Tile Authority"
-        title="Showroom design and expert installation for elevated surfaces."
-        description="Fleitz Family Tile pairs curated materials with precision installation for homeowners, designers, and builders seeking statement-worthy floors, walls, and outdoor living in Florida."
-        primaryCta={{ href: "/contact", label: "Schedule a consultation" }}
-        secondaryCta={{ href: "/marketplace", label: "Browse surfaces" }}
-      />
-      <ValuePropsSection
-        title="From product selection to white-glove installation, our team handles every layer of your tile project."
-        description="We pair a design-forward showroom with a veteran field team so you can confidently transform kitchens, baths, and outdoor spaces with timeless materials."
-        items={valueProps}
-      />
-      <ServiceGallery categories={serviceCategories} />
-      <ProcessSection steps={processSteps} />
-      <TestimonialsSection testimonials={testimonials} />
-      <FaqSection />
-      <CtaSection
-        title="Let's design a surface story unique to your home."
-        description="Book a complimentary consultation at our Florida showroom or virtual appointment to explore collections, review budgets, and align on timelines."
-        primaryCta={{ href: "/contact", label: "Request consultation" }}
-        secondaryCta={{ href: `tel:${siteConfig.contact.phone.replace(/[^\d+]/g, "")}`, label: "Call the showroom", isExternal: true }}
-      />
+      <section className="border-b border-slate-200 bg-gradient-to-b from-white to-slate-100/60 py-16">
+        <Container className="grid items-center gap-12 lg:grid-cols-[minmax(0,1fr)_minmax(0,0.85fr)]">
+          <div className="space-y-6">
+            <span className="text-xs font-semibold uppercase tracking-[0.3em] text-slate-500">Tile & stone experts</span>
+            <h1 className="text-4xl font-semibold text-slate-900 sm:text-5xl">
+              Design-forward tile and stone crafted for Florida living.
+            </h1>
+            <p className="max-w-xl text-base leading-relaxed text-slate-600">
+              Fleitz Family Tile pairs a Bradenton showroom with licensed installers to deliver refined surfaces for homes,
+              remodelers, and commercial partners across the Gulf Coast.
+            </p>
+            <div className="flex flex-wrap gap-3">
+              <Link
+                href="/contact"
+                className="inline-flex items-center gap-2 rounded-full bg-slate-900 px-6 py-3 text-sm font-semibold text-white transition hover:bg-slate-700"
+              >
+                Schedule a consultation
+                <ArrowRight className="h-4 w-4" aria-hidden />
+              </Link>
+              <Link
+                href="/services"
+                className="inline-flex items-center gap-2 rounded-full border border-slate-300 px-6 py-3 text-sm font-semibold text-slate-700 transition hover:border-slate-900 hover:text-slate-900"
+              >
+                Explore services
+                <ArrowRight className="h-4 w-4" aria-hidden />
+              </Link>
+            </div>
+            <div className="grid gap-4 text-sm text-slate-600 sm:grid-cols-3">
+              <div className="rounded-3xl border border-slate-200 bg-white p-4">
+                <p className="font-semibold text-slate-900">Serving the Gulf Coast</p>
+                <p>Bradenton · Sarasota · Lakewood Ranch · Anna Maria Island</p>
+              </div>
+              <div className="rounded-3xl border border-slate-200 bg-white p-4">
+                <p className="font-semibold text-slate-900">Family owned & operated</p>
+                <p>Decades of craftsmanship and concierge-level service.</p>
+              </div>
+              <div className="rounded-3xl border border-slate-200 bg-white p-4">
+                <p className="font-semibold text-slate-900">Licensed & insured</p>
+                <p>Professional crews equipped for remodels and new builds.</p>
+              </div>
+            </div>
+          </div>
+          <PlaceholderImage className="h-full min-h-[320px] w-full" />
+        </Container>
+      </section>
+
+      <section className="py-16">
+        <Container className="grid gap-8 lg:grid-cols-[minmax(0,0.9fr)_minmax(0,1fr)]">
+          <div className="space-y-6">
+            <h2 className="text-3xl font-semibold text-slate-900">Showroom guidance. Field precision.</h2>
+            <p className="text-base leading-relaxed text-slate-600">
+              Every project begins with listening. Whether you\'re refreshing a bathroom, planning a custom home, or managing a
+              commercial build, our consultants curate surfaces that balance aesthetic goals with daily durability. From there,
+              licensed installers execute every detail—waterproofing, layouts, trims, and finishes—for results that stand up to
+              Florida\'s climate.
+            </p>
+            <div className="space-y-4">
+              {serviceHighlights.map((highlight) => (
+                <div key={highlight.title} className="flex gap-4 rounded-3xl border border-slate-200 bg-white p-6 shadow-sm">
+                  <CheckCircle2 className="mt-1 h-6 w-6 text-slate-900" aria-hidden />
+                  <div>
+                    <p className="text-base font-semibold text-slate-900">{highlight.title}</p>
+                    <p className="mt-1 text-sm text-slate-600">{highlight.description}</p>
+                  </div>
+                </div>
+              ))}
+            </div>
+          </div>
+          <PlaceholderImage className="h-full min-h-[420px] w-full" />
+        </Container>
+      </section>
+
+      <section className="bg-slate-100 py-16">
+        <Container>
+          <div className="space-y-10">
+            <div className="space-y-3 text-center">
+              <span className="text-xs font-semibold uppercase tracking-[0.3em] text-slate-500">Services</span>
+              <h2 className="text-3xl font-semibold text-slate-900">Tile solutions for every room.</h2>
+              <p className="mx-auto max-w-2xl text-sm text-slate-600">
+                From demolition to final sealant, our crews manage kitchens, baths, flooring, and specialty spaces with the same
+                care we bring to our own family homes.
+              </p>
+            </div>
+            <div className="grid gap-6 md:grid-cols-2">
+              {featuredServices.map((service) => (
+                <article key={service.title} className="flex flex-col gap-4 rounded-3xl border border-slate-200 bg-white p-6 shadow-sm">
+                  <PlaceholderImage className="h-40 w-full" />
+                  <div>
+                    <h3 className="text-lg font-semibold text-slate-900">{service.title}</h3>
+                    <p className="mt-2 text-sm text-slate-600">{service.description}</p>
+                  </div>
+                </article>
+              ))}
+            </div>
+          </div>
+        </Container>
+      </section>
+
+      <section className="py-16">
+        <Container className="space-y-10">
+          <div className="space-y-3 text-center">
+            <span className="text-xs font-semibold uppercase tracking-[0.3em] text-slate-500">Portfolio preview</span>
+            <h2 className="text-3xl font-semibold text-slate-900">Imagine the possibilities.</h2>
+            <p className="mx-auto max-w-2xl text-sm text-slate-600">
+              Explore a sampling of the installations and design pairings clients love. Visit the gallery to see more transformations.
+            </p>
+          </div>
+          <div className="grid gap-6 sm:grid-cols-2 lg:grid-cols-3">
+            {galleryPreview.map((item) => (
+              <div key={item} className="space-y-3 rounded-3xl border border-slate-200 bg-white p-4 shadow-sm">
+                <PlaceholderImage className="h-40 w-full" />
+                <p className="text-sm font-semibold text-slate-900">{item}</p>
+              </div>
+            ))}
+          </div>
+          <div className="flex justify-center">
+            <Link
+              href="/gallery"
+              className="inline-flex items-center gap-2 rounded-full border border-slate-300 px-6 py-3 text-sm font-semibold text-slate-700 transition hover:border-slate-900 hover:text-slate-900"
+            >
+              View full gallery
+              <ArrowRight className="h-4 w-4" aria-hidden />
+            </Link>
+          </div>
+        </Container>
+      </section>
+
+      <section className="bg-slate-900 py-16 text-slate-100">
+        <Container className="grid gap-10 lg:grid-cols-[minmax(0,0.9fr)_minmax(0,1fr)]">
+          <div className="space-y-6">
+            <span className="text-xs font-semibold uppercase tracking-[0.3em] text-slate-300">Our process</span>
+            <h2 className="text-3xl font-semibold text-white">Guided from idea to installation.</h2>
+            <p className="text-sm text-slate-300">
+              Expect proactive updates, organized project management, and meticulous workmanship at every phase of the journey.
+            </p>
+          </div>
+          <div className="space-y-6">
+            {processSteps.map((step, index) => (
+              <div key={step.title} className="rounded-3xl border border-slate-700 bg-slate-800/60 p-6">
+                <p className="text-xs font-semibold uppercase tracking-[0.3em] text-slate-400">Step {index + 1}</p>
+                <h3 className="mt-2 text-lg font-semibold text-white">{step.title}</h3>
+                <p className="mt-2 text-sm text-slate-300">{step.description}</p>
+              </div>
+            ))}
+          </div>
+        </Container>
+      </section>
+
+      <section className="py-16">
+        <Container className="space-y-10">
+          <div className="space-y-3 text-center">
+            <span className="text-xs font-semibold uppercase tracking-[0.3em] text-slate-500">Testimonials</span>
+            <h2 className="text-3xl font-semibold text-slate-900">Kind words from our clients.</h2>
+            <p className="mx-auto max-w-2xl text-sm text-slate-600">
+              See why homeowners, designers, and builders rely on Fleitz Family Tile for detail-driven tile and stone installations.
+            </p>
+          </div>
+          <div className="grid gap-6 lg:grid-cols-2">
+            {testimonials.map((testimonial) => (
+              <blockquote key={testimonial.quote} className="h-full rounded-3xl border border-slate-200 bg-white p-8 shadow-sm">
+                <p className="text-base italic text-slate-700">“{testimonial.quote}”</p>
+                <footer className="mt-6 text-sm font-semibold text-slate-900">
+                  {testimonial.name}
+                  <span className="block text-xs font-normal uppercase tracking-[0.3em] text-slate-500">
+                    {testimonial.location}
+                  </span>
+                </footer>
+              </blockquote>
+            ))}
+          </div>
+        </Container>
+      </section>
+
+      <section className="bg-slate-100 py-16">
+        <Container className="grid gap-10 lg:grid-cols-[minmax(0,0.9fr)_minmax(0,1fr)]">
+          <div className="space-y-6">
+            <h2 className="text-3xl font-semibold text-slate-900">Visit our Bradenton showroom.</h2>
+            <p className="text-base text-slate-600">
+              Share your project goals, browse materials, and receive a detailed plan from our concierge team. We respond to inquiries within one business day.
+            </p>
+            <div className="space-y-3 text-sm text-slate-600">
+              <p className="flex items-start gap-3">
+                <MapPin className="mt-1 h-5 w-5" aria-hidden />
+                <span>
+                  {siteConfig.locations[0]?.address}
+                  <br />
+                  {siteConfig.locations[0]?.city}
+                </span>
+              </p>
+              <p className="flex items-center gap-3">
+                <Phone className="h-5 w-5" aria-hidden />
+                <a href={`tel:${siteConfig.contact.phone.replace(/[^\d+]/g, "")}`} className="font-semibold text-slate-900 hover:underline">
+                  {siteConfig.contact.phone}
+                </a>
+              </p>
+              <p className="flex items-center gap-3">
+                <Mail className="h-5 w-5" aria-hidden />
+                <a href={`mailto:${siteConfig.contact.email}`} className="font-semibold text-slate-900 hover:underline">
+                  {siteConfig.contact.email}
+                </a>
+              </p>
+            </div>
+          </div>
+          <div className="rounded-3xl border border-slate-200 bg-white p-8 shadow-sm">
+            <h3 className="text-lg font-semibold text-slate-900">Request a consultation</h3>
+            <p className="mt-2 text-sm text-slate-600">
+              Tell us about timelines, inspirations, and the spaces you\'re upgrading. We\'ll schedule a visit or virtual walk-through.
+            </p>
+            <div className="mt-6">
+              <Link
+                href="/contact"
+                className="inline-flex w-full items-center justify-center gap-2 rounded-full bg-slate-900 px-6 py-3 text-sm font-semibold text-white transition hover:bg-slate-700"
+              >
+                Start the conversation
+                <ArrowRight className="h-4 w-4" aria-hidden />
+              </Link>
+            </div>
+          </div>
+        </Container>
+      </section>
     </>
   );
 }

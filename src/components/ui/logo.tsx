@@ -1,13 +1,13 @@
-import Image from "next/image";
 import Link from "next/link";
 import type { Route } from "next";
+
+import { PlaceholderImage } from "@/components/ui/placeholder-image";
 
 interface LogoProps {
   href?: Route;
   className?: string;
   width?: number;
   height?: number;
-  priority?: boolean;
 }
 
 const homeRoute: Route = "/";
@@ -15,9 +15,8 @@ const homeRoute: Route = "/";
 export function Logo({
   href = homeRoute,
   className = "",
-  width = 150,
-  height = 150,
-  priority = false
+  width = 180,
+  height = 60
 }: LogoProps) {
   return (
     <Link
@@ -25,13 +24,10 @@ export function Logo({
       className={`inline-block ${className}`}
       aria-label="Fleitz Family Tile Home"
     >
-      <Image
-        src="/images/Fleitz-Family-Tile-Logo.png"
-        alt="Fleitz Family Tile Logo"
-        width={width}
-        height={height}
-        priority={priority}
-        className="h-auto w-auto"
+      <PlaceholderImage
+        className="flex items-center justify-center rounded-none border-2 border-slate-900 bg-slate-50"
+        label="Image Here"
+        style={{ width, height }}
       />
     </Link>
   );
