@@ -1,32 +1,52 @@
+import Image from "next/image";
 import Link from "next/link";
 import type { Route } from "next";
-
-import { PlaceholderImage } from "@/components/ui/placeholder-image";
 
 interface LogoProps {
   href?: Route;
   className?: string;
   width?: number;
   height?: number;
+  variant?: "header" | "footer";
+  priority?: boolean;
 }
 
 const homeRoute: Route = "/";
+
+const logoVariants = {
+  header: {
+    src: "/images/Fleitz-Family-Tile-Logo.png",
+    alt: "Fleitz Family tile installer logo"
+  },
+  footer: {
+    src: "/images/Fleitz-Logo-on-White.png",
+    alt: "Fleitz Family tile installer logo on white background"
+  }
+} as const satisfies Record<Required<LogoProps>["variant"], { src: string; alt: string }>;
 
 export function Logo({
   href = homeRoute,
   className = "",
   width = 180,
-  height = 60
+  height = 60,
+  variant = "header",
+  priority = false
 }: LogoProps) {
+  const { src, alt } = logoVariants[variant];
+
   return (
     <Link
       href={href}
-      className={`inline-block ${className}`}
-      aria-label="Fleitz Family Tile Home"
+      className={`inline-block ${className}`.trim()}
+      aria-label="Fleitz Family Tile home"
     >
-      <PlaceholderImage
-        className="flex items-center justify-center rounded-none border-2 border-slate-900 bg-slate-50"
-        style={{ width, height }}
+      <Image
+        src={src}
+        alt={alt}
+        width={width}
+        height={height}
+        priority={priority}
+        className="h-auto w-auto"
       />
     </Link>
   );

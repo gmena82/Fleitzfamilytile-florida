@@ -17,7 +17,7 @@ export function SiteFooter() {
       <div className="mx-auto max-w-7xl px-4 py-16 sm:px-6 lg:px-8">
         <div className="footer-cols grid gap-12 lg:grid-cols-4">
           <div className="space-y-4">
-            <Logo width={200} height={64} />
+            <Logo width={200} height={64} variant="footer" />
             <p className="text-sm leading-relaxed text-slate-300">
               Professional tile installation in Bradenton with projects across Sarasota &amp; Lakewood Ranch. Expert craftsmanship
               for kitchens, bathrooms, floors &amp; fireplaces.
