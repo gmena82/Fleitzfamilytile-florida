@@ -7,10 +7,8 @@ import { zodResolver } from "@hookform/resolvers/zod";
 
 import { cn } from "@/lib/utils";
 const contactSchema = z.object({
-  fullName: z.string().min(2, "Please share your name"),
+  name: z.string().min(2, "Please share your name"),
   email: z.string().email("Add a valid email"),
-  phone: z.string().optional(),
-  projectType: z.string().optional(),
   message: z.string().min(10, "Tell us a bit about the project")
 });
 
@@ -24,10 +22,8 @@ export function ContactForm() {
   } = useForm<ContactFormValues>({
     resolver: zodResolver(contactSchema),
     defaultValues: {
-      fullName: "",
+      name: "",
       email: "",
-      phone: "",
-      projectType: "",
       message: ""
     }
   });
@@ -41,30 +37,14 @@ export function ContactForm() {
       className="space-y-6"
     >
       <div className="grid gap-6 sm:grid-cols-2">
-        <Field label="Full name" error={errors.fullName?.message}>
-          <input
-            type="text"
-            {...register("fullName")}
-            className={inputStyles}
-            placeholder="Jordan Smith"
-          />
+        <Field label="Name" error={errors.name?.message}>
+          <input type="text" {...register("name")} className={inputStyles} placeholder="Jordan Smith" />
         </Field>
         <Field label="Email" error={errors.email?.message}>
           <input type="email" {...register("email")} className={inputStyles} placeholder="you@example.com" />
         </Field>
-        <Field label="Phone" error={errors.phone?.message}>
-          <input type="tel" {...register("phone")} className={inputStyles} placeholder="(555) 123-4567" />
-        </Field>
-        <Field label="Project type" error={errors.projectType?.message}>
-          <input
-            type="text"
-            {...register("projectType")}
-            className={inputStyles}
-            placeholder="Kitchen, bath, outdoor, etc."
-          />
-        </Field>
       </div>
-      <Field label="Project details" error={errors.message?.message}>
+      <Field label="Message" error={errors.message?.message}>
         <textarea
           {...register("message")}
           rows={4}

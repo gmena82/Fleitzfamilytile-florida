@@ -1,15 +1,17 @@
 import Link from "next/link";
 
+import { Facebook, Instagram, Twitter, Youtube } from "lucide-react";
+
 import { navigation } from "@/config/navigation";
 import type { MainNavItem, ServiceLink } from "@/config/navigation";
 import { siteConfig } from "@/config/site";
 import { Logo } from "@/components/ui/logo";
 
 const socialIcons = [
-  { key: "facebook", label: "Facebook" },
-  { key: "x", label: "X" },
-  { key: "instagram", label: "Instagram" },
-  { key: "youtube", label: "YouTube" }
+  { key: "facebook", label: "Facebook", Icon: Facebook },
+  { key: "x", label: "X (Twitter)", Icon: Twitter },
+  { key: "instagram", label: "Instagram", Icon: Instagram },
+  { key: "youtube", label: "YouTube", Icon: Youtube }
 ] as const;
 
 type NavigationItem = MainNavItem;
@@ -54,6 +56,7 @@ export function SiteHeader() {
           <div className="flex items-center gap-3">
             {socialIcons.map((icon) => {
               const href = siteConfig.socialLinks[icon.key];
+              const Icon = icon.Icon;
 
               if (!href) {
                 return null;
@@ -68,7 +71,7 @@ export function SiteHeader() {
                   className="text-white/70 transition hover:text-white"
                 >
                   <span className="sr-only">{`Visit our ${icon.label} profile`}</span>
-                  ●
+                  <Icon aria-hidden className="h-4 w-4" />
                 </a>
               );
             })}

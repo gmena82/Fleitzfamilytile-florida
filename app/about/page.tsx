@@ -44,33 +44,6 @@ const faqs = [
   }
 ];
 
-const ctaServices = [
-  {
-    title: "Kitchen Backsplash Installation",
-    description: "Protect walls and elevate your kitchen with custom tile layouts.",
-    href: "/kitchen-backsplashes"
-  },
-  {
-    title: "Bathroom & Shower Tile",
-    description: "Waterproofed showers, tubs, and bathroom remodels for Florida homes.",
-    href: "/bathroom-shower"
-  },
-  {
-    title: "Floor Tile Installation",
-    description: "Durable floor tile systems engineered for high-traffic living.",
-    href: "/floor-tile-installation"
-  },
-  {
-    title: "Fireplace Surrounds",
-    description: "Heat-ready fireplace surrounds with precision detailing.",
-    href: "/fireplaces"
-  },
-  {
-    title: "Special Projects",
-    description: "Mosaics, outdoor lanais, and unique tile concepts executed flawlessly.",
-    href: "/special-projects"
-  }
-] as const;
 
 export const metadata: Metadata = {
   title: "About Fleitz Family Tile | Third-Generation Bradenton Tile Contractors",
@@ -227,7 +200,7 @@ export default function AboutPage() {
               <span>Workmanship Warranty</span>
             </div>
           </div>
-          <HomeCtaForm services={ctaServices} />
+          <HomeCtaForm />
         </Container>
       </section>
     </>

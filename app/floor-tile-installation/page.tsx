@@ -29,23 +29,6 @@ const faqItems = [
   }
 ] as const;
 
-const services = [
-  {
-    title: "Floor Tile Installation",
-    description: "Substrate prep, movement joints, and flat finishes for Bradenton homes.",
-    href: "/floor-tile-installation"
-  },
-  {
-    title: "Bathroom & Shower Tile",
-    description: "Waterproofing and detailed tile work for wet areas.",
-    href: "/bathroom-shower"
-  },
-  {
-    title: "Kitchen Backsplashes",
-    description: "Clean lines and durable finishes for cooking spaces.",
-    href: "/kitchen-backsplashes"
-  }
-] as const;
 
 const serviceJsonLd = {
   "@context": "https://schema.org",
@@ -267,7 +250,7 @@ export default function FloorTileInstallationPage() {
               in-home consultation.
             </p>
           </div>
-          <HomeCtaForm services={services} />
+          <HomeCtaForm />
         </Container>
       </section>
 

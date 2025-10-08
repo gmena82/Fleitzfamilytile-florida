@@ -6,14 +6,6 @@ import { Container } from "@/components/ui/container";
 import { PlaceholderImage } from "@/components/ui/placeholder-image";
 import { siteConfig } from "@/config/site";
 
-const ctaServices = [
-  {
-    title: "Kitchen Backsplash Installation",
-    description: "Custom layouts, precise cuts, and clean finishes for Bradenton kitchens.",
-    href: "/kitchen-backsplashes"
-  }
-] as const;
-
 const faqItems = [
   {
     question: "How long does a backsplash install take?",
@@ -262,7 +254,7 @@ export default function KitchenBacksplashesPage() {
               <li className="rounded-full border border-white/20 px-4 py-2">Bradenton • Sarasota</li>
             </ul>
           </div>
-          <HomeCtaForm services={ctaServices} />
+          <HomeCtaForm />
         </Container>
       </section>
 
