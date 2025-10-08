@@ -77,7 +77,7 @@ export function SiteHeader() {
       </div>
       <div className="nav">
         <div className="mx-auto flex max-w-7xl items-center justify-between gap-6 px-4 py-6 sm:px-6 lg:px-8">
-          <Logo className="logo inline-flex items-center" width={200} height={64} variant="header" priority />
+          <Logo className="logo inline-flex items-center" width={100} height={32} variant="header" priority />
           <nav aria-label="Main navigation">
             <ul className="hidden items-center gap-6 text-sm font-semibold text-slate-700 lg:flex">
               {navigation.main.map((item) => {
