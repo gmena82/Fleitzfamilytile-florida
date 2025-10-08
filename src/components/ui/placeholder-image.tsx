@@ -6,7 +6,7 @@ interface PlaceholderImageProps extends HTMLAttributes<HTMLDivElement> {
   label?: string;
 }
 
-export function PlaceholderImage({ label = "Image Here", className, style, ...props }: PlaceholderImageProps) {
+export function PlaceholderImage({ label = "Placeholder Image", className, style, ...props }: PlaceholderImageProps) {
   return (
     <div
       className={cn(

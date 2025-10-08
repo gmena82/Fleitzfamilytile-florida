@@ -1,35 +1,41 @@
 export const siteConfig = {
   name: "Fleitz Family Tile",
   description:
-    "Family-owned tile showroom and installation experts providing curated surfaces for homes and businesses across Florida.",
+    "Premium tile installation and remodeling contractor serving Bradenton, Sarasota, and Lakewood Ranch with meticulous craftsmanship.",
   keywords: [
-    "tile showroom",
-    "tile installation",
-    "flooring",
-    "Florida tile store"
+    "Bradenton tile installer",
+    "Bradenton tile contractor",
+    "tile installation Bradenton FL",
+    "Sarasota tile installation",
+    "Lakewood Ranch tile installer"
   ],
   url: "https://www.fleitzfamilytile.com",
-  ogImage: "/images/branding/og-image.jpg",
+  ogImage: "[OG_IMAGE]",
   contact: {
-    phone: "502-714-0544",
-    email: "fleitzfamilytile@gmail.com"
+    phone: "[PHONE]",
+    email: "[EMAIL]"
   },
-  locations: [
-    {
-      label: "Head Office",
-      address: "4504 22nd Ave W",
-      city: "Bradenton, FL 34209",
-      coordinates: null
-    }
-  ],
+  headquarters: {
+    street: "[ADDRESS_LINE_1]",
+    city: "Bradenton",
+    state: "FL",
+    postalCode: "[ZIP]"
+  },
+  geo: {
+    latitude: 27.498928,
+    longitude: -82.574821
+  },
+  serviceAreas: ["Bradenton", "Sarasota", "Lakewood Ranch", "Gulf-Coast communities"],
   hours: {
-    weekdays: "Monday–Friday: 9:00 AM – 5:00 PM",
-    saturday: "Saturday: 10:00 AM – 3:00 PM",
-    sunday: "Sunday: Closed"
+    weekdays: "Monday–Friday: 8:00 AM – 5:00 PM",
+    saturday: "Saturday: 9:00 AM – 2:00 PM",
+    sunday: "Sunday: By appointment"
   },
   socialLinks: {
-    facebook: "https://www.facebook.com/fleitzfamilytile",
-    instagram: "https://www.instagram.com/fleitzfamilytile"
+    facebook: "https://www.facebook.com/[handle]",
+    x: "https://x.com/[handle]",
+    instagram: "https://www.instagram.com/[handle]/",
+    youtube: "https://www.youtube.com/@[handle]"
   }
 };
 
