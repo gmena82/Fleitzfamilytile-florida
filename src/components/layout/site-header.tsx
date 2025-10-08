@@ -1,6 +1,7 @@
 import Link from "next/link";
 
 import { navigation } from "@/config/navigation";
+import type { MainNavItem, ServiceLink } from "@/config/navigation";
 import { siteConfig } from "@/config/site";
 import { Logo } from "@/components/ui/logo";
 
@@ -10,6 +11,13 @@ const socialIcons = [
   { key: "instagram", label: "Instagram" },
   { key: "youtube", label: "YouTube" }
 ] as const;
+
+type NavigationItem = MainNavItem;
+type NavigationParent = MainNavItem & { items: readonly ServiceLink[] };
+
+function hasChildren(item: NavigationItem): item is NavigationParent {
+  return "items" in item && Array.isArray(item.items) && item.items.length > 0;
+}
 
 export function SiteHeader() {
   const phoneNumber = siteConfig.contact.phone;
@@ -76,7 +84,7 @@ export function SiteHeader() {
           <nav aria-label="Main navigation">
             <ul className="hidden items-center gap-6 text-sm font-semibold text-slate-700 lg:flex">
               {navigation.main.map((item) => {
-                if (item.items?.length) {
+                if (hasChildren(item)) {
                   return (
                     <li key={item.label} className="has-children group relative">
                       <Link
