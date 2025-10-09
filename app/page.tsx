@@ -209,8 +209,8 @@ export default function HomePage() {
     <>
       <Script id="home-schema" type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }} />
       <section id="hero" className="overflow-hidden bg-slate-900 text-white">
-        <Container className="grid gap-12 py-20 lg:grid-cols-[minmax(0,1fr)_minmax(0,0.9fr)]">
-          <div className="space-y-6">
+        <Container className="flex flex-col items-center gap-12 py-20 text-center">
+          <div className="mx-auto max-w-3xl space-y-6">
             <h1 className="text-4xl font-semibold sm:text-5xl">
               Premium Tile Installation &amp; Remodeling on Florida’s Suncoast — in Bradenton
             </h1>
@@ -219,13 +219,13 @@ export default function HomePage() {
             </p>
             <div className="space-y-3 text-sm text-slate-200/80">
               {heroBenefits.map((benefit) => (
-                <div key={benefit} className="inline-flex items-center gap-2">
+                <div key={benefit} className="flex items-center justify-center gap-2">
                   <CheckCircle2 className="h-4 w-4 text-sky-300 animate-pulse" aria-hidden />
                   <span>{benefit}</span>
                 </div>
               ))}
             </div>
-            <div className="flex flex-wrap gap-3">
+            <div className="flex flex-wrap items-center justify-center gap-3">
               <Link
                 href="/#cta-form"
                 className="inline-flex items-center gap-2 rounded-full bg-white px-6 py-3 text-sm font-semibold text-slate-900 transition hover:bg-slate-200"
@@ -242,7 +242,7 @@ export default function HomePage() {
               </Link>
             </div>
           </div>
-          <div className="relative mx-auto aspect-[16/10] w-full max-w-xl overflow-hidden rounded-3xl border border-white/20 bg-black shadow-2xl lg:ml-auto lg:mr-0">
+          <div className="relative mx-auto aspect-[16/10] w-full max-w-xl overflow-hidden rounded-3xl border border-white/20 bg-black shadow-2xl">
             <iframe
               className="absolute inset-0 h-full w-full"
               src="https://www.youtube.com/embed/Hll582-mC_4?rel=0"
@@ -253,7 +253,7 @@ export default function HomePage() {
               allowFullScreen
             />
           </div>
-          <p className="text-sm leading-relaxed text-slate-200/90 lg:col-span-2 lg:mx-auto lg:max-w-5xl">
+          <p className="mx-auto max-w-4xl text-sm leading-relaxed text-slate-200/90">
             From classic bathroom remodels and walk-in showers to whole-home tile flooring and statement kitchen backsplashes, Fleitz Family Tile blends three generations of craft with modern methods. We prep surfaces right, waterproof wet areas correctly, and set tile with tight grout joints and flat, long-lasting finishes—built for Bradenton’s coastal climate.
           </p>
         </Container>
