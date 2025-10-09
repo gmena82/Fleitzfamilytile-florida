@@ -1,6 +1,6 @@
 import Link from "next/link";
 import Script from "next/script";
-import type { Metadata, Route } from "next";
+import type { Metadata } from "next";
 
 import { QuoteCtaSection } from "@/components/sections/quote-cta";
 import { Container } from "@/components/ui/container";
@@ -72,14 +72,6 @@ const faqJsonLd = {
   ],
 };
 
-const internalLinks = {
-  bathroomShower: "/bathroom-shower",
-  contact: "/contact",
-  floorTile: "/floor-tile-installation",
-  kitchenBacksplashes: "/kitchen-backsplashes",
-  specialProjects: "/special-projects",
-} satisfies Record<string, Route>;
-
 export const metadata: Metadata = {
   title: "Tile Flooring in Bradenton, FL | Fleitz Family Tile",
   description:
@@ -130,7 +122,7 @@ export default function WhyTileFlooringBradentonPage() {
                 </p>
                 <ul className="list-disc space-y-2 pl-5">
                   <li>
-                    <strong>Humidity resistant:</strong> Porcelain and properly glazed ceramic barely absorb moisture, so they don&apos;t swell, warp, or harbor mildew. That makes them ideal for entire homes, from <Link href={internalLinks.bathroomShower} className="text-slate-900 underline-offset-4 hover:underline">bathrooms</Link> to laundry rooms and entries off the lanai.
+                    <strong>Humidity resistant:</strong> Porcelain and properly glazed ceramic barely absorb moisture, so they don&apos;t swell, warp, or harbor mildew. That makes them ideal for entire homes, from <Link href="/services/bathrooms" className="text-slate-900 underline-offset-4 hover:underline">bathrooms</Link> to laundry rooms and entries off the lanai.
                   </li>
                   <li>
                     <strong>Naturally cool:</strong> Tile disperses heat, giving you floors that feel refreshing even in August. Pair it with light tones to bounce Florida sunshine and reduce AC load.
@@ -147,7 +139,7 @@ export default function WhyTileFlooringBradentonPage() {
                   Tile keeps daily maintenance simple. Spills, pet messes, and sandy footprints sit on the surface until you wipe them away. Most Bradenton homeowners only need a soft sweep and an occasional pH-neutral mop—no waxes, no refinishing, no off-limits days while floors cure.
                 </p>
                 <p>
-                  Prefer a low-effort upgrade? Our <Link href={internalLinks.floorTile} className="text-slate-900 underline-offset-4 hover:underline">floor tile installation</Link> crew handles demo, prep, and reinstallation of baseboards, so you can get back to normal fast.
+                  Prefer a low-effort upgrade? Our <Link href="/services/floor-tile" className="text-slate-900 underline-offset-4 hover:underline">floor tile installation</Link> crew handles demo, prep, and reinstallation of baseboards, so you can get back to normal fast.
                 </p>
               </section>
 
@@ -166,7 +158,7 @@ export default function WhyTileFlooringBradentonPage() {
                     Tell us about your project in Bradenton, Sarasota, Lakewood Ranch, Palmetto, Parrish, or Anna Maria Island. We&apos;ll recommend the right material, prep, and layout—then install it to last.
                   </p>
                   <Link
-                    href={internalLinks.contact}
+                    href="/contact"
                     className="inline-flex items-center justify-center rounded-full bg-slate-900 px-6 py-3 text-sm font-semibold text-white shadow-sm transition hover:bg-slate-800"
                   >
                     Book Your Free Estimate
@@ -184,7 +176,7 @@ export default function WhyTileFlooringBradentonPage() {
                     <strong>Large-format tile:</strong> 24×24 squares and porcelain planks minimize grout lines for a modern, open feel.
                   </li>
                   <li>
-                    <strong>Wood-look porcelain:</strong> Get the warmth of oak or hickory without worrying about humidity or scratching. It&apos;s a favorite for <Link href={internalLinks.specialProjects} className="text-slate-900 underline-offset-4 hover:underline">indoor-outdoor transitions</Link> leading to lanais and pool decks.
+                    <strong>Wood-look porcelain:</strong> Get the warmth of oak or hickory without worrying about humidity or scratching. It&apos;s a favorite for <Link href="/services/outdoor" className="text-slate-900 underline-offset-4 hover:underline">indoor-outdoor transitions</Link> leading to lanais and pool decks.
                   </li>
                   <li>
                     <strong>Light, airy palettes:</strong> Soft whites, sands, and greiges reflect natural light and keep coastal interiors timeless.
@@ -256,11 +248,11 @@ export default function WhyTileFlooringBradentonPage() {
               <section className="space-y-4">
                 <h2 className="text-2xl font-semibold text-slate-900">Plan Your Tile Project with Fleitz Family Tile</h2>
                 <p>
-                  Our third-generation installers serve Bradenton, Lakewood Ranch, Sarasota, Palmetto, Parrish, Anna Maria Island, and Holmes Beach. Whether you need a <Link href={internalLinks.bathroomShower} className="text-slate-900 underline-offset-4 hover:underline">shower overhaul</Link>,{" "}
-                  <Link href={internalLinks.kitchenBacksplashes} className="text-slate-900 underline-offset-4 hover:underline">kitchen backsplash</Link>, or a <Link href={internalLinks.floorTile} className="text-slate-900 underline-offset-4 hover:underline">resilient floor tile installation</Link>, we prep every slab, laser the layout, and finish strong.
+                  Our third-generation installers serve Bradenton, Lakewood Ranch, Sarasota, Palmetto, Parrish, Anna Maria Island, and Holmes Beach. Whether you need a <Link href="/services/bathrooms" className="text-slate-900 underline-offset-4 hover:underline">shower overhaul</Link>,{" "}
+                  <Link href="/services/backsplashes" className="text-slate-900 underline-offset-4 hover:underline">kitchen backsplash</Link>, or a <Link href="/services/floor-tile" className="text-slate-900 underline-offset-4 hover:underline">resilient floor tile installation</Link>, we prep every slab, laser the layout, and finish strong.
                 </p>
                 <p>
-                  Ready to start? <Link href={internalLinks.contact} className="text-slate-900 underline-offset-4 hover:underline">Request your free estimate</Link> and we&apos;ll bring tile samples, layout advice, and a detailed installation plan.
+                  Ready to start? <Link href="/contact" className="text-slate-900 underline-offset-4 hover:underline">Request your free estimate</Link> and we&apos;ll bring tile samples, layout advice, and a detailed installation plan.
                 </p>
               </section>
 
@@ -272,7 +264,7 @@ export default function WhyTileFlooringBradentonPage() {
                     Share your floor, shower, backsplash, or lanai plans and we&apos;ll recommend the right porcelain, prep system, and layout for long-term performance.
                   </p>
                   <Link
-                    href={internalLinks.contact}
+                    href="/contact"
                     className="inline-flex items-center justify-center rounded-full bg-white px-6 py-3 text-sm font-semibold text-slate-900 shadow-sm transition hover:bg-slate-100"
                   >
                     Start My Estimate

@@ -24,7 +24,7 @@ const posts = [
     date: "October 14, 2025",
     excerpt:
       "Humidity, sand, and sunshine are no match for porcelain floors—discover why Bradenton homeowners rely on tile to stay cool, durable, and easy to clean.",
-    href: "/blog/why-tile-flooring-bradenton-fl",
+    slug: "why-tile-flooring-bradenton-fl",
     image: {
       type: "placeholder" as const,
       label: "Image Placeholder",
