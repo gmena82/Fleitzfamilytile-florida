@@ -1,18 +1,13 @@
 import Link from "next/link";
 
-import { Facebook, Instagram, Twitter, Youtube } from "lucide-react";
+import { Instagram } from "lucide-react";
 
 import { navigation } from "@/config/navigation";
 import type { MainNavItem, ServiceLink } from "@/config/navigation";
 import { siteConfig } from "@/config/site";
 import { Logo } from "@/components/ui/logo";
 
-const socialIcons = [
-  { key: "facebook", label: "Facebook", Icon: Facebook },
-  { key: "x", label: "X (Twitter)", Icon: Twitter },
-  { key: "instagram", label: "Instagram", Icon: Instagram },
-  { key: "youtube", label: "YouTube", Icon: Youtube }
-] as const;
+const socialIcons = [{ key: "instagram", label: "Instagram", Icon: Instagram }] as const;
 
 type NavigationItem = MainNavItem;
 type NavigationParent = MainNavItem & { items: readonly ServiceLink[] };
@@ -68,7 +63,7 @@ export function SiteHeader() {
                   href={href}
                   target="_blank"
                   rel="noreferrer"
-                  className="text-white/70 transition hover:text-white"
+                  className="text-white transition hover:text-white"
                 >
                   <span className="sr-only">{`Visit our ${icon.label} profile`}</span>
                   <Icon aria-hidden className="h-4 w-4" />
