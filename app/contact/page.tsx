@@ -87,75 +87,81 @@ export default function ContactPage() {
         </Container>
       </section>
 
-      <section id="location" className="bg-slate-900 py-20 text-white">
-        <div className="relative h-[420px] w-full overflow-hidden border-y border-white/10 bg-slate-900/40 shadow-2xl">
-          <iframe
-            title="Map showing Fleitz Family Tile in Bradenton, Florida"
-            src="https://maps.google.com/maps?q=Fleitz%20Family%20Tile%2C%20Bradenton%2C%20FL&amp;z=13&amp;output=embed"
-            className="absolute inset-0 h-full w-full"
-            loading="lazy"
-            referrerPolicy="no-referrer-when-downgrade"
-          />
-          <div className="pointer-events-none absolute inset-0 bg-gradient-to-br from-slate-900/40 via-slate-900/10 to-transparent" />
-        </div>
-        <Container className="mt-12">
-          <div className="mx-auto max-w-5xl space-y-8 rounded-3xl border border-white/10 bg-white/5 p-8 shadow-2xl backdrop-blur">
-            <div className="space-y-3 text-center">
-              <p className="text-xs font-semibold uppercase tracking-[0.4em] text-slate-300">Visit Fleitz Family Tile</p>
-              <h2 className="text-3xl font-semibold text-white sm:text-4xl">Find Us on Google Maps</h2>
-              <p className="text-sm leading-relaxed text-slate-200/80">
-                Meet with our Bradenton tile experts, explore material options, and start planning your next project with three generations of craftsmanship.
-              </p>
-            </div>
-            <div className="space-y-4 text-sm text-slate-200/90">
-              <div className="flex items-start gap-3">
-                <MapPin className="icon-electric mt-1 h-5 w-5 text-sky-300" aria-hidden style={{ animationDelay: "0s" }} />
-                <div className="space-y-1">
-                  <p className="font-semibold text-white">Bradenton, Florida</p>
-                  <p className="text-slate-200/70">Serving {serviceAreaSummary}</p>
+      <section id="location" className="bg-slate-900 py-24 text-white">
+        <Container className="grid gap-12 lg:grid-cols-[minmax(0,0.9fr)_minmax(0,1.1fr)] lg:items-center">
+          <div className="relative overflow-hidden rounded-3xl border border-white/10 bg-white/5 p-[1px] shadow-2xl">
+            <div className="absolute inset-0 -z-10 bg-gradient-to-br from-sky-400/40 via-transparent to-sky-500/20 blur-3xl" />
+            <div className="relative h-full rounded-[calc(1.5rem-2px)] bg-slate-950/80 p-8 backdrop-blur">
+              <div className="space-y-4 text-center lg:text-left">
+                <span className="inline-flex items-center gap-2 rounded-full border border-white/15 px-4 py-1 text-xs font-semibold uppercase tracking-[0.35em] text-slate-300">
+                  Visit Fleitz Family Tile
+                </span>
+                <h2 className="text-3xl font-semibold text-white sm:text-4xl">Find Us on Google Business</h2>
+                <p className="text-sm leading-relaxed text-slate-200/80">
+                  Stop by our Bradenton tile studio to browse premium materials, review layouts, and collaborate with our third-generation installers on your next project.
+                </p>
+              </div>
+              <div className="mt-8 space-y-5 text-sm text-slate-200/90">
+                <div className="flex items-start gap-3">
+                  <MapPin className="icon-electric mt-1 h-5 w-5 text-sky-300" aria-hidden style={{ animationDelay: "0s" }} />
+                  <div className="space-y-1">
+                    <p className="font-semibold text-white">Bradenton, Florida</p>
+                    <p className="text-slate-200/70">Serving {serviceAreaSummary}</p>
+                  </div>
+                </div>
+                <div className="flex items-start gap-3">
+                  <Phone className="icon-electric mt-1 h-5 w-5 text-sky-300" aria-hidden style={{ animationDelay: "0.15s" }} />
+                  <a className="font-semibold text-white transition hover:text-sky-200" href={`tel:${phoneHref}`}>
+                    {phoneNumber}
+                  </a>
+                </div>
+                <div className="flex items-start gap-3">
+                  <Mail className="icon-electric mt-1 h-5 w-5 text-sky-300" aria-hidden style={{ animationDelay: "0.3s" }} />
+                  <a className="font-semibold text-white transition hover:text-sky-200" href={`mailto:${siteConfig.contact.email}`}>
+                    {siteConfig.contact.email}
+                  </a>
+                </div>
+                <div className="flex items-start gap-3">
+                  <Clock className="icon-electric mt-1 h-5 w-5 text-sky-300" aria-hidden style={{ animationDelay: "0.45s" }} />
+                  <div className="space-y-1 text-slate-200/80">
+                    <p>{siteConfig.hours.weekdays}</p>
+                    <p>{siteConfig.hours.saturday}</p>
+                    <p>{siteConfig.hours.sunday}</p>
+                  </div>
                 </div>
               </div>
-              <div className="flex items-start gap-3">
-                <Phone className="icon-electric mt-1 h-5 w-5 text-sky-300" aria-hidden style={{ animationDelay: "0.15s" }} />
-                <a className="font-semibold text-white transition hover:text-sky-200" href={`tel:${phoneHref}`}>
-                  {phoneNumber}
+              <div className="mt-8 flex flex-wrap gap-3 lg:justify-start">
+                <a
+                  href={googleBusinessUrl}
+                  target="_blank"
+                  rel="noreferrer"
+                  className="inline-flex items-center gap-2 rounded-full bg-white px-6 py-3 text-sm font-semibold text-slate-900 transition hover:bg-slate-200"
+                >
+                  View Google Business Profile
+                  <ArrowUpRight className="h-4 w-4 icon-electric" aria-hidden style={{ animationDelay: "0.6s" }} />
+                </a>
+                <a
+                  href={directionsUrl}
+                  target="_blank"
+                  rel="noreferrer"
+                  className="inline-flex items-center gap-2 rounded-full border border-white/60 px-6 py-3 text-sm font-semibold text-white transition hover:border-white"
+                >
+                  Get Directions
+                  <ArrowUpRight className="h-4 w-4 icon-electric" aria-hidden style={{ animationDelay: "0.75s" }} />
                 </a>
               </div>
-              <div className="flex items-start gap-3">
-                <Mail className="icon-electric mt-1 h-5 w-5 text-sky-300" aria-hidden style={{ animationDelay: "0.3s" }} />
-                <a className="font-semibold text-white transition hover:text-sky-200" href={`mailto:${siteConfig.contact.email}`}>
-                  {siteConfig.contact.email}
-                </a>
-              </div>
-              <div className="flex items-start gap-3">
-                <Clock className="icon-electric mt-1 h-5 w-5 text-sky-300" aria-hidden style={{ animationDelay: "0.45s" }} />
-                <div className="space-y-1 text-slate-200/80">
-                  <p>{siteConfig.hours.weekdays}</p>
-                  <p>{siteConfig.hours.saturday}</p>
-                  <p>{siteConfig.hours.sunday}</p>
-                </div>
-              </div>
             </div>
-            <div className="flex flex-wrap justify-center gap-3 pt-2">
-              <a
-                href={googleBusinessUrl}
-                target="_blank"
-                rel="noreferrer"
-                className="inline-flex items-center gap-2 rounded-full bg-white px-5 py-3 text-sm font-semibold text-slate-900 transition hover:bg-slate-200"
-              >
-                View Google Business
-                <ArrowUpRight className="h-4 w-4" aria-hidden />
-              </a>
-              <a
-                href={directionsUrl}
-                target="_blank"
-                rel="noreferrer"
-                className="inline-flex items-center gap-2 rounded-full border border-white/60 px-5 py-3 text-sm font-semibold text-white transition hover:border-white"
-              >
-                Get Directions
-                <ArrowUpRight className="h-4 w-4" aria-hidden />
-              </a>
-            </div>
+          </div>
+          <div className="relative overflow-hidden rounded-3xl border border-white/10 bg-slate-900/60 shadow-2xl">
+            <div className="pointer-events-none absolute inset-0 bg-gradient-to-br from-slate-900/40 via-slate-900/10 to-transparent" />
+            <iframe
+              title="Google map showing Fleitz Family Tile in Bradenton, Florida"
+              src="https://maps.google.com/maps?q=Fleitz%20Family%20Tile%2C%20Bradenton%2C%20FL&amp;z=14&amp;output=embed"
+              className="relative h-[420px] w-full md:h-[520px]"
+              loading="lazy"
+              referrerPolicy="no-referrer-when-downgrade"
+            />
+            <div className="pointer-events-none absolute inset-0 border border-white/5" />
           </div>
         </Container>
       </section>
