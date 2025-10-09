@@ -1,3 +1,4 @@
+import Image from "next/image";
 import Link from "next/link";
 import Script from "next/script";
 import type { Metadata } from "next";
@@ -13,6 +14,10 @@ const posts = [
     excerpt:
       "Explore our brand-new digital home, see generations of tile craftsmanship, and discover how to collaborate with our Bradenton team online.",
     slug: "fleitz-family-tile-has-a-website",
+    featureImage: {
+      src: "/images/Blog/Bathroom-AJ-Long.png",
+      alt: "Marble-look tile shower installed by Fleitz Family Tile in Florida",
+    },
   },
 ] as const;
 
@@ -58,16 +63,28 @@ export default function BlogPage() {
           </div>
           <div className="grid gap-6 md:grid-cols-3">
             {posts.map((post) => (
-              <article key={post.title} className="rounded-3xl border border-slate-200 bg-white p-6 shadow-sm">
-                <p className="text-xs uppercase tracking-[0.3em] text-slate-500">{post.date}</p>
-                <h3 className="mt-3 text-xl font-semibold text-slate-900">{post.title}</h3>
-                <p className="mt-3 text-sm leading-relaxed text-slate-600">{post.excerpt}</p>
-                <Link
-                  href={`/blog/${post.slug}`}
-                  className="mt-4 inline-flex text-sm font-semibold text-slate-900 underline-offset-4 hover:underline"
-                >
-                  Read More
-                </Link>
+              <article key={post.title} className="flex h-full flex-col overflow-hidden rounded-3xl border border-slate-200 bg-white shadow-sm">
+                <div className="relative aspect-[16/10] w-full">
+                  <Image
+                    src={post.featureImage.src}
+                    alt={post.featureImage.alt}
+                    fill
+                    sizes="(min-width: 768px) 33vw, 100vw"
+                    className="object-cover"
+                    priority
+                  />
+                </div>
+                <div className="flex h-full flex-col p-6">
+                  <p className="text-xs uppercase tracking-[0.3em] text-slate-500">{post.date}</p>
+                  <h3 className="mt-3 text-xl font-semibold text-slate-900">{post.title}</h3>
+                  <p className="mt-3 text-sm leading-relaxed text-slate-600">{post.excerpt}</p>
+                  <Link
+                    href={`/blog/${post.slug}`}
+                    className="mt-4 inline-flex text-sm font-semibold text-slate-900 underline-offset-4 hover:underline"
+                  >
+                    Read More
+                  </Link>
+                </div>
               </article>
             ))}
           </div>
