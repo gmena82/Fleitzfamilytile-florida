@@ -217,6 +217,22 @@ export default function HomePage() {
             <p className="text-base leading-relaxed text-slate-200">
               Fleitz Family Tile delivers premium tile installation and remodeling across the Suncoast—Bradenton first, with projects throughout Sarasota and Lakewood Ranch.
             </p>
+          </div>
+          <div className="relative mx-auto aspect-[16/10] w-full max-w-xl overflow-hidden rounded-3xl border border-white/20 bg-black shadow-2xl">
+            <iframe
+              className="absolute inset-0 h-full w-full"
+              src="https://www.youtube.com/embed/Hll582-mC_4?rel=0"
+              title="Fleitz Family Tile Showroom Video"
+              allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+              loading="lazy"
+              referrerPolicy="strict-origin-when-cross-origin"
+              allowFullScreen
+            />
+          </div>
+          <p className="mx-auto max-w-4xl text-sm leading-relaxed text-slate-200/90">
+            From classic bathroom remodels and walk-in showers to whole-home tile flooring and statement kitchen backsplashes, Fleitz Family Tile blends three generations of craft with modern methods. We prep surfaces right, waterproof wet areas correctly, and set tile with tight grout joints and flat, long-lasting finishes—built for Bradenton’s coastal climate.
+          </p>
+          <div className="mx-auto max-w-3xl space-y-4">
             <div className="space-y-3 text-sm text-slate-200/80">
               {heroBenefits.map((benefit) => (
                 <div key={benefit} className="flex items-center justify-center gap-2">
@@ -242,20 +258,6 @@ export default function HomePage() {
               </Link>
             </div>
           </div>
-          <div className="relative mx-auto aspect-[16/10] w-full max-w-xl overflow-hidden rounded-3xl border border-white/20 bg-black shadow-2xl">
-            <iframe
-              className="absolute inset-0 h-full w-full"
-              src="https://www.youtube.com/embed/Hll582-mC_4?rel=0"
-              title="Fleitz Family Tile Showroom Video"
-              allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
-              loading="lazy"
-              referrerPolicy="strict-origin-when-cross-origin"
-              allowFullScreen
-            />
-          </div>
-          <p className="mx-auto max-w-4xl text-sm leading-relaxed text-slate-200/90">
-            From classic bathroom remodels and walk-in showers to whole-home tile flooring and statement kitchen backsplashes, Fleitz Family Tile blends three generations of craft with modern methods. We prep surfaces right, waterproof wet areas correctly, and set tile with tight grout joints and flat, long-lasting finishes—built for Bradenton’s coastal climate.
-          </p>
         </Container>
       </section>
 
