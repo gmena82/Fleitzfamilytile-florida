@@ -8,14 +8,18 @@ import { Container } from "@/components/ui/container";
 import { PlaceholderImage } from "@/components/ui/placeholder-image";
 import { siteConfig } from "@/config/site";
 
+type BlogImage =
+  | { type: "placeholder"; label?: string }
+  | { type: "image"; src: string; alt: string; width?: number; height?: number };
+
 type BlogPostCard = {
   title: string;
-  date: string;
   excerpt: string;
-  href: Route;
-  image:
-    | { type: "placeholder"; label: string }
-    | { type: "image"; src: string; alt: string };
+  slug: string;
+  image: BlogImage;
+  date?: string;
+  readTime?: string;
+  tags?: string[];
 };
 
 const posts = [
@@ -35,7 +39,7 @@ const posts = [
     date: "October 9, 2025",
     excerpt:
       "Explore our brand-new digital home, see generations of tile craftsmanship, and discover how to collaborate with our Bradenton team online.",
-    href: "/blog/fleitz-family-tile-has-a-website",
+    slug: "fleitz-family-tile-has-a-website",
     image: {
       type: "image" as const,
       src: "/images/Blog/Bathroom-AJ-Long.png",
@@ -114,7 +118,7 @@ export default function BlogPage() {
                   <h3 className="mt-3 text-xl font-semibold text-slate-900">{post.title}</h3>
                   <p className="mt-3 text-sm leading-relaxed text-slate-600">{post.excerpt}</p>
                   <Link
-                    href={post.href}
+                    href={`/blog/${post.slug}` as Route}
                     className="mt-4 inline-flex text-sm font-semibold text-slate-900 underline-offset-4 hover:underline"
                   >
                     Read More
