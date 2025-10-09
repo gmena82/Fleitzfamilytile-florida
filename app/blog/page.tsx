@@ -1,3 +1,4 @@
+import Link from "next/link";
 import Script from "next/script";
 import type { Metadata } from "next";
 
@@ -7,22 +8,11 @@ import { siteConfig } from "@/config/site";
 
 const posts = [
   {
-    title: "Waterproofing tile showers on the Suncoast",
-    date: "February 12, 2025",
+    title: "Fleitz Family Tile Has a Website!",
+    date: "October 9, 2025",
     excerpt:
-      "Discover the layers we install behind the tile—pre-slope pans, waterproof membranes, and vapor barriers that keep Sarasota showers mold-free.",
-  },
-  {
-    title: "Backsplash ideas for Bradenton kitchens",
-    date: "January 29, 2025",
-    excerpt:
-      "From artisan ceramics to slab porcelain, explore layouts and grout tips that pair perfectly with Gulf Coast cabinetry and counters.",
-  },
-  {
-    title: "Lanai tile upgrades that beat the heat",
-    date: "January 10, 2025",
-    excerpt:
-      "See our checklist for selecting outdoor tile, expansion joints, and slip-resistant textures for Lakewood Ranch lanais and pool decks.",
+      "Explore our brand-new digital home, see generations of tile craftsmanship, and discover how to collaborate with our Bradenton team online.",
+    slug: "fleitz-family-tile-has-a-website",
   },
 ] as const;
 
@@ -72,9 +62,12 @@ export default function BlogPage() {
                 <p className="text-xs uppercase tracking-[0.3em] text-slate-500">{post.date}</p>
                 <h3 className="mt-3 text-xl font-semibold text-slate-900">{post.title}</h3>
                 <p className="mt-3 text-sm leading-relaxed text-slate-600">{post.excerpt}</p>
-                <a href="#" className="mt-4 inline-flex text-sm font-semibold text-slate-900 underline-offset-4 hover:underline">
+                <Link
+                  href={`/blog/${post.slug}`}
+                  className="mt-4 inline-flex text-sm font-semibold text-slate-900 underline-offset-4 hover:underline"
+                >
                   Read More
-                </a>
+                </Link>
               </article>
             ))}
           </div>
