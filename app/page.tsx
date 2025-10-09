@@ -220,7 +220,7 @@ export default function HomePage() {
             <div className="space-y-3 text-sm text-slate-200/80">
               {heroBenefits.map((benefit) => (
                 <div key={benefit} className="inline-flex items-center gap-2">
-                  <CheckCircle2 className="h-4 w-4 text-emerald-400" aria-hidden />
+                  <CheckCircle2 className="h-4 w-4 text-sky-300 animate-pulse" aria-hidden />
                   <span>{benefit}</span>
                 </div>
               ))}
@@ -241,9 +241,6 @@ export default function HomePage() {
                 <ArrowRight className="h-4 w-4" aria-hidden />
               </Link>
             </div>
-            <p className="text-sm leading-relaxed text-slate-200/90">
-              From classic bathroom remodels and walk-in showers to whole-home tile flooring and statement kitchen backsplashes, Fleitz Family Tile blends three generations of craft with modern methods. We prep surfaces right, waterproof wet areas correctly, and set tile with tight grout joints and flat, long-lasting finishes—built for Bradenton’s coastal climate.
-            </p>
           </div>
           <div className="relative mx-auto aspect-[16/10] w-full max-w-xl overflow-hidden rounded-3xl border border-white/20 bg-black shadow-2xl lg:ml-auto lg:mr-0">
             <iframe
@@ -256,6 +253,9 @@ export default function HomePage() {
               allowFullScreen
             />
           </div>
+          <p className="text-sm leading-relaxed text-slate-200/90 lg:col-span-2 lg:mx-auto lg:max-w-5xl">
+            From classic bathroom remodels and walk-in showers to whole-home tile flooring and statement kitchen backsplashes, Fleitz Family Tile blends three generations of craft with modern methods. We prep surfaces right, waterproof wet areas correctly, and set tile with tight grout joints and flat, long-lasting finishes—built for Bradenton’s coastal climate.
+          </p>
         </Container>
       </section>
 
