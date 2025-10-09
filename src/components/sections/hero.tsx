@@ -37,6 +37,19 @@ export function HeroSection({ eyebrow, title, description, primaryCta, secondary
               {secondaryCta.label}
             </Link>
           </div>
+        </div>
+        <div className="space-y-8 lg:ml-auto lg:mr-0">
+          <div className="relative mx-auto aspect-[16/10] w-full max-w-2xl overflow-hidden rounded-3xl shadow-2xl">
+            <iframe
+              className="absolute inset-0 h-full w-full"
+              src="https://www.youtube.com/embed/Hll582-mC_4?si=NV2OOI3u-POpUtkN"
+              title="Fleitz Family Tile Showroom"
+              allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+              loading="lazy"
+              referrerPolicy="strict-origin-when-cross-origin"
+              allowFullScreen
+            />
+          </div>
           <div className="grid grid-cols-2 gap-6 text-left text-sm text-slate-500 sm:grid-cols-4">
             <div>
               <span className="block text-2xl font-semibold text-slate-900">25+</span>
@@ -55,17 +68,6 @@ export function HeroSection({ eyebrow, title, description, primaryCta, secondary
               <span className="uppercase tracking-wide">Showroom tile</span>
             </div>
           </div>
-        </div>
-        <div className="relative mx-auto aspect-[16/10] w-full max-w-2xl overflow-hidden rounded-3xl shadow-2xl lg:ml-auto lg:mr-0">
-          <iframe
-            className="absolute inset-0 h-full w-full"
-            src="https://www.youtube.com/embed/Hll582-mC_4?si=NV2OOI3u-POpUtkN"
-            title="Fleitz Family Tile Showroom"
-            allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
-            loading="lazy"
-            referrerPolicy="strict-origin-when-cross-origin"
-            allowFullScreen
-          />
         </div>
       </Container>
     </section>
