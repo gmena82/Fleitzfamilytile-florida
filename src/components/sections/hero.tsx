@@ -56,7 +56,7 @@ export function HeroSection({ eyebrow, title, description, primaryCta, secondary
             </div>
           </div>
         </div>
-        <div className="relative h-full min-h-[320px] overflow-hidden rounded-3xl shadow-2xl">
+        <div className="relative mx-auto aspect-[16/10] w-full max-w-2xl overflow-hidden rounded-3xl shadow-2xl lg:ml-auto lg:mr-0">
           <iframe
             className="absolute inset-0 h-full w-full"
             src="https://www.youtube.com/embed/Hll582-mC_4?si=NV2OOI3u-POpUtkN"
