@@ -1,7 +1,7 @@
 import Script from "next/script";
 import type { Metadata } from "next";
 
-import { QuoteCtaSection } from "@/components/sections/quote-cta";
+import { HomeCtaForm } from "@/components/sections/home-cta-form";
 import { Container } from "@/components/ui/container";
 import { siteConfig } from "@/config/site";
 
@@ -42,12 +42,15 @@ export default function ContactPage() {
       <Script id="contact-jsonld" type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(contactJsonLd) }} />
 
       <section id="hero" className="bg-slate-900 py-20 text-white">
-        <Container className="space-y-6 text-center">
-          <p className="text-xs font-semibold uppercase tracking-[0.4em] text-slate-300">Tile Contractor Bradenton Contact</p>
-          <h1 className="text-3xl font-semibold sm:text-4xl">Contact Us About Your Bradenton Project</h1>
-          <p className="mx-auto max-w-2xl text-sm leading-relaxed text-slate-200">
-            Call, email, or share project details for a free tile estimate. We serve Bradenton, Sarasota, Lakewood Ranch, and neighboring Suncoast communities.
-          </p>
+        <Container className="grid gap-12 lg:grid-cols-[minmax(0,0.9fr)_minmax(0,1fr)] lg:items-center">
+          <div className="space-y-6 text-center lg:text-left">
+            <p className="text-xs font-semibold uppercase tracking-[0.4em] text-slate-300">Tile Contractor Bradenton Contact</p>
+            <h1 className="text-3xl font-semibold sm:text-4xl">Contact Us About Your Bradenton Project</h1>
+            <p className="mx-auto max-w-2xl text-sm leading-relaxed text-slate-200 lg:mx-0">
+              Call, email, or share project details for a free tile estimate. We serve Bradenton, Sarasota, Lakewood Ranch, and neighboring Suncoast communities.
+            </p>
+          </div>
+          <HomeCtaForm />
         </Container>
       </section>
 
@@ -170,8 +173,6 @@ export default function ContactPage() {
           </p>
         </Container>
       </section>
-
-      <QuoteCtaSection />
     </>
   );
 }
