@@ -1,12 +1,22 @@
 import Image from "next/image";
 import Link from "next/link";
 import Script from "next/script";
-import type { Metadata } from "next";
+import type { Metadata, Route } from "next";
 
 import { QuoteCtaSection } from "@/components/sections/quote-cta";
 import { Container } from "@/components/ui/container";
 import { PlaceholderImage } from "@/components/ui/placeholder-image";
 import { siteConfig } from "@/config/site";
+
+type BlogPostCard = {
+  title: string;
+  date: string;
+  excerpt: string;
+  href: Route;
+  image:
+    | { type: "placeholder"; label: string }
+    | { type: "image"; src: string; alt: string };
+};
 
 const posts = [
   {
@@ -25,14 +35,14 @@ const posts = [
     date: "October 9, 2025",
     excerpt:
       "Explore our brand-new digital home, see generations of tile craftsmanship, and discover how to collaborate with our Bradenton team online.",
-    slug: "fleitz-family-tile-has-a-website",
+    href: "/blog/fleitz-family-tile-has-a-website",
     image: {
       type: "image" as const,
       src: "/images/Blog/Bathroom-AJ-Long.png",
       alt: "Custom tile shower featuring marble-look walls installed by Fleitz Family Tile",
     },
   },
-] as const;
+] satisfies readonly BlogPostCard[];
 
 const blogJsonLd = {
   "@context": "https://schema.org",
@@ -104,7 +114,7 @@ export default function BlogPage() {
                   <h3 className="mt-3 text-xl font-semibold text-slate-900">{post.title}</h3>
                   <p className="mt-3 text-sm leading-relaxed text-slate-600">{post.excerpt}</p>
                   <Link
-                    href={`/blog/${post.slug}`}
+                    href={post.href}
                     className="mt-4 inline-flex text-sm font-semibold text-slate-900 underline-offset-4 hover:underline"
                   >
                     Read More
