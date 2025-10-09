@@ -245,7 +245,17 @@ export default function HomePage() {
               From classic bathroom remodels and walk-in showers to whole-home tile flooring and statement kitchen backsplashes, Fleitz Family Tile blends three generations of craft with modern methods. We prep surfaces right, waterproof wet areas correctly, and set tile with tight grout joints and flat, long-lasting finishes—built for Bradenton’s coastal climate.
             </p>
           </div>
-          <PlaceholderImage className="h-full min-h-[320px] w-full border-white/40 bg-white/5" />
+          <div className="relative h-full min-h-[280px] w-full overflow-hidden rounded-3xl border border-white/20 bg-black shadow-2xl sm:min-h-[320px]">
+            <iframe
+              className="absolute inset-0 h-full w-full"
+              src="https://www.youtube.com/embed/Hll582-mC_4?rel=0"
+              title="Fleitz Family Tile Showroom Video"
+              allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+              loading="lazy"
+              referrerPolicy="strict-origin-when-cross-origin"
+              allowFullScreen
+            />
+          </div>
         </Container>
       </section>
 
