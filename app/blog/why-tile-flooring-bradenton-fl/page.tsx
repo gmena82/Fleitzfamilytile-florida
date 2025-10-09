@@ -122,7 +122,7 @@ export default function WhyTileFlooringBradentonPage() {
                 </p>
                 <ul className="list-disc space-y-2 pl-5">
                   <li>
-                    <strong>Humidity resistant:</strong> Porcelain and properly glazed ceramic barely absorb moisture, so they don&apos;t swell, warp, or harbor mildew. That makes them ideal for entire homes, from <Link href="/services/bathrooms" className="text-slate-900 underline-offset-4 hover:underline">bathrooms</Link> to laundry rooms and entries off the lanai.
+                    <strong>Humidity resistant:</strong> Porcelain and properly glazed ceramic barely absorb moisture, so they don&apos;t swell, warp, or harbor mildew. That makes them ideal for entire homes, from <Link href="/bathroom-shower" className="text-slate-900 underline-offset-4 hover:underline">bathrooms</Link> to laundry rooms and entries off the lanai.
                   </li>
                   <li>
                     <strong>Naturally cool:</strong> Tile disperses heat, giving you floors that feel refreshing even in August. Pair it with light tones to bounce Florida sunshine and reduce AC load.
@@ -248,7 +248,7 @@ export default function WhyTileFlooringBradentonPage() {
               <section className="space-y-4">
                 <h2 className="text-2xl font-semibold text-slate-900">Plan Your Tile Project with Fleitz Family Tile</h2>
                 <p>
-                  Our third-generation installers serve Bradenton, Lakewood Ranch, Sarasota, Palmetto, Parrish, Anna Maria Island, and Holmes Beach. Whether you need a <Link href="/services/bathrooms" className="text-slate-900 underline-offset-4 hover:underline">shower overhaul</Link>,{" "}
+                  Our third-generation installers serve Bradenton, Lakewood Ranch, Sarasota, Palmetto, Parrish, Anna Maria Island, and Holmes Beach. Whether you need a <Link href="/bathroom-shower" className="text-slate-900 underline-offset-4 hover:underline">shower overhaul</Link>,{" "}
                   <Link href="/services/backsplashes" className="text-slate-900 underline-offset-4 hover:underline">kitchen backsplash</Link>, or a <Link href="/services/floor-tile" className="text-slate-900 underline-offset-4 hover:underline">resilient floor tile installation</Link>, we prep every slab, laser the layout, and finish strong.
                 </p>
                 <p>
