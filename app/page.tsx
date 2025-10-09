@@ -1,7 +1,7 @@
 import Link from "next/link";
 import Script from "next/script";
 import type { Metadata } from "next";
-import { ArrowRight, CheckCircle2, Quote, Star } from "lucide-react";
+import { ArrowRight, CheckCircle2, Star } from "lucide-react";
 
 import { PlaceholderImage } from "@/components/ui/placeholder-image";
 import { Container } from "@/components/ui/container";
@@ -377,7 +377,6 @@ export default function HomePage() {
                     <Star key={index} className="h-4 w-4 fill-current" aria-hidden fill="currentColor" />
                   ))}
                 </div>
-                <Quote className="h-6 w-6 text-slate-400" aria-hidden />
                 <blockquote className="text-sm leading-relaxed text-slate-700">{testimonial.quote}</blockquote>
                 <figcaption className="mt-auto text-sm font-semibold text-slate-900">
                   {testimonial.name}
