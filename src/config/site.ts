@@ -12,8 +12,8 @@ export const siteConfig = {
   url: "https://www.fleitzfamilytile.com",
   ogImage: "[OG_IMAGE]",
   contact: {
-    phone: "[PHONE]",
-    email: "[EMAIL]"
+    phone: "ph: 502-714-0544",
+    email: "fleitzfamilytile@gmail.com"
   },
   headquarters: {
     street: "[ADDRESS_LINE_1]",
@@ -32,10 +32,7 @@ export const siteConfig = {
     sunday: "Sunday: By appointment"
   },
   socialLinks: {
-    facebook: "https://www.facebook.com/[handle]",
-    x: "https://x.com/[handle]",
-    instagram: "https://www.instagram.com/[handle]/",
-    youtube: "https://www.youtube.com/@[handle]"
+    instagram: "https://www.instagram.com/mortarman_/"
   }
 };
 
