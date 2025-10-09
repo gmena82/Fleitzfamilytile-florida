@@ -1,3 +1,5 @@
+import { Star } from "lucide-react";
+
 import { PageHeader } from "@/components/sections/page-header";
 import { Container } from "@/components/ui/container";
 
@@ -51,6 +53,12 @@ export default function TestimonialsPage() {
             <div className="space-y-6">
               {testimonials.map((testimonial) => (
                 <blockquote key={testimonial.quote} className="rounded-3xl border border-slate-200 bg-white p-6 shadow-sm">
+                  <div className="mb-4 flex items-center gap-1 text-amber-400">
+                    <span className="sr-only">Rated five out of five stars</span>
+                    {Array.from({ length: 5 }).map((_, index) => (
+                      <Star key={index} className="h-4 w-4 fill-current" aria-hidden fill="currentColor" />
+                    ))}
+                  </div>
                   <p className="text-base italic text-slate-700">“{testimonial.quote}”</p>
                   <footer className="mt-4 text-sm font-semibold text-slate-900">
                     {testimonial.name}

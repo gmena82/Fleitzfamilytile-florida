@@ -1,3 +1,5 @@
+import { Star } from "lucide-react";
+
 import { Container } from "../ui/container";
 
 interface Testimonial {
@@ -21,6 +23,12 @@ export function TestimonialsSection({ testimonials }: TestimonialsSectionProps) 
         <div className="grid gap-8 md:grid-cols-3">
           {testimonials.map((testimonial) => (
             <figure key={testimonial.name} className="flex h-full flex-col justify-between rounded-3xl border border-slate-200 bg-white p-8 shadow-sm">
+              <div className="mb-4 flex items-center gap-1 text-amber-400">
+                <span className="sr-only">Rated five out of five stars</span>
+                {Array.from({ length: 5 }).map((_, index) => (
+                  <Star key={index} className="h-4 w-4 fill-current" aria-hidden fill="currentColor" />
+                ))}
+              </div>
               <blockquote className="text-sm leading-relaxed text-slate-600">“{testimonial.quote}”</blockquote>
               <figcaption className="mt-6 text-sm font-semibold text-slate-900">
                 {testimonial.name}
