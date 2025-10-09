@@ -56,9 +56,16 @@ export function HeroSection({ eyebrow, title, description, primaryCta, secondary
             </div>
           </div>
         </div>
-        <div className="relative h-full min-h-[320px] rounded-3xl bg-[radial-gradient(circle_at_top,#f8fafc,transparent_60%),linear-gradient(135deg,#0f172a,#1e293b)] p-6 shadow-2xl">
-          <div className="absolute inset-6 rounded-2xl border border-white/20 bg-white/5 backdrop-blur" aria-hidden />
-          <span className="sr-only">Showroom vignette</span>
+        <div className="relative h-full min-h-[320px] overflow-hidden rounded-3xl shadow-2xl">
+          <iframe
+            className="absolute inset-0 h-full w-full"
+            src="https://www.youtube.com/embed/Hll582-mC_4?si=NV2OOI3u-POpUtkN"
+            title="Fleitz Family Tile Showroom"
+            allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+            loading="lazy"
+            referrerPolicy="strict-origin-when-cross-origin"
+            allowFullScreen
+          />
         </div>
       </Container>
     </section>
