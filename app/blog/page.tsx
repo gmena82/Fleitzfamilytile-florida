@@ -5,9 +5,21 @@ import type { Metadata } from "next";
 
 import { QuoteCtaSection } from "@/components/sections/quote-cta";
 import { Container } from "@/components/ui/container";
+import { PlaceholderImage } from "@/components/ui/placeholder-image";
 import { siteConfig } from "@/config/site";
 
 const posts = [
+  {
+    title: "Florida Flooring 101: Why Tile Wins in Bradenton Homes",
+    date: "October 14, 2025",
+    excerpt:
+      "Humidity, sand, and sunshine are no match for porcelain floors—discover why Bradenton homeowners rely on tile to stay cool, durable, and easy to clean.",
+    slug: "why-tile-flooring-bradenton-fl",
+    image: {
+      type: "placeholder" as const,
+      label: "Image Placeholder",
+    },
+  },
   {
     title: "Fleitz Family Tile Has a Website!",
     date: "October 9, 2025",
@@ -15,6 +27,7 @@ const posts = [
       "Explore our brand-new digital home, see generations of tile craftsmanship, and discover how to collaborate with our Bradenton team online.",
     slug: "fleitz-family-tile-has-a-website",
     image: {
+      type: "image" as const,
       src: "/images/Blog/Bathroom-AJ-Long.png",
       alt: "Custom tile shower featuring marble-look walls installed by Fleitz Family Tile",
     },
@@ -68,14 +81,23 @@ export default function BlogPage() {
                 className="flex h-full flex-col overflow-hidden rounded-3xl border border-slate-200 bg-white shadow-sm"
               >
                 <div className="relative aspect-[4/3] w-full">
-                  <Image
-                    src={post.image.src}
-                    alt={post.image.alt}
-                    fill
-                    sizes="(max-width: 768px) 100vw, (max-width: 1024px) 50vw, 33vw"
-                    className="object-cover"
-                    priority
-                  />
+                  {post.image.type === "placeholder" ? (
+                    <div className="absolute inset-0">
+                      <PlaceholderImage
+                        label={post.image.label}
+                        className="h-full w-full rounded-none border-0"
+                      />
+                    </div>
+                  ) : (
+                    <Image
+                      src={post.image.src}
+                      alt={post.image.alt}
+                      fill
+                      sizes="(max-width: 768px) 100vw, (max-width: 1024px) 50vw, 33vw"
+                      className="object-cover"
+                      priority
+                    />
+                  )}
                 </div>
                 <div className="flex flex-1 flex-col p-6">
                   <p className="text-xs uppercase tracking-[0.3em] text-slate-500">{post.date}</p>
