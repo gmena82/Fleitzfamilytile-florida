@@ -249,7 +249,7 @@ export default function WhyTileFlooringBradentonPage() {
                 <h2 className="text-2xl font-semibold text-slate-900">Plan Your Tile Project with Fleitz Family Tile</h2>
                 <p>
                   Our third-generation installers serve Bradenton, Lakewood Ranch, Sarasota, Palmetto, Parrish, Anna Maria Island, and Holmes Beach. Whether you need a <Link href="/bathroom-shower" className="text-slate-900 underline-offset-4 hover:underline">shower overhaul</Link>,{" "}
-                  <Link href="/services/backsplashes" className="text-slate-900 underline-offset-4 hover:underline">kitchen backsplash</Link>, or a <Link href="/services/floor-tile" className="text-slate-900 underline-offset-4 hover:underline">resilient floor tile installation</Link>, we prep every slab, laser the layout, and finish strong.
+                  <Link href="/kitchen-backsplashes" className="text-slate-900 underline-offset-4 hover:underline">kitchen backsplash</Link>, or a <Link href="/floor-tile-installation" className="text-slate-900 underline-offset-4 hover:underline">resilient floor tile installation</Link>, we prep every slab, laser the layout, and finish strong.
                 </p>
                 <p>
                   Ready to start? <Link href="/contact" className="text-slate-900 underline-offset-4 hover:underline">Request your free estimate</Link> and we&apos;ll bring tile samples, layout advice, and a detailed installation plan.
