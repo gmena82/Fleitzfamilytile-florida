@@ -139,7 +139,7 @@ export default function WhyTileFlooringBradentonPage() {
                   Tile keeps daily maintenance simple. Spills, pet messes, and sandy footprints sit on the surface until you wipe them away. Most Bradenton homeowners only need a soft sweep and an occasional pH-neutral mop—no waxes, no refinishing, no off-limits days while floors cure.
                 </p>
                 <p>
-                  Prefer a low-effort upgrade? Our <Link href="/services/floor-tile" className="text-slate-900 underline-offset-4 hover:underline">floor tile installation</Link> crew handles demo, prep, and reinstallation of baseboards, so you can get back to normal fast.
+                  Prefer a low-effort upgrade? Our <Link href="/floor-tile-installation" className="text-slate-900 underline-offset-4 hover:underline">floor tile installation</Link> crew handles demo, prep, and reinstallation of baseboards, so you can get back to normal fast.
                 </p>
               </section>
 
