@@ -1,39 +1,74 @@
 import Script from "next/script";
 import type { Metadata } from "next";
+import Image from "next/image";
 
 import { QuoteCtaSection } from "@/components/sections/quote-cta";
 import { Container } from "@/components/ui/container";
-import { PlaceholderImage } from "@/components/ui/placeholder-image";
 import { siteConfig } from "@/config/site";
 
-const galleryItems = [
-  { title: "Sunlit subway backsplash", city: "West Bradenton", category: "Kitchens" },
-  { title: "Marble-look shower retreat", city: "Sarasota", category: "Bathrooms/Showers" },
-  { title: "Chevron fireplace surround", city: "Lakewood Ranch", category: "Fireplaces" },
-  { title: "Coastal lanai flooring", city: "Sarasota", category: "Exterior" },
-  { title: "Herringbone mudroom floor", city: "Bradenton", category: "Floors" },
-  { title: "Glass mosaic feature wall", city: "Lakewood Ranch", category: "Kitchens" },
-  { title: "Matte black shower niche", city: "Parrish", category: "Bathrooms/Showers" },
-  { title: "Porcelain plank great room", city: "Sarasota", category: "Floors" },
-  { title: "Statement range splash", city: "Anna Maria Island", category: "Kitchens" },
-  { title: "Spa-inspired tub deck", city: "Lakewood Ranch", category: "Bathrooms/Showers" },
-  { title: "Outdoor kitchen backsplash", city: "West Bradenton", category: "Exterior" },
-  { title: "Vertical stack fireplace", city: "Palmetto", category: "Fireplaces" },
-  { title: "Lanai ledgerstone wall", city: "Sarasota", category: "Exterior" },
-  { title: "Large-format foyer tile", city: "Bradenton", category: "Floors" },
-  { title: "Custom medallion entry", city: "Lakewood Ranch", category: "Floors" },
-  { title: "Satin brass niche trim", city: "Sarasota", category: "Bathrooms/Showers" },
-  { title: "Backlit wine wall tile", city: "Lakewood Ranch", category: "Kitchens" },
-  { title: "Pebble shower pan", city: "Bradenton", category: "Bathrooms/Showers" },
-  { title: "Patterned laundry backsplash", city: "Ellenton", category: "Kitchens" },
-  { title: "Outdoor porcelain steps", city: "Palmetto", category: "Exterior" },
-  { title: "Hexagon powder bath floor", city: "Sarasota", category: "Bathrooms/Showers" },
-  { title: "Floating hearth surround", city: "Lakewood Ranch", category: "Fireplaces" },
-  { title: "Seamless great room tile", city: "West Bradenton", category: "Floors" },
-  { title: "Mediterranean pool coping", city: "Sarasota", category: "Exterior" },
+// Gallery images from public/images/showroom directory
+const galleryImages = [
+  {
+    src: "/images/showroom/Kitchen-1.webp",
+    alt: "Kitchen backsplash tile installation in Bradenton FL by Fleitz Family Tile",
+    caption: "Custom Kitchen Backsplash"
+  },
+  {
+    src: "/images/showroom/Kitchen-2.webp",
+    alt: "Modern kitchen tile work in Sarasota FL by Fleitz Family Tile",
+    caption: "Contemporary Kitchen Design"
+  },
+  {
+    src: "/images/showroom/shower-tall-1.webp",
+    alt: "Bathroom shower tile installation in Bradenton FL by Fleitz Family Tile",
+    caption: "Custom Shower Installation"
+  },
+  {
+    src: "/images/showroom/shower-tall-2.webp",
+    alt: "Luxury shower tile design in Lakewood Ranch FL by Fleitz Family Tile",
+    caption: "Spa-Style Shower"
+  },
+  {
+    src: "/images/showroom/shower-tall-3.webp",
+    alt: "Modern bathroom tile installation in Sarasota FL by Fleitz Family Tile",
+    caption: "Modern Bathroom Remodel"
+  },
+  {
+    src: "/images/showroom/Bathroom-floor-tall.webp",
+    alt: "Bathroom floor tile installation in Bradenton FL by Fleitz Family Tile",
+    caption: "Custom Bathroom Flooring"
+  },
+  {
+    src: "/images/showroom/Fireplace-Tall-1.webp",
+    alt: "Custom fireplace tile surround in Bradenton FL by Fleitz Family Tile",
+    caption: "Statement Fireplace Surround"
+  },
+  {
+    src: "/images/showroom/kitchen-tall-1.webp",
+    alt: "Kitchen backsplash installation in Sarasota FL by Fleitz Family Tile",
+    caption: "Elegant Kitchen Backsplash"
+  },
+  {
+    src: "/images/showroom/Kitchen-5.webp",
+    alt: "Premium kitchen tile work in Lakewood Ranch FL by Fleitz Family Tile",
+    caption: "Premium Kitchen Design"
+  },
+  {
+    src: "/images/showroom/shower-tall-4.webp",
+    alt: "Bathroom shower remodel in Bradenton FL by Fleitz Family Tile",
+    caption: "Walk-In Shower Design"
+  },
+  {
+    src: "/images/showroom/shower-tall-5.webp",
+    alt: "Porcelain shower tile installation in Sarasota FL by Fleitz Family Tile",
+    caption: "Porcelain Shower Installation"
+  },
+  {
+    src: "/images/showroom/kitchen-tall-2.webp",
+    alt: "Backsplash tile design in Lakewood Ranch FL by Fleitz Family Tile",
+    caption: "Designer Backsplash"
+  }
 ] as const;
-
-const categories = ["Kitchens", "Bathrooms/Showers", "Floors", "Fireplaces", "Exterior"] as const;
 
 const collectionJsonLd = {
   "@context": "https://schema.org",
@@ -52,12 +87,19 @@ const breadcrumbJsonLd = {
 };
 
 export const metadata: Metadata = {
-  title: "Tile Installation Gallery | Bradenton, Sarasota & Lakewood Ranch",
+  title: "Tile Installation Project Gallery: Kitchens, Baths & Floors | Bradenton, FL",
   description:
-    "See real tile projects across Bradenton, Sarasota, and Lakewood Ranch—backsplashes, showers, floors, and fireplaces by Fleitz Family Tile.",
+    "Browse Fleitz Family Tile's gallery of completed projects across Bradenton, Sarasota, and Lakewood Ranch. Find inspiration for your kitchen backsplash, bathroom remodel, or custom flooring installation.",
   alternates: {
     canonical: "https://www.fleitzfamilytile.com/gallery",
   },
+  openGraph: {
+    type: "website",
+    url: "https://www.fleitzfamilytile.com/gallery",
+    title: "Tile Installation Gallery | Bradenton FL",
+    description: "Browse our portfolio of completed tile projects in Bradenton, Sarasota & Lakewood Ranch.",
+    images: [{ url: siteConfig.ogImage, alt: "Fleitz Family Tile Gallery" }]
+  }
 };
 
 export default function GalleryPage() {
@@ -66,37 +108,61 @@ export default function GalleryPage() {
       <Script id="gallery-collection" type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(collectionJsonLd) }} />
       <Script id="gallery-breadcrumb" type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(breadcrumbJsonLd) }} />
 
-      <section id="intro" className="bg-slate-900 py-20 text-white">
-        <Container className="space-y-6 text-center">
-          <p className="text-xs font-semibold uppercase tracking-[0.4em] text-slate-300">Tile Gallery Bradenton</p>
-          <h1 className="text-3xl font-semibold sm:text-4xl">Our Work Around Bradenton &amp; Sarasota</h1>
-          <p className="mx-auto max-w-2xl text-sm leading-relaxed text-slate-200">
-            Browse kitchens, baths, floors, fireplaces, and lanai upgrades installed with Florida-ready methods. Every project in our gallery is waterproofed, leveled, and detailed to handle Suncoast humidity and heat.
+      {/* Gallery Intro Section */}
+      <section className="gallery-intro bg-white py-12">
+        <Container className="mx-auto max-w-[860px] space-y-6 text-center">
+          <h1 className="text-3xl font-semibold text-slate-900 sm:text-4xl">
+            Tile Installation Project Gallery
+          </h1>
+          <p className="text-base leading-relaxed text-slate-600">
+            Browse our portfolio of completed tile installation projects across Bradenton, Sarasota, and Lakewood Ranch. From kitchen backsplashes and bathroom remodels to custom flooring and fireplace surrounds, see the craftsmanship and attention to detail that defines Fleitz Family Tile.
+          </p>
+          <p className="text-base leading-relaxed text-slate-600">
+            Each project showcases our commitment to precision, clean installations, and finishes built to last in Florida's climate.
           </p>
         </Container>
       </section>
 
-      <section id="grid" className="bg-white py-16">
-        <Container className="space-y-10">
-          <div className="flex flex-wrap items-center justify-center gap-3 text-xs font-semibold uppercase tracking-[0.3em] text-slate-500">
-            <span>Optional Filters:</span>
-            {categories.map((category) => (
-              <span key={category} className="rounded-full border border-slate-200 px-4 py-2 text-slate-700">
-                {category}
-              </span>
+      {/* Gallery Grid Section */}
+      <section className="gallery-section bg-slate-50 px-4 pb-20">
+        <Container>
+          <div className="gallery-grid grid grid-cols-1 gap-6 sm:grid-cols-2 lg:grid-cols-3">
+            {galleryImages.map((item, index) => (
+              <figure
+                key={index}
+                className="gallery-item group cursor-pointer overflow-hidden rounded-lg shadow-md transition-transform hover:scale-105"
+              >
+                <div className="gallery-media relative overflow-hidden">
+                  <Image
+                    src={item.src}
+                    alt={item.alt}
+                    width={600}
+                    height={800}
+                    className="h-auto w-full object-cover transition-transform duration-300 group-hover:scale-105"
+                    loading={index < 6 ? "eager" : "lazy"}
+                  />
+                  <div className="gallery-overlay absolute inset-0 flex items-center justify-center bg-black/50 opacity-0 transition-opacity duration-300 group-hover:opacity-100">
+                    <span className="magnify-icon text-5xl font-extralight text-white">+</span>
+                  </div>
+                </div>
+                <figcaption className="gallery-caption mt-2 text-center text-sm text-slate-600">
+                  {item.caption}
+                </figcaption>
+              </figure>
             ))}
           </div>
-          <div className="grid gap-6 sm:grid-cols-2 lg:grid-cols-3">
-            {galleryItems.map((item) => (
-              <article key={`${item.title}-${item.city}`} className="overflow-hidden rounded-3xl border border-slate-200 bg-white shadow-sm">
-                <PlaceholderImage className="h-48 w-full" />
-                <div className="space-y-1 p-5">
-                  <h2 className="text-base font-semibold text-slate-900">{item.title}</h2>
-                  <p className="text-xs uppercase tracking-[0.3em] text-slate-500">{item.city}</p>
-                  <p className="text-xs text-slate-500">{item.category}</p>
-                </div>
-              </article>
-            ))}
+
+          {/* Gallery CTA */}
+          <div className="gallery-cta mt-8 text-center">
+            <p className="mb-6 text-base text-slate-600">
+              Ready to start your own tile installation project?
+            </p>
+            <a
+              href="/contact"
+              className="inline-flex items-center justify-center rounded-full bg-slate-900 px-8 py-3 text-sm font-semibold text-white transition hover:bg-slate-700"
+            >
+              Request a Quote
+            </a>
           </div>
         </Container>
       </section>

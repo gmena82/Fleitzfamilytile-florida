@@ -176,7 +176,7 @@ export default function WhyTileFlooringBradentonPage() {
                     <strong>Large-format tile:</strong> 24×24 squares and porcelain planks minimize grout lines for a modern, open feel.
                   </li>
                   <li>
-                    <strong>Wood-look porcelain:</strong> Get the warmth of oak or hickory without worrying about humidity or scratching. It&apos;s a favorite for <Link href="/services/outdoor" className="text-slate-900 underline-offset-4 hover:underline">indoor-outdoor transitions</Link> leading to lanais and pool decks.
+                    <strong>Wood-look porcelain:</strong> Get the warmth of oak or hickory without worrying about humidity or scratching. It&apos;s a favorite for <Link href="/outside-projects" className="text-slate-900 underline-offset-4 hover:underline">indoor-outdoor transitions</Link> leading to lanais and pool decks.
                   </li>
                   <li>
                     <strong>Light, airy palettes:</strong> Soft whites, sands, and greiges reflect natural light and keep coastal interiors timeless.

@@ -1,7 +1,7 @@
 import Image from "next/image";
 import Script from "next/script";
 import type { Metadata } from "next";
-import { ArrowUpRight, Clock, Mail, MapPin, Phone } from "lucide-react";
+import { ArrowUpRight, Mail, MapPin, Phone } from "lucide-react";
 
 import { HomeCtaForm } from "@/components/sections/home-cta-form";
 import { Container } from "@/components/ui/container";
@@ -33,135 +33,128 @@ export const metadata: Metadata = {
 
 export default function ContactPage() {
   const phoneNumber = siteConfig.contact.phone.replace(/^(ph:?\s*)/i, "");
-  const serviceAreaSummary = siteConfig.serviceAreas.join(" • ");
-  const phoneHref = phoneNumber.replace(/[^\d]/g, "");
+  const phoneDigits = phoneNumber.replace(/[^\d]/g, "");
   const googleBusinessUrl = "https://share.google/A5WSqlCJ5gKJ8AuLI";
-  const directionsUrl =
-    "https://www.google.com/maps/dir/?api=1&destination=Fleitz%20Family%20Tile%2C%20Bradenton%2C%20FL";
 
   return (
     <>
       <Script id="contact-jsonld" type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(contactJsonLd) }} />
 
-      <section id="quality-blurb" className="bg-slate-50 py-16">
-        <Container className="grid gap-10 lg:grid-cols-[minmax(0,1.05fr)_minmax(0,0.95fr)] lg:items-center">
-          <div className="space-y-6 text-center lg:text-left">
-            <p className="text-xs font-semibold uppercase tracking-[0.4em] text-slate-500">Three Generations of Tile Craft</p>
-            <h1 className="text-3xl font-semibold text-slate-900 sm:text-4xl">Quality Is Everything</h1>
-            <p className="mx-auto max-w-3xl text-sm leading-relaxed text-slate-600 lg:mx-0">
-              We prepare every surface, waterproof wet zones, and use premium mortars and grouts so your tile stays flawless. From the first layout to final cleanup, our third-generation installers protect your home and timeline.
-            </p>
-          </div>
-          <div className="relative mx-auto aspect-[4/3] w-full max-w-xl overflow-hidden rounded-3xl bg-slate-200 shadow-lg">
-            <Image
-              src="/images/placeholders/contact-quality-placeholder.svg"
-              alt="Fleitz Family Tile team carefully installing tile"
-              fill
-              className="object-cover"
-              sizes="(min-width: 1024px) 420px, 100vw"
-              priority
-            />
-          </div>
-        </Container>
-      </section>
-
-      <section id="hero" className="bg-slate-900 py-20 text-white">
-        <Container className="grid gap-12 lg:grid-cols-[minmax(0,0.9fr)_minmax(0,1fr)] lg:items-center">
-          <div className="space-y-6 text-center lg:text-left">
-            <p className="text-xs font-semibold uppercase tracking-[0.4em] text-slate-300">Tile Contractor Bradenton Contact</p>
-            <h2 className="text-3xl font-semibold sm:text-4xl">Contact Us About Your Bradenton Project</h2>
-            <p className="mx-auto max-w-2xl text-sm leading-relaxed text-slate-200 lg:mx-0">
-              Call, email, or share project details for a free tile estimate. We serve Bradenton, Sarasota, Lakewood Ranch, and neighboring Suncoast communities.
-            </p>
-          </div>
-          <HomeCtaForm />
-        </Container>
-      </section>
-
-      <section id="service-areas" className="bg-white py-16">
-        <Container className="space-y-6 text-center">
-          <h2 className="text-3xl font-semibold text-slate-900">Serving the Suncoast</h2>
-          <p className="mx-auto max-w-2xl text-sm leading-relaxed text-slate-600">
-            Based in Bradenton and proudly completing tile projects throughout Sarasota, Lakewood Ranch, and nearby Gulf Coast communities.
-          </p>
-        </Container>
-      </section>
-
-      <section id="location" className="bg-slate-900 py-24 text-white">
-        <Container className="grid gap-12 lg:grid-cols-[minmax(0,0.9fr)_minmax(0,1.1fr)] lg:items-center">
-          <div className="relative overflow-hidden rounded-3xl border border-white/10 bg-white/5 p-[1px] shadow-2xl">
-            <div className="absolute inset-0 -z-10 bg-gradient-to-br from-sky-400/40 via-transparent to-sky-500/20 blur-3xl" />
-            <div className="relative h-full rounded-[calc(1.5rem-2px)] bg-slate-950/80 p-8 backdrop-blur">
-              <div className="space-y-4 text-center lg:text-left">
-                <span className="inline-flex items-center gap-2 rounded-full border border-white/15 px-4 py-1 text-xs font-semibold uppercase tracking-[0.35em] text-slate-300">
-                  Visit Fleitz Family Tile
-                </span>
-                <h2 className="text-3xl font-semibold text-white sm:text-4xl">Find Us on Google Business</h2>
-                <p className="text-sm leading-relaxed text-slate-200/80">
-                  Stop by our Bradenton tile studio to browse premium materials, review layouts, and collaborate with our third-generation installers on your next project.
-                </p>
-              </div>
-              <div className="mt-8 space-y-5 text-sm text-slate-200/90">
-                <div className="flex items-start gap-3">
-                  <MapPin className="icon-electric mt-1 h-5 w-5 text-sky-300" aria-hidden style={{ animationDelay: "0s" }} />
-                  <div className="space-y-1">
-                    <p className="font-semibold text-white">Bradenton, Florida</p>
-                    <p className="text-slate-200/70">Serving {serviceAreaSummary}</p>
-                  </div>
+      {/* Contact Hero/Form Section */}
+      <section id="contact" className="cta-section relative overflow-hidden bg-slate-900 py-16 text-white">
+        <div className="cta-bg absolute inset-0">
+          <Image
+            src="/images/showroom/BG-1-F.png"
+            alt="Luxury kitchen tile backsplash installation in Bradenton FL by Fleitz Family Tile"
+            fill
+            className="cta-bg-image object-cover"
+            priority
+          />
+          <div className="cta-overlay absolute inset-0 bg-gradient-to-b from-black/70 via-black/60 to-black/70" />
+        </div>
+        <Container className="relative z-10">
+          <div className="cta-content grid gap-10 lg:grid-cols-[minmax(0,0.9fr)_minmax(0,1fr)]">
+            <div className="cta-text space-y-6">
+              <h1 className="text-3xl font-semibold sm:text-4xl">Ready to Transform Your Space?</h1>
+              <p className="text-sm leading-relaxed text-slate-200">
+                Get a free estimate for your tile installation project. Professional craftsmanship, competitive pricing, and exceptional service guaranteed.
+              </p>
+              <div className="cta-features flex flex-wrap gap-4">
+                <div className="feature flex items-center gap-2">
+                  <svg className="feature-icon h-5 w-5" viewBox="0 0 24 24"><path fill="currentColor" d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z"/></svg>
+                  <span className="text-sm font-semibold">Free Estimates</span>
                 </div>
-                <div className="flex items-start gap-3">
-                  <Phone className="icon-electric mt-1 h-5 w-5 text-sky-300" aria-hidden style={{ animationDelay: "0.15s" }} />
-                  <a className="font-semibold text-white transition hover:text-sky-200" href={`tel:${phoneHref}`}>
+                <div className="feature flex items-center gap-2">
+                  <svg className="feature-icon h-5 w-5" viewBox="0 0 24 24"><path fill="currentColor" d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z"/></svg>
+                  <span className="text-sm font-semibold">Licensed & Insured</span>
+                </div>
+                <div className="feature flex items-center gap-2">
+                  <svg className="feature-icon h-5 w-5" viewBox="0 0 24 24"><path fill="currentColor" d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z"/></svg>
+                  <span className="text-sm font-semibold">Quality Guarantee</span>
+                </div>
+              </div>
+
+              {/* Contact Information */}
+              <div className="contact-info mt-8 space-y-4 border-t border-white/20 pt-8">
+                <div className="contact-item flex items-center gap-3">
+                  <Phone className="contact-icon h-5 w-5 text-sky-300" />
+                  <a href={`tel:+1${phoneDigits}`} className="font-medium text-white transition hover:text-sky-200">
                     {phoneNumber}
                   </a>
                 </div>
-                <div className="flex items-start gap-3">
-                  <Mail className="icon-electric mt-1 h-5 w-5 text-sky-300" aria-hidden style={{ animationDelay: "0.3s" }} />
-                  <a className="font-semibold text-white transition hover:text-sky-200" href={`mailto:${siteConfig.contact.email}`}>
+                <div className="contact-item flex items-center gap-3">
+                  <Mail className="contact-icon h-5 w-5 text-sky-300" />
+                  <a href={`mailto:${siteConfig.contact.email}`} className="font-medium text-white transition hover:text-sky-200">
                     {siteConfig.contact.email}
                   </a>
                 </div>
-                <div className="flex items-start gap-3">
-                  <Clock className="icon-electric mt-1 h-5 w-5 text-sky-300" aria-hidden style={{ animationDelay: "0.45s" }} />
-                  <div className="space-y-1 text-slate-200/80">
-                    <p>{siteConfig.hours.weekdays}</p>
-                    <p>{siteConfig.hours.saturday}</p>
-                    <p>{siteConfig.hours.sunday}</p>
-                  </div>
+                <div className="contact-item flex items-start gap-3">
+                  <MapPin className="contact-icon mt-1 h-5 w-5 text-sky-300" />
+                  <span className="text-sm text-slate-200">
+                    {siteConfig.headquarters.street}, {siteConfig.headquarters.city}, {siteConfig.headquarters.state} {siteConfig.headquarters.postalCode}
+                  </span>
                 </div>
               </div>
-              <div className="mt-8 flex flex-wrap gap-3 lg:justify-start">
-                <a
-                  href={googleBusinessUrl}
-                  target="_blank"
-                  rel="noreferrer"
-                  className="inline-flex items-center gap-2 rounded-full bg-white px-6 py-3 text-sm font-semibold text-slate-900 transition hover:bg-slate-200"
-                >
-                  View Google Business Profile
-                  <ArrowUpRight className="h-4 w-4 icon-electric" aria-hidden style={{ animationDelay: "0.6s" }} />
-                </a>
-                <a
-                  href={directionsUrl}
-                  target="_blank"
-                  rel="noreferrer"
-                  className="inline-flex items-center gap-2 rounded-full border border-white/60 px-6 py-3 text-sm font-semibold text-white transition hover:border-white"
-                >
-                  Get Directions
-                  <ArrowUpRight className="h-4 w-4 icon-electric" aria-hidden style={{ animationDelay: "0.75s" }} />
-                </a>
-              </div>
+            </div>
+            <div className="cta-form">
+              <HomeCtaForm />
             </div>
           </div>
-          <div className="relative overflow-hidden rounded-3xl border border-white/10 bg-slate-900/60 shadow-2xl">
-            <div className="pointer-events-none absolute inset-0 bg-gradient-to-br from-slate-900/40 via-slate-900/10 to-transparent" />
+        </Container>
+      </section>
+
+      {/* Quality Section */}
+      <section className="quality-section bg-slate-50 py-20">
+        <Container>
+          <div className="cta-content grid gap-12 lg:grid-cols-[minmax(0,1fr)_minmax(0,1fr)] lg:items-center">
+            <div className="quality-image order-2 lg:order-1">
+              <Image
+                src="/images/showroom/Mirror-Backsplash.png"
+                alt="Client admiring a beautiful and lasting tile backsplash"
+                width={800}
+                height={600}
+                className="h-auto w-full rounded-xl object-cover shadow-lg"
+              />
+            </div>
+            <div className="cta-text order-1 space-y-6 lg:order-2">
+              <h2 className="text-3xl font-semibold text-slate-900">Quality is Everything</h2>
+              <p className="text-base leading-relaxed text-slate-600">
+                When it comes to your home, quality is the one thing that truly matters. We believe our clients work too hard for their money to settle for anything less than a project that is both beautiful and built to last. From meticulous surface preparation to the final, perfect grout line, our commitment to craftsmanship is unwavering. Your home is an investment, and we honor that with tile work that stands the test of time, delivering value and enjoyment for years to come.
+              </p>
+            </div>
+          </div>
+        </Container>
+      </section>
+
+      {/* Map Section */}
+      <section className="map-section bg-white py-20">
+        <Container>
+          <div className="section-header mb-8 space-y-3 text-center">
+            <h2 className="text-3xl font-semibold text-slate-900">Find Us in Bradenton</h2>
+            <p className="mx-auto max-w-2xl text-sm leading-relaxed text-slate-600">
+              Serving Bradenton, Sarasota, Lakewood Ranch & nearby communities
+            </p>
+          </div>
+          <div className="map-actions mb-4 text-right">
+            <a
+              className="map-link inline-flex items-center gap-2 text-sm font-semibold text-slate-700 transition hover:text-slate-900"
+              href={googleBusinessUrl}
+              target="_blank"
+              rel="noopener noreferrer"
+            >
+              Open Our Google Business Profile
+              <ArrowUpRight className="h-4 w-4" />
+            </a>
+          </div>
+          <div className="map-container overflow-hidden rounded-xl shadow-lg">
             <iframe
-              title="Google map showing Fleitz Family Tile in Bradenton, Florida"
-              src="https://maps.google.com/maps?q=Fleitz%20Family%20Tile%2C%20Bradenton%2C%20FL&amp;z=14&amp;output=embed"
-              className="relative h-[420px] w-full md:h-[520px]"
+              src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3509.323952458428!2d-82.5665!3d27.4909!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x88c33e7b2e9c3e5d%3A0x6e7b5e4f2a71343c!2sBradenton%2C%20FL%2034201%2C%20USA!5e0!3m2!1sen!2sus!4v1662586733364!5m2!1sen!2sus"
+              style={{ border: 0, width: "100%", height: "450px" }}
+              allowFullScreen
               loading="lazy"
               referrerPolicy="no-referrer-when-downgrade"
+              title="Google map showing Fleitz Family Tile in Bradenton, Florida"
             />
-            <div className="pointer-events-none absolute inset-0 border border-white/5" />
           </div>
         </Container>
       </section>

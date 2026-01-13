@@ -1,9 +1,9 @@
 import Link from "next/link";
 import Script from "next/script";
 import type { Metadata } from "next";
+import Image from "next/image";
 import { ArrowRight, CheckCircle2, Star } from "lucide-react";
 
-import { PlaceholderImage } from "@/components/ui/placeholder-image";
 import { Container } from "@/components/ui/container";
 import { siteConfig } from "@/config/site";
 import { HomeCtaForm } from "@/components/sections/home-cta-form";
@@ -15,67 +15,80 @@ const heroBenefits = [
 
 const services = [
   {
-    title: "Kitchen Backsplash Installation",
+    title: "Kitchen Backsplash",
     description: "Custom backsplash layouts that protect walls and add Bradenton character to your kitchen.",
-    href: "/kitchen-backsplashes"
+    href: "/kitchen-backsplashes",
+    image: "/images/showroom/Kitchen-1.webp",
+    cta: "View Kitchen Backsplash Options"
   },
   {
-    title: "Bathroom & Shower Tile",
+    title: "Bathroom & Shower",
     description: "Waterproofed showers, tubs, and bathroom remodels tailored to coastal living.",
-    href: "/bathroom-shower"
+    href: "/bathroom-shower",
+    image: "/images/showroom/shower-tall-3.webp",
+    cta: "Explore Bathroom Tile Solutions"
   },
   {
     title: "Floor Tile Installation",
     description: "Durable floor tile systems for main living areas, condos, and whole-home remodels.",
-    href: "/floor-tile-installation"
+    href: "/floor-tile-installation",
+    image: "/images/showroom/BG-5-F.png",
+    cta: "See Flooring Installation Services"
   },
   {
-    title: "Fireplace Surrounds",
+    title: "Fireplaces",
     description: "Statement-making fireplace surrounds with heat-ready tile detailing.",
-    href: "/fireplaces"
+    href: "/fireplaces",
+    image: "/images/showroom/Fireplace-Tall-1.webp",
+    cta: "See Custom Fireplace Tile Surrounds"
   },
   {
     title: "Special Projects",
     description: "Custom mosaics, outdoor lanais, and unique requests executed with precision.",
-    href: "/special-projects"
+    href: "/special-projects",
+    image: "/images/showroom/Mirror-Backsplash.png",
+    cta: "Discover Special Tile Projects"
+  },
+  {
+    title: "Outside Projects",
+    description: "Durable outdoor tile for lanais, patios, and pool decks built for Florida weather.",
+    href: "/outside-projects",
+    image: "/images/showroom/BG-9-F.png",
+    cta: "Explore Outdoor Tile Options"
   }
 ] as const;
 
 const showcaseProjects = [
-  "Spa Shower with Niches",
-  "Coastal Kitchen Backsplash",
-  "Wide-Plank Porcelain Flooring",
-  "Modern Fireplace Surround",
-  "Outdoor Lanai Refresh",
-  "Statement Mosaic Accent"
+  { name: "Spa Shower with Niches", image: "/images/showroom/shower-tall-1.webp" },
+  { name: "Coastal Kitchen Backsplash", image: "/images/showroom/Kitchen-2.webp" },
+  { name: "Wide-Plank Porcelain Flooring", image: "/images/showroom/BG-3-F.png" },
+  { name: "Modern Fireplace Surround", image: "/images/showroom/Fireplace-Tall-1.webp" },
+  { name: "Outdoor Lanai Refresh", image: "/images/showroom/BG-9-F.png" },
+  { name: "Statement Mosaic Accent", image: "/images/showroom/Pebble-Tile.png" }
 ];
 
 const testimonials = [
   {
-    quote:
-      "The crew respected our home, protected every surface, and the new shower tile is flawless. Communication was clear from start to finish.",
-    name: "Lydia M.",
+    quote: "I was introduced to AJ Fleitz through a general contractor, who I hired to redo our Master bathroom. I was immediately impressed by AJ as we discussed the project and design, and it was clear that he had the level of experience and attention to detail I was hoping for...",
+    name: "Paul",
     location: "Bradenton, FL"
   },
   {
-    quote:
-      "Our Lakewood Ranch kitchen backsplash transformed the whole space. Precise cuts, tidy grout lines, and they wrapped up on schedule.",
-    name: "Kurt & Alana R.",
-    location: "Lakewood Ranch, FL"
+    quote: "I had an excellent experience with Fleitz Family Tile and especially with Anthony the contractor. He and his team was professional, punctual, and delivered high-skill work that exceeded my expectations. From start to finish, Anthony communicated clearly, showed great attention to detail, and treated the project with the utmost care...",
+    name: "Luiggi",
+    location: "Sarasota, FL"
   },
   {
-    quote:
-      "From demolition to cleanup, Fleitz Family Tile handled our Sarasota condo bath remodel with professionalism. Highly recommend their craftsmanship.",
-    name: "Tina S.",
-    location: "Sarasota, FL"
+    quote: "AJ does great work with a great attitude. I have used him on over 8 bathrooms and 3 back splashes, and have always been satisfied! If you want quality work at a fair price, Fleitz Family Tile is the company to use!",
+    name: "Hunter",
+    location: "Lakewood Ranch, FL"
   }
 ];
 
 const homeFaqs = [
   {
     question: "Do you provide free estimates in Bradenton?",
-    answer:
-      "Yes—share your project details and photos, and we’ll schedule a site visit in Bradenton or nearby."
+    answer: "Yes—share your project details and photos, and we'll schedule a site visit in Bradenton or nearby."
   },
   {
     question: "Are you licensed and insured in Florida?",
@@ -83,13 +96,11 @@ const homeFaqs = [
   },
   {
     question: "Do you handle demolition, prep, and cleanup?",
-    answer:
-      "Absolutely. We perform tidy demo, surface prep, and daily cleanup to protect your home."
+    answer: "Absolutely. We perform tidy demo, surface prep, and daily cleanup to protect your home."
   },
   {
     question: "What tile types do you install?",
-    answer:
-      "Porcelain, ceramic, natural stone, glass, and large-format panels—with guidance on grout, trims, and profiles."
+    answer: "Porcelain, ceramic, natural stone, glass, and large-format panels—with guidance on grout, trims, and profiles."
   },
   {
     question: "Do you service Sarasota and Lakewood Ranch?",
@@ -97,40 +108,19 @@ const homeFaqs = [
   },
   {
     question: "How quickly can you start once we approve the estimate?",
-    answer:
-      "Most projects begin within 2–3 weeks. We lock in your dates after the proposal is signed and materials are confirmed."
+    answer: "Most projects begin within 2–3 weeks. We lock in your dates after the proposal is signed and materials are confirmed."
   }
 ];
 
 export const metadata: Metadata = {
   title: "Fleitz Family Tile | Bradenton Tile Installation & Bathroom Remodeling",
-  description:
-    "Bradenton’s trusted tile installer. Fleitz Family Tile delivers premium bathroom & shower tile, kitchen backsplashes, and floor tile installation. Serving Sarasota & Lakewood Ranch. Free estimates.",
+  description: "Bradenton's trusted tile installer. Fleitz Family Tile delivers premium bathroom & shower tile, kitchen backsplashes, and floor tile installation. Serving Sarasota & Lakewood Ranch. Free estimates.",
   alternates: {
     canonical: "https://www.fleitzfamilytile.com/"
   },
   robots: {
     index: true,
     follow: true
-  },
-  openGraph: {
-    type: "website",
-    url: "https://www.fleitzfamilytile.com/",
-    title: "Fleitz Family Tile | Bradenton Tile Installation",
-    description:
-      "Premium tile installation in Bradenton, Sarasota & Lakewood Ranch. Bathrooms, showers, floors, and backsplashes.",
-    images: [
-      {
-        url: siteConfig.ogImage,
-        alt: "Fleitz Family Tile"
-      }
-    ]
-  },
-  twitter: {
-    card: "summary_large_image",
-    title: "Fleitz Family Tile | Bradenton Tile Installation",
-    description: "Serving Bradenton & Sarasota with premium tile craftsmanship. Free estimates.",
-    images: [siteConfig.ogImage]
   }
 };
 
@@ -144,22 +134,15 @@ export default function HomePage() {
         url: `${siteConfig.url}/`,
         name: siteConfig.name,
         publisher: { "@id": `${siteConfig.url}/#org` },
-        inLanguage: "en-US",
-        potentialAction: {
-          "@type": "SearchAction",
-          target: `${siteConfig.url}/?s={search_term_string}`,
-          "query-input": "required name=search_term_string"
-        }
+        inLanguage: "en-US"
       },
       {
         "@type": ["LocalBusiness", "HomeAndConstructionBusiness"],
         "@id": `${siteConfig.url}/#org`,
         name: siteConfig.name,
-        image: siteConfig.ogImage,
         url: `${siteConfig.url}/`,
         telephone: siteConfig.contact.phone,
         email: siteConfig.contact.email,
-        logo: siteConfig.ogImage,
         address: {
           "@type": "PostalAddress",
           streetAddress: siteConfig.headquarters.street,
@@ -172,34 +155,6 @@ export default function HomePage() {
           { "@type": "City", name: "Bradenton" },
           { "@type": "City", name: "Sarasota" },
           { "@type": "Place", name: "Lakewood Ranch" }
-        ],
-        geo: {
-          "@type": "GeoCoordinates",
-          latitude: siteConfig.geo.latitude,
-          longitude: siteConfig.geo.longitude
-        },
-        sameAs: Object.values(siteConfig.socialLinks),
-        hasOfferCatalog: {
-          "@type": "OfferCatalog",
-          name: "Tile Services",
-          itemListElement: services.map((service) => ({
-            "@type": "Offer",
-            itemOffered: {
-              "@type": "Service",
-              name: service.title
-            }
-          }))
-        }
-      },
-      {
-        "@type": "BreadcrumbList",
-        itemListElement: [
-          {
-            "@type": "ListItem",
-            position: 1,
-            name: "Home",
-            item: `${siteConfig.url}/`
-          }
         ]
       }
     ]
@@ -208,224 +163,256 @@ export default function HomePage() {
   return (
     <>
       <Script id="home-schema" type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }} />
-      <section id="hero" className="overflow-hidden bg-slate-900 text-white">
-        <Container className="flex flex-col items-center gap-12 py-20 text-center">
-          <div className="mx-auto max-w-3xl space-y-6">
-            <h1 className="text-4xl font-semibold sm:text-5xl">
-              Premium Tile Installation &amp; Remodeling on Florida’s Suncoast — in Bradenton
-            </h1>
-            <p className="text-base leading-relaxed text-slate-200">
-              Fleitz Family Tile delivers premium tile installation and remodeling across the Suncoast—Bradenton first, with projects throughout Sarasota and Lakewood Ranch.
+
+      {/* Hero Section - Aesthetic Tile Style */}
+      <section className="hero">
+        <div className="hero-bg">
+          <Image
+            src="/images/showroom/BG-1-F.png"
+            alt="Professional tile installation in Bradenton FL by Fleitz Family Tile"
+            fill
+            priority
+            className="hero-image"
+          />
+          <div className="hero-overlay" />
+        </div>
+        <div className="container">
+          <div className="hero-content">
+            <div className="hero-badge">
+              <span>Fleitz Family Tile</span>
+              <span>•</span>
+              <span>Bradenton & nearby</span>
+            </div>
+            <h1>Professional Tile Installation in Bradenton and Central Florida</h1>
+            <p>
+              Serving homeowners across Central Florida, including Bradenton, Sarasota, Lakewood Ranch, and the greater Gulf Coast area. As a local tile contractor and tile setter, we deliver expert bathroom remodeling and flooring installation using premium ceramic, porcelain, and natural stone.
+            </p>
+            <p>
+              Detail-driven craftsmanship for kitchens, bathrooms, and whole-home flooring. Our team keeps job sites clean and delivers finishes that last, from robust waterproofing against humidity to durable flooring options tailored for Florida living.
+            </p>
+            <div className="hero-buttons">
+              <Link href="/contact" className="btn-primary">
+                Request a Quote
+              </Link>
+              <Link href="/gallery" className="btn-secondary">
+                View Gallery
+              </Link>
+            </div>
+            <div style={{ display: 'flex', flexWrap: 'wrap', gap: '0.5rem', fontSize: '0.875rem', color: 'rgba(255,255,255,0.9)', justifyContent: 'center' }}>
+              <span>Five-star service</span>
+              <span>•</span>
+              <span>Detailed prep & clean finishes</span>
+              <span>•</span>
+              <span>Clear communication</span>
+            </div>
+          </div>
+        </div>
+        <div className="hero-bottom">
+          Serving Bradenton, Sarasota, Lakewood Ranch, Palmetto & nearby Gulf communities
+        </div>
+      </section>
+
+      {/* Video Section */}
+      <section className="video-section">
+        <div className="container">
+          <div style={{ textAlign: 'center', marginBottom: '3rem', maxWidth: '48rem', margin: '0 auto 3rem' }}>
+            <h2 style={{ fontSize: 'clamp(1.75rem, 4vw, 2.25rem)', fontWeight: '700', color: '#0f172a', marginBottom: '1rem', lineHeight: '1.2' }}>
+              See Our Craftsmanship in Action
+            </h2>
+            <p style={{ fontSize: '1.125rem', color: '#64748b', lineHeight: '1.7' }}>
+              Watch our expert tile installation process and attention to detail.
             </p>
           </div>
-          <div className="relative mx-auto aspect-[16/10] w-full max-w-xl overflow-hidden rounded-3xl border border-white/20 bg-black shadow-2xl">
+          <div className="video-wrapper">
             <iframe
-              className="absolute inset-0 h-full w-full"
               src="https://www.youtube.com/embed/Hll582-mC_4?rel=0"
               title="Fleitz Family Tile Showroom Video"
               allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
-              loading="lazy"
-              referrerPolicy="strict-origin-when-cross-origin"
               allowFullScreen
             />
           </div>
-          <p className="mx-auto max-w-4xl text-sm leading-relaxed text-slate-200/90">
-            From classic bathroom remodels and walk-in showers to whole-home tile flooring and statement kitchen backsplashes, Fleitz Family Tile blends three generations of craft with modern methods. We prep surfaces right, waterproof wet areas correctly, and set tile with tight grout joints and flat, long-lasting finishes—built for Bradenton’s coastal climate.
-          </p>
-          <div className="mx-auto max-w-3xl space-y-4">
-            <div className="space-y-3 text-sm text-slate-200/80">
-              {heroBenefits.map((benefit) => (
-                <div key={benefit} className="flex items-center justify-center gap-2">
-                  <CheckCircle2 className="h-4 w-4 text-sky-300 animate-pulse" aria-hidden />
-                  <span>{benefit}</span>
-                </div>
-              ))}
+        </div>
+      </section>
+
+      {/* Expertise Section */}
+      <section style={{ background: 'white', padding: '5rem 0' }}>
+        <div className="container">
+          <div style={{ display: 'grid', gap: '4rem', gridTemplateColumns: 'repeat(auto-fit, minmax(min(100%, 400px), 1fr))', alignItems: 'center' }}>
+            <div style={{ position: 'relative', height: '28rem', borderRadius: '1rem', overflow: 'hidden', boxShadow: 'var(--shadow-xl)' }}>
+              <Image
+                src="/images/showroom/BG-3-F.png"
+                alt="Tile flooring installation details in Bradenton FL"
+                fill
+                className="object-cover"
+              />
             </div>
-            <div className="flex flex-wrap items-center justify-center gap-3">
-              <Link
-                href="/#cta-form"
-                className="inline-flex items-center gap-2 rounded-full bg-white px-6 py-3 text-sm font-semibold text-slate-900 transition hover:bg-slate-200"
-              >
-                Request a Quote
-                <ArrowRight className="h-4 w-4" aria-hidden />
-              </Link>
-              <Link
-                href="/gallery"
-                className="inline-flex items-center gap-2 rounded-full border border-white/60 px-6 py-3 text-sm font-semibold text-white transition hover:border-white"
-              >
-                View Gallery
-                <ArrowRight className="h-4 w-4" aria-hidden />
+            <div style={{ display: 'flex', flexDirection: 'column', gap: '1.75rem', padding: '0 1rem' }}>
+              <div style={{ display: 'inline-block', padding: '0.375rem 1rem', background: '#f1f5f9', borderRadius: '9999px', fontSize: '0.6875rem', fontWeight: '700', textTransform: 'uppercase', letterSpacing: '0.12em', color: '#64748b', alignSelf: 'flex-start' }}>
+                Award-winning master craftsmen
+              </div>
+              <h2 style={{ fontSize: 'clamp(1.75rem, 4vw, 2.25rem)', fontWeight: '700', lineHeight: '1.15', color: '#0f172a', letterSpacing: '-0.01em' }}>
+                We Are the Premier Tile Installation Company in Central Florida
+              </h2>
+              <p style={{ fontSize: '1.0625rem', lineHeight: '1.75', color: '#64748b' }}>
+                Fleitz Family Tile specializes in professional tile installation for residential and commercial projects. With over three generations of experience, we lead the Bradenton area in craftsmanship and precision. From kitchen backsplashes to bathroom renovations, we set the standard in skill, preparation, and finishes that last.
+              </p>
+              <Link href="/about" className="btn-secondary" style={{ color: '#0f172a', border: '1px solid #cbd5e1', alignSelf: 'flex-start', marginTop: '0.5rem' }}>
+                About Us
               </Link>
             </div>
           </div>
-        </Container>
+        </div>
       </section>
 
-      <section id="trust-badges" className="border-b border-slate-200 bg-white">
-        <Container className="py-6">
-          <p className="text-center text-sm font-semibold uppercase tracking-[0.3em] text-slate-600">
-            Free Estimates • Licensed &amp; Insured • Workmanship Warranty
-          </p>
-        </Container>
-      </section>
-
-      <section id="services-grid" className="bg-slate-50 py-16">
-        <Container className="space-y-10">
-          <div className="space-y-3 text-center">
-            <h2 className="text-3xl font-semibold text-slate-900">Our Tile Services in Bradenton</h2>
-            <p className="mx-auto max-w-2xl text-sm leading-relaxed text-slate-600">
-              Bradenton homeowners count on Fleitz Family Tile for precise installation, reliable scheduling, and lasting finishes across every room of the home.
+      {/* Services Section */}
+      <section style={{ background: '#f8fafc', padding: '5rem 0' }}>
+        <div className="container">
+          <div style={{ textAlign: 'center', marginBottom: '3.5rem', maxWidth: '48rem', margin: '0 auto 3.5rem' }}>
+            <h2 style={{ fontSize: 'clamp(1.75rem, 4vw, 2.25rem)', fontWeight: '700', color: '#0f172a', marginBottom: '1rem', lineHeight: '1.2' }}>
+              Our Tile Services
+            </h2>
+            <p style={{ fontSize: '1.125rem', color: '#64748b', lineHeight: '1.7' }}>
+              Backsplashes, showers, flooring, fireplaces, and specialty installations.
             </p>
           </div>
-          <div className="grid gap-6 sm:grid-cols-2 lg:grid-cols-3">
+
+          <div style={{ display: 'grid', gap: '2rem', gridTemplateColumns: 'repeat(auto-fit, minmax(min(100%, 320px), 1fr))' }}>
             {services.map((service) => (
-              <Link
-                key={service.href}
-                href={service.href}
-                className="group flex flex-col overflow-hidden rounded-3xl border border-slate-200 bg-white shadow-sm transition hover:-translate-y-1 hover:border-slate-900"
-              >
-                <PlaceholderImage className="h-44 w-full" />
-                <div className="space-y-2 px-6 py-6">
-                  <h3 className="text-lg font-semibold text-slate-900 group-hover:text-slate-700">{service.title}</h3>
-                  <p className="text-sm leading-relaxed text-slate-600">{service.description}</p>
+              <Link key={service.href} href={service.href} className="service-card">
+                <div className="service-image">
+                  <Image
+                    src={service.image}
+                    alt={`${service.title} installation in Bradenton FL by Fleitz Family Tile`}
+                    fill
+                    className="object-cover"
+                  />
+                  <div style={{ position: 'absolute', inset: 0, background: 'linear-gradient(to bottom, transparent, rgba(0,0,0,0.4))' }} />
+                  <div style={{ position: 'absolute', bottom: '1rem', left: '1rem', right: '1rem', color: 'white', fontSize: '1.25rem', fontWeight: '700' }}>
+                    {service.title}
+                  </div>
+                </div>
+                <div style={{ padding: '1.5rem', display: 'flex', flexDirection: 'column', gap: '1rem' }}>
+                  <p style={{ fontSize: '0.875rem', lineHeight: '1.6', color: '#64748b', flex: 1 }}>{service.description}</p>
+                  <div style={{ display: 'flex', alignItems: 'center', gap: '0.5rem', fontSize: '0.875rem', fontWeight: '600', color: '#0f172a' }}>
+                    <span>{service.cta}</span>
+                    <ArrowRight className="h-4 w-4" />
+                  </div>
                 </div>
               </Link>
             ))}
           </div>
-        </Container>
-      </section>
 
-      <section id="about-intro" className="bg-white py-16">
-        <Container className="grid gap-12 lg:grid-cols-[minmax(0,1.1fr)_minmax(0,0.9fr)]">
-          <div className="space-y-6">
-            <h2 className="text-3xl font-semibold text-slate-900">About Fleitz Family Tile</h2>
-            <div className="space-y-4 text-sm leading-relaxed text-slate-600">
-              <p>
-                AJ Fleitz is a third-generation tile installer who grew up mixing thin-set and cutting mosaics alongside his family. Today as owner and lead craftsman of Fleitz Family Tile, he carries that legacy forward for homeowners in Bradenton, Sarasota, Lakewood Ranch, and nearby Gulf-Coast communities.
-              </p>
-              <p>
-                Every project is a handshake with the homeowner: a promise of precision, durability, and honest communication.
-              </p>
-            </div>
-            <Link
-              href="/about"
-              className="inline-flex items-center gap-2 rounded-full border border-slate-300 px-6 py-3 text-sm font-semibold text-slate-700 transition hover:border-slate-900 hover:text-slate-900"
-            >
-              Meet the Team
-              <ArrowRight className="h-4 w-4" aria-hidden />
+          <div style={{ textAlign: 'center', marginTop: '3rem' }}>
+            <Link href="/contact" className="btn-primary">
+              Request a Quote
             </Link>
           </div>
-          <PlaceholderImage className="h-full min-h-[320px] w-full" />
-        </Container>
+        </div>
       </section>
 
-      <section id="work-showcase" className="bg-slate-100 py-16">
-        <Container className="space-y-8">
-          <div className="space-y-3 text-center">
-            <h2 className="text-3xl font-semibold text-slate-900">See Our Craftsmanship</h2>
-            <p className="mx-auto max-w-2xl text-sm leading-relaxed text-slate-600">
-              Explore a sampling of the Bradenton-area tile projects we&apos;ve recently completed. Visit the gallery for more kitchens, baths, and custom installations.
-            </p>
+      {/* Testimonials Section */}
+      <section style={{ background: 'white', padding: '5rem 0' }}>
+        <div className="container">
+          <div style={{ textAlign: 'center', marginBottom: '3.5rem', maxWidth: '48rem', margin: '0 auto 3.5rem' }}>
+            <h2 style={{ fontSize: 'clamp(1.75rem, 4vw, 2.25rem)', fontWeight: '700', color: '#0f172a', lineHeight: '1.2' }}>
+              What Homeowners Are Saying
+            </h2>
           </div>
-          <div className="grid gap-6 sm:grid-cols-2 lg:grid-cols-3">
-            {showcaseProjects.map((project) => (
-              <Link
-                key={project}
-                href="/gallery"
-                className="group space-y-3 rounded-3xl border border-slate-200 bg-white p-4 shadow-sm transition hover:-translate-y-1 hover:border-slate-900"
-              >
-                <PlaceholderImage className="h-40 w-full" />
-                <p className="text-sm font-semibold text-slate-800 group-hover:text-slate-900">{project}</p>
-              </Link>
-            ))}
-          </div>
-        </Container>
-      </section>
-
-      <section id="geo-areas" className="bg-white py-16">
-        <Container className="space-y-6">
-          <h2 className="text-3xl font-semibold text-slate-900">Proudly Serving the Suncoast</h2>
-          <p className="max-w-3xl text-sm leading-relaxed text-slate-600">
-            Based in Bradenton, we serve homeowners in West Bradenton, Downtown Bradenton, Palma Sola, Bayshore Gardens, and Samoset—plus Lakewood Ranch, Sarasota, and nearby Gulf-Coast communities with the same attention to detail we’d use in our own homes.
-          </p>
-          <div className="flex flex-wrap gap-3 text-sm font-semibold text-slate-700">
-            <Link href="/contact" className="rounded-full border border-slate-300 px-4 py-2 transition hover:border-slate-900 hover:text-slate-900">
-              Schedule Your Estimate
-            </Link>
-            <Link href="/gallery" className="rounded-full border border-slate-300 px-4 py-2 transition hover:border-slate-900 hover:text-slate-900">
-              View Recent Projects
-            </Link>
-          </div>
-        </Container>
-      </section>
-
-      <section id="testimonials" className="bg-slate-50 py-16">
-        <Container className="space-y-8">
-          <div className="space-y-3 text-center">
-            <h2 className="text-3xl font-semibold text-slate-900">What Homeowners Are Saying</h2>
-            <p className="mx-auto max-w-2xl text-sm leading-relaxed text-slate-600">
-              Hear from Bradenton, Lakewood Ranch, and Sarasota homeowners who trust Fleitz Family Tile with their remodels.
-            </p>
-          </div>
-          <div className="grid gap-6 md:grid-cols-3">
-            {testimonials.map((testimonial) => (
-              <figure
-                key={testimonial.name}
-                className="flex h-full flex-col gap-4 rounded-3xl border border-slate-200 bg-white p-6 shadow-sm"
-              >
-                <div className="flex items-center gap-1 text-amber-400">
-                  <span className="sr-only">Rated five out of five stars</span>
-                  {Array.from({ length: 5 }).map((_, index) => (
-                    <Star key={index} className="h-4 w-4 fill-current" aria-hidden fill="currentColor" />
+          <div style={{ display: 'grid', gap: '2rem', gridTemplateColumns: 'repeat(auto-fit, minmax(min(100%, 320px), 1fr))' }}>
+            {testimonials.map((testimonial, idx) => (
+              <article key={idx} className="testimonial-card">
+                <div className="stars" aria-label="5 out of 5 stars">
+                  {Array.from({ length: 5 }).map((_, i) => (
+                    <Star key={i} className="inline h-4 w-4 fill-current" />
                   ))}
                 </div>
-                <blockquote className="text-sm leading-relaxed text-slate-700">{testimonial.quote}</blockquote>
-                <figcaption className="mt-auto text-sm font-semibold text-slate-900">
-                  {testimonial.name}
-                  <span className="block text-xs font-normal uppercase tracking-[0.3em] text-slate-500">
+                <p style={{ fontSize: '0.875rem', lineHeight: '1.6', color: '#475569' }}>{testimonial.quote}</p>
+                <div style={{ marginTop: 'auto' }}>
+                  <p style={{ fontSize: '0.875rem', fontWeight: '600', color: '#0f172a' }}>{testimonial.name}</p>
+                  <p style={{ fontSize: '0.75rem', textTransform: 'uppercase', letterSpacing: '0.1em', color: '#94a3b8' }}>
                     {testimonial.location}
-                  </span>
-                </figcaption>
-              </figure>
+                  </p>
+                </div>
+              </article>
             ))}
           </div>
-        </Container>
+          <div style={{ textAlign: 'center', marginTop: '2rem' }}>
+            <a
+              href="https://share.google/TrJL20wN7hgXn7bPD"
+              target="_blank"
+              rel="noopener noreferrer"
+              style={{ color: '#0f172a', fontSize: '0.875rem', fontWeight: '600', textDecoration: 'underline', textUnderlineOffset: '4px' }}
+            >
+              Read More Reviews on Google
+            </a>
+          </div>
+        </div>
       </section>
 
-      <section id="cta-form" className="bg-slate-900 py-16 text-white">
-        <Container className="grid gap-10 lg:grid-cols-[minmax(0,0.9fr)_minmax(0,1fr)]">
-          <div className="space-y-4">
-            <h2 className="text-3xl font-semibold">Ready to Transform Your Space?</h2>
-            <p className="text-sm leading-relaxed text-slate-200">
-              Get a free estimate. Professional craftsmanship and clean, durable finishes.
-            </p>
-            <div className="flex flex-wrap gap-3 text-xs font-semibold uppercase tracking-[0.3em] text-slate-300">
-              <span>Free Estimates</span>
-              <span>Licensed &amp; Insured</span>
-              <span>Workmanship Warranty</span>
+      {/* CTA Section */}
+      <section className="cta-section">
+        <div className="cta-bg">
+          <Image
+            src="/images/showroom/BG-2.png"
+            alt="Luxury kitchen tile backsplash installation"
+            fill
+            className="cta-bg-image"
+          />
+          <div className="cta-overlay" />
+        </div>
+        <div className="container">
+          <div className="cta-content" style={{ display: 'grid', gap: '2.5rem', gridTemplateColumns: 'repeat(auto-fit, minmax(300px, 1fr))', alignItems: 'start' }}>
+            <div style={{ display: 'flex', flexDirection: 'column', gap: '1rem' }}>
+              <h2 style={{ fontSize: '1.875rem', fontWeight: '700' }}>Ready to Transform Your Space?</h2>
+              <p style={{ fontSize: '1rem', color: 'rgba(255,255,255,0.9)' }}>
+                Get a free estimate for your tile installation project. Professional craftsmanship, competitive pricing, and exceptional service guaranteed.
+              </p>
+              <div style={{ display: 'flex', flexWrap: 'wrap', gap: '1rem', fontSize: '0.75rem', fontWeight: '600', textTransform: 'uppercase', letterSpacing: '0.1em', color: 'rgba(255,255,255,0.8)' }}>
+                <div style={{ display: 'flex', alignItems: 'center', gap: '0.5rem' }}>
+                  <CheckCircle2 className="h-5 w-5" />
+                  <span>Free Estimates</span>
+                </div>
+                <div style={{ display: 'flex', alignItems: 'center', gap: '0.5rem' }}>
+                  <CheckCircle2 className="h-5 w-5" />
+                  <span>Licensed & Insured</span>
+                </div>
+                <div style={{ display: 'flex', alignItems: 'center', gap: '0.5rem' }}>
+                  <CheckCircle2 className="h-5 w-5" />
+                  <span>Quality Guarantee</span>
+                </div>
+              </div>
+            </div>
+            <div>
+              <HomeCtaForm />
             </div>
           </div>
-          <HomeCtaForm />
-        </Container>
+        </div>
       </section>
 
-      <section id="home-faq" className="bg-white py-16">
-        <Container className="space-y-8">
-          <div className="space-y-3 text-center">
-            <h2 className="text-3xl font-semibold text-slate-900">Tile Installation FAQs (Bradenton)</h2>
-            <p className="mx-auto max-w-2xl text-sm leading-relaxed text-slate-600">
-              Get answers to common tile installation questions from Bradenton homeowners before your project begins.
+      {/* FAQ Section */}
+      <section style={{ background: 'white', padding: '5rem 0' }}>
+        <div className="container">
+          <div style={{ textAlign: 'center', marginBottom: '3.5rem', maxWidth: '48rem', margin: '0 auto 3.5rem' }}>
+            <h2 style={{ fontSize: 'clamp(1.75rem, 4vw, 2.25rem)', fontWeight: '700', color: '#0f172a', marginBottom: '1rem', lineHeight: '1.2' }}>
+              Frequently Asked Questions
+            </h2>
+            <p style={{ fontSize: '1.125rem', color: '#64748b', lineHeight: '1.7' }}>
+              Get answers to common tile installation questions from Bradenton homeowners.
             </p>
           </div>
-          <div className="grid gap-6 md:grid-cols-2">
+          <div style={{ display: 'grid', gap: '1.75rem', gridTemplateColumns: 'repeat(auto-fit, minmax(min(100%, 340px), 1fr))', maxWidth: '72rem', margin: '0 auto' }}>
             {homeFaqs.map((faq) => (
-              <div key={faq.question} className="rounded-3xl border border-slate-200 bg-slate-50 p-6 shadow-sm">
-                <h3 className="text-base font-semibold text-slate-900">{faq.question}</h3>
-                <p className="mt-3 text-sm leading-relaxed text-slate-600">{faq.answer}</p>
+              <div key={faq.question} className="faq-item">
+                <h3 style={{ fontSize: '1rem', fontWeight: '600', color: '#0f172a', marginBottom: '0.75rem' }}>
+                  {faq.question}
+                </h3>
+                <p style={{ fontSize: '0.875rem', lineHeight: '1.6', color: '#64748b' }}>
+                  {faq.answer}
+                </p>
               </div>
             ))}
           </div>
-        </Container>
+        </div>
       </section>
     </>
   );

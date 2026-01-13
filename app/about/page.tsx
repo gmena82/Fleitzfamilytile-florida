@@ -1,46 +1,70 @@
 import Script from "next/script";
 import type { Metadata } from "next";
+import Image from "next/image";
 
 import { Container } from "@/components/ui/container";
-import { PlaceholderImage } from "@/components/ui/placeholder-image";
 import { HomeCtaForm } from "@/components/sections/home-cta-form";
 import { siteConfig } from "@/config/site";
 
 const differenceHighlights = [
-  "Meticulous Prep",
-  "Technical Precision",
-  "Lasting Results"
+  {
+    title: "Meticulous Preparation",
+    description: "A lasting installation starts beneath the surface. We ensure every substrate is sound, waterproof, and perfectly prepared."
+  },
+  {
+    title: "Technical Precision",
+    description: "We specialize in achieving laser-straight lines, tight and consistent grout joints, and truly flat surfaces."
+  },
+  {
+    title: "Lasting Results",
+    description: "We don't cut corners, ensuring your investment remains durable and impressive for years to come."
+  }
 ];
 
 const serviceList = [
-  "Custom kitchen backsplashes",
-  "Bathrooms and shower systems",
-  "Whole-home and accent flooring",
-  "Fireplace and feature walls",
-  "Tile repairs and rework",
-  "Demolition & surface preparation"
+  {
+    title: "Bathroom tile installation",
+    description: "From classic layouts to statement features and spa-like showers."
+  },
+  {
+    title: "Kitchen backsplashes",
+    description: "Durable, easy-to-clean surfaces that elevate everyday cooking spaces."
+  },
+  {
+    title: "Tile repairs & rework",
+    description: "Crack fixes, grout issues, and water damage remediation to restore beauty and function."
+  },
+  {
+    title: "Demolition & surface prep",
+    description: "Tidy removal and prep that protect your home and set the stage for a flawless install."
+  }
 ];
 
 const faqs = [
   {
-    question: "How much experience does your team bring to each project?",
+    question: "Do you offer free estimates? How do I get started?",
     answer:
-      "Owner AJ Fleitz is a third-generation tile installer who leads every project. Our crew combines decades of hands-on experience with ongoing training in modern installation systems."
+      "Yes—share your project details and photos, and we'll schedule a site visit in Bradenton or nearby. Reach us Monday–Friday, 9am–5pm."
   },
   {
-    question: "What does your installation process look like?",
+    question: "What services do you specialize in?",
     answer:
-      "We begin with on-site evaluations and detailed proposals. From demolition and substrate prep through layout, setting, and finishing, we communicate daily so you always know the next step."
+      "We focus on custom tile installation (bathrooms, showers, backsplashes), tile repairs (cracked tiles, grout issues, water damage fixes), and demolition/surface prep with a clean, precise process."
   },
   {
-    question: "Are you licensed and insured?",
+    question: "Where are you located, and which areas do you serve?",
     answer:
-      "Yes. Fleitz Family Tile maintains Florida licensing and comprehensive insurance to protect your home, remodel, or new build."
+      "We're based in Bradenton, Florida, serving homeowners and builders across the Suncoast—Sarasota, Lakewood Ranch, and nearby communities."
   },
   {
-    question: "How do you manage dust and cleanliness?",
+    question: "How experienced is your team?",
     answer:
-      "We contain dust with barriers and air filtration, protect adjacent surfaces, and tidy the job site at the end of every workday."
+      "Fleitz Family Tile is a third-generation tile company led by AJ Fleitz with over a decade of hands-on installation experience and a legacy passed down through generations."
+  },
+  {
+    question: "How do you handle demolition, dust control, and cleanup?",
+    answer:
+      "Demolition is part of our service. We perform clean, precise demo and maintain a tidy jobsite so your home stays protected and ready for installation."
   }
 ];
 
@@ -92,93 +116,121 @@ export default function AboutPage() {
         dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }}
       />
 
-      <section id="hero" className="bg-slate-900 py-20 text-white">
-        <Container className="grid items-center gap-12 lg:grid-cols-[minmax(0,1fr)_minmax(0,0.8fr)]">
-          <div className="space-y-6">
-            <p className="text-xs font-semibold uppercase tracking-[0.4em] text-slate-300">
-              Family-owned. Florida Suncoast based. Three generations strong.
-            </p>
-            <h1 className="text-3xl font-semibold sm:text-4xl">
-              About Fleitz Family Tile — Bradenton’s Third-Generation Tile Craftsmen
+      {/* Hero Section with Background Image */}
+      <section className="hero relative overflow-hidden" style={{ minHeight: "62vh" }}>
+        <div className="hero-bg absolute inset-0">
+          <Image
+            src="/images/About-Us.png"
+            alt="About Us - Fleitz Family Tile Kitchen with Hexagonal Backsplash"
+            fill
+            className="hero-image object-cover"
+            priority
+          />
+          <div className="hero-overlay absolute inset-0 bg-gradient-to-b from-black/60 via-black/40 to-black/60" />
+        </div>
+        <Container className="relative z-10 flex min-h-[62vh] items-center justify-center">
+          <div className="hero-content mx-auto max-w-3xl space-y-6 text-center text-white">
+            <h1 className="text-4xl font-semibold sm:text-5xl">
+              About Fleitz Family Tile: Expert Tile Contractors in Bradenton, FL
             </h1>
-            <p className="text-base leading-relaxed text-slate-200">
-              AJ Fleitz leads a family-built team of Bradenton tile contractors delivering clean prep, laser-straight lines, and finishes made to outlast Florida humidity.
+            <p className="text-lg leading-relaxed text-white/90">
+              Family owned. Florida based. Three generations strong.
             </p>
           </div>
-          <PlaceholderImage className="h-full min-h-[320px] w-full rounded-3xl border border-slate-700 bg-slate-800" />
         </Container>
       </section>
 
-      <section id="our-story" className="py-16">
-        <Container className="grid gap-12 lg:grid-cols-[minmax(0,1.1fr)_minmax(0,0.9fr)]">
-          <div className="space-y-6">
-            <h2 className="text-3xl font-semibold text-slate-900">Our Story</h2>
-            <p className="text-base leading-relaxed text-slate-600">
-              AJ Fleitz is a third-generation tile installer who learned the trade at home—mixing thin-set, cutting mosaics, and mastering prep before setting his first tile. Today as owner and lead craftsman of Fleitz Family Tile, he brings that heritage to Bradenton, Sarasota, and Lakewood Ranch.
-            </p>
-            <p className="text-base leading-relaxed text-slate-600">
-              Every project is a handshake: a promise of precision, durability, and honest communication.
+      {/* Our Story Section */}
+      <section className="about-content bg-white py-16">
+        <Container className="space-y-16">
+          <div className="about-story space-y-6 text-center">
+            <h2 className="text-3xl font-semibold text-slate-900">Our Story: A Legacy of Craftsmanship on the Suncoast</h2>
+            <p className="intro-text mx-auto max-w-3xl text-base leading-relaxed text-slate-600">
+              The foundation of Fleitz Family Tile rests on three generations of specialized knowledge. What began as a dedicated family trade has evolved into a professional tile company trusted by discerning homeowners, interior designers, and custom builders who demand superior quality.
             </p>
           </div>
-          <PlaceholderImage className="h-full min-h-[320px] w-full rounded-3xl" />
+
+          <div className="about-chapter">
+            <div className="story-grid grid gap-12 lg:grid-cols-2 lg:items-center">
+              <div className="story-text space-y-6">
+                <h2 className="text-3xl font-semibold text-slate-900">A New Chapter in the Sunshine State</h2>
+                <p className="text-base leading-relaxed text-slate-600">
+                  AJ Fleitz is a third-generation tile installer who grew up mixing thin-set and cutting mosaics alongside his family. Today as owner and lead craftsman of Fleitz Family Tile, he carries that legacy forward for homeowners in Bradenton, Sarasota, Lakewood Ranch, and nearby Gulf-Coast communities.
+                </p>
+                <p className="text-base leading-relaxed text-slate-600">
+                  As proud residents of the Suncoast, we are excited to offer our expertise and services to Bradenton and Central Florida. This allows us to combine our traditional craftsmanship with the unique architectural styles and design trends of the Gulf Coast area.
+                </p>
+              </div>
+              <div className="story-image">
+                <Image
+                  src="/images/showroom/AJ-About-Us.png"
+                  alt="AJ Fleitz - Professional Tile Installer at Fleitz Family Tile"
+                  width={600}
+                  height={700}
+                  className="brad-image h-auto w-full rounded-3xl object-cover shadow-xl"
+                />
+              </div>
+            </div>
+          </div>
+
+          <div className="about-difference space-y-6">
+            <h2 className="text-3xl font-semibold text-slate-900">The Fleitz Family Tile Difference</h2>
+            <div className="grid gap-6 md:grid-cols-3">
+              {differenceHighlights.map((item) => (
+                <div key={item.title} className="rounded-3xl border border-slate-200 bg-slate-50 p-6 shadow-sm">
+                  <h3 className="text-lg font-semibold text-slate-900">{item.title}</h3>
+                  <p className="mt-3 text-sm leading-relaxed text-slate-600">{item.description}</p>
+                </div>
+              ))}
+            </div>
+            <p className="text-base leading-relaxed text-slate-600">
+              We look forward to serving our neighbors in Bradenton, Sarasota, Lakewood Ranch, and beyond, continuing our legacy of excellence, one tile at a time.
+            </p>
+          </div>
+
+          {/* Secondary About Image */}
+          <figure className="about-secondary-image">
+            <Image
+              src="/images/showroom/BG-3-F.png"
+              alt="Tile installer working carefully on a detailed installation"
+              width={1200}
+              height={600}
+              className="h-auto w-full rounded-3xl object-cover shadow-xl"
+            />
+          </figure>
+
+          <div className="about-what-we-do space-y-6">
+            <h2 className="text-3xl font-semibold text-slate-900">What We Do</h2>
+            <p className="text-base leading-relaxed text-slate-600">
+              We deliver custom tile installation with clean execution and lasting results. Core services include:
+            </p>
+            <div className="services-list grid gap-4 md:grid-cols-2">
+              {serviceList.map((service) => (
+                <div key={service.title} className="rounded-3xl border border-slate-200 bg-white p-6 shadow-sm">
+                  <h3 className="text-base font-semibold text-slate-900">{service.title}</h3>
+                  <p className="mt-2 text-sm leading-relaxed text-slate-600">{service.description}</p>
+                </div>
+              ))}
+            </div>
+            <p className="text-base leading-relaxed text-slate-600">
+              From intricate mosaics to complex, large projects, we approach every job with the same uncompromising attention to detail—because great tile work is never an accident. It's the result of discipline, patience, and craft.
+            </p>
+          </div>
         </Container>
       </section>
 
-      <section id="difference" className="bg-slate-100 py-16">
-        <Container className="space-y-6">
-          <h2 className="text-3xl font-semibold text-slate-900">The Fleitz Difference</h2>
-          <ul className="flex flex-wrap gap-3 text-sm font-semibold uppercase tracking-[0.3em] text-slate-700">
-            {differenceHighlights.map((highlight) => (
-              <li
-                key={highlight}
-                className="rounded-full border border-slate-300 bg-white px-4 py-2 text-xs tracking-[0.35em] text-slate-900"
-              >
-                {highlight}
-              </li>
-            ))}
-          </ul>
-          <p className="max-w-3xl text-base leading-relaxed text-slate-600">
-            Projects begin with detailed substrate inspections, waterproofing, and layout planning that protects your investment. Precise cuts, tidy grout lines, and clean site management ensure lasting results you can feel underfoot every day.
-          </p>
-        </Container>
-      </section>
-
-      <section id="what-we-do" className="py-16">
-        <Container className="space-y-6">
-          <h2 className="text-3xl font-semibold text-slate-900">What We Do</h2>
-          <p className="text-base leading-relaxed text-slate-600">
-            From kitchens and spas to lanais and fireplaces, Fleitz Family Tile delivers tailored installation for every surface in your home.
-          </p>
-          <ul className="grid gap-4 md:grid-cols-2">
-            {serviceList.map((service) => (
-              <li key={service} className="rounded-3xl border border-slate-200 bg-white p-6 shadow-sm">
-                <span className="text-sm font-semibold text-slate-900">{service}</span>
-              </li>
-            ))}
-          </ul>
-        </Container>
-      </section>
-
-      <section id="service-areas" className="bg-slate-900 py-16 text-white">
-        <Container className="space-y-6">
-          <h2 className="text-3xl font-semibold">Where We Work</h2>
-          <p className="text-base leading-relaxed text-slate-200">
-            Bradenton is home base for Fleitz Family Tile. We frequently partner with homeowners, designers, and builders in Sarasota and Lakewood Ranch, delivering the same meticulous standards across the Florida Suncoast.
-          </p>
-        </Container>
-      </section>
-
-      <section id="about-faq" className="bg-white py-16">
+      {/* FAQ Section */}
+      <section className="faq-section bg-slate-50 py-16">
         <Container className="space-y-8">
           <div className="space-y-3 text-center">
-            <h2 className="text-3xl font-semibold text-slate-900">FAQs</h2>
+            <h2 className="text-3xl font-semibold text-slate-900">Frequently Asked Questions</h2>
             <p className="mx-auto max-w-2xl text-sm leading-relaxed text-slate-600">
-              Get to know how our Bradenton tile company plans, installs, and protects every project.
+              Get answers to common tile installation questions from Bradenton homeowners before your project begins.
             </p>
           </div>
-          <div className="grid gap-6 md:grid-cols-2">
+          <div className="faq-grid grid gap-6 md:grid-cols-2">
             {faqs.map((faq) => (
-              <div key={faq.question} className="rounded-3xl border border-slate-200 bg-slate-50 p-6 shadow-sm">
+              <div key={faq.question} className="faq-item rounded-3xl border border-slate-200 bg-white p-6 shadow-sm">
                 <h3 className="text-base font-semibold text-slate-900">{faq.question}</h3>
                 <p className="mt-3 text-sm leading-relaxed text-slate-600">{faq.answer}</p>
               </div>
@@ -187,17 +239,18 @@ export default function AboutPage() {
         </Container>
       </section>
 
+      {/* CTA Section */}
       <section id="cta-form" className="bg-slate-900 py-16 text-white">
         <Container className="grid gap-10 lg:grid-cols-[minmax(0,0.9fr)_minmax(0,1fr)]">
           <div className="space-y-4">
-            <h2 className="text-3xl font-semibold">Ready to Work with a Third-Generation Tile Pro?</h2>
+            <h2 className="text-3xl font-semibold">Ready to Transform Your Space?</h2>
             <p className="text-sm leading-relaxed text-slate-200">
-              Request a consultation with Fleitz Family Tile. Expect precise craftsmanship, clean job sites, and respectful communication.
+              Get a free estimate for your tile installation project. Professional craftsmanship, competitive pricing, and exceptional service guaranteed.
             </p>
             <div className="flex flex-wrap gap-3 text-xs font-semibold uppercase tracking-[0.3em] text-slate-300">
-              <span>Family-Owned</span>
+              <span>Free Estimates</span>
               <span>Licensed &amp; Insured</span>
-              <span>Workmanship Warranty</span>
+              <span>Quality Guarantee</span>
             </div>
           </div>
           <HomeCtaForm />

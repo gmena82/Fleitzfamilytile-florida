@@ -31,7 +31,7 @@ const serviceJsonLd = {
   areaServed: ["Bradenton FL", "Sarasota FL", "Lakewood Ranch FL"],
   provider: { "@id": `${siteConfig.url}/#org` },
   serviceType: "Tile Installation",
-  url: `${siteConfig.url}/services/outdoor`,
+  url: `${siteConfig.url}/outside-projects`,
 };
 
 export const metadata: Metadata = {
@@ -39,7 +39,7 @@ export const metadata: Metadata = {
   description:
     "Porcelain patios, lanais, and pool decks installed for Florida weather. Exterior-rated tile, drainage, and slip-resistant finishes from Fleitz Family Tile.",
   alternates: {
-    canonical: "https://www.fleitzfamilytile.com/services/outdoor",
+    canonical: "https://www.fleitzfamilytile.com/outside-projects",
   },
 };
 

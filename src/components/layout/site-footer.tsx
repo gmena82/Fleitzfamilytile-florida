@@ -13,8 +13,8 @@ export function SiteFooter() {
   const emailHref = emailAddress ? `mailto:${emailAddress}` : undefined;
 
   return (
-    <footer id="site-footer" className="border-t border-slate-200 bg-slate-950 text-slate-200">
-      <div className="mx-auto max-w-7xl px-4 py-16 sm:px-6 lg:px-8">
+    <footer id="site-footer" className="border-t border-gray-200 bg-slate-950 text-slate-200">
+      <div className="mx-auto max-w-[1200px] px-4 py-16 sm:px-6">
         <div className="footer-cols grid gap-12 lg:grid-cols-4">
           <div className="space-y-4">
             <Logo width={100} height={32} variant="footer" />

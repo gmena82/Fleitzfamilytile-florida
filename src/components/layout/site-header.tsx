@@ -25,9 +25,9 @@ export function SiteHeader() {
 
   return (
     <header id="site-header" className="relative z-50 border-b border-slate-200 bg-white text-slate-900">
-      <div className="utility border-b border-slate-200 bg-slate-900 text-xs font-semibold uppercase tracking-[0.3em] text-white">
-        <div className="mx-auto flex max-w-7xl flex-wrap items-center justify-between gap-4 px-4 py-2 sm:px-6 lg:px-8">
-          <div className="flex flex-wrap items-center gap-4 text-[0.65rem] sm:text-[0.7rem]">
+      <div className="utility border-b border-gray-200 bg-slate-950 text-xs font-semibold uppercase tracking-[0.3em] text-white">
+        <div className="mx-auto flex max-w-[1200px] flex-wrap items-center justify-between gap-4 px-4 py-2 sm:px-6">
+          <div className="flex flex-wrap items-center gap-3 text-[0.65rem] sm:text-[0.7rem]">
             <span>Bradenton, FL</span>
             {phoneNumber && (
               phoneHref ? (
@@ -74,7 +74,7 @@ export function SiteHeader() {
         </div>
       </div>
       <div className="nav">
-        <div className="mx-auto flex max-w-7xl items-center justify-between gap-6 px-4 py-6 sm:px-6 lg:px-8">
+        <div className="mx-auto flex max-w-[1200px] items-center justify-between gap-6 px-4 py-4 sm:px-6">
           <Logo className="logo inline-flex items-center" width={100} height={32} variant="header" priority />
           <nav aria-label="Main navigation">
             <ul className="hidden items-center gap-6 text-sm font-semibold text-slate-700 lg:flex">

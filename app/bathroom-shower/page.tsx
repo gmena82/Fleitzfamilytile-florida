@@ -1,9 +1,10 @@
 import Script from "next/script";
 import type { Metadata } from "next";
+import Image from "next/image";
+import Link from "next/link";
 
 import { HomeCtaForm } from "@/components/sections/home-cta-form";
 import { Container } from "@/components/ui/container";
-import { PlaceholderImage } from "@/components/ui/placeholder-image";
 import { siteConfig } from "@/config/site";
 
 const faqItems = [
@@ -96,7 +97,15 @@ export default function BathroomShowerPage() {
               </div>
             </div>
           </div>
-          <PlaceholderImage className="h-full min-h-[320px] w-full rounded-3xl border border-slate-700 bg-slate-800" />
+          <div className="relative h-full min-h-[320px] w-full overflow-hidden rounded-3xl border border-slate-700 bg-slate-800">
+            <Image
+              src="/images/showroom/shower-tall-1.webp"
+              alt="Custom bathroom shower tile installation in Bradenton FL by Fleitz Family Tile"
+              fill
+              className="object-cover"
+              sizes="(min-width: 1024px) 420px, 100vw"
+            />
+          </div>
         </Container>
       </section>
 

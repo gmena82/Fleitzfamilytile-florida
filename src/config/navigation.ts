@@ -16,7 +16,7 @@ export const serviceLinks = [
   { href: "/bathroom-shower" as Route, label: "Bathroom & Shower" },
   { href: "/floor-tile-installation" as Route, label: "Floor Tile Installation" },
   { href: "/fireplaces" as Route, label: "Fireplaces" },
-  { href: "/services/outdoor" as Route, label: "Outdoor Tile" },
+  { href: "/outside-projects" as Route, label: "Outdoor Tile" },
   { href: "/special-projects" as Route, label: "Special Projects" }
 ] as const satisfies readonly ServiceLink[];
 

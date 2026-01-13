@@ -1,29 +1,24 @@
 import Script from "next/script";
 import type { Metadata } from "next";
+import Image from "next/image";
+import Link from "next/link";
 
 import { HomeCtaForm } from "@/components/sections/home-cta-form";
 import { Container } from "@/components/ui/container";
-import { PlaceholderImage } from "@/components/ui/placeholder-image";
 import { siteConfig } from "@/config/site";
 
 const faqItems = [
   {
-    question: "How long does a backsplash install take?",
-    answer: "Most standard backsplashes finish in 1–2 days including prep, setting, and grouting."
+    question: "How long does a backsplash installation typically take?",
+    answer: "Most standard kitchen backsplash installations are completed within 1-2 days. This includes preparation, setting the tile, and grouting. We work efficiently to minimize disruption to your home."
   },
   {
-    question: "What materials do you recommend?",
-    answer:
-      "Porcelain/ceramic for durability; natural stone for a premium look (seal it); glass/mosaics for accent walls."
+    question: "What are the most popular materials for kitchen backsplashes?",
+    answer: "Ceramic and porcelain tiles are classic, durable, and versatile choices. Natural stone like marble or travertine offers a luxurious look, while glass and mosaic tiles can create a unique, modern statement."
   },
   {
-    question: "Can you help with design?",
-    answer:
-      "Yes—layout, grout color, edge profiles, and pattern recommendations to match cabinets and counters."
-  },
-  {
-    question: "Do you seal stone?",
-    answer: "Yes—stone is sealed and we specify stain-resistant grout for easier maintenance."
+    question: "Can you help me choose a design that matches my kitchen?",
+    answer: "Absolutely. With our extensive experience, we can provide recommendations on tile materials, colors, patterns, and layouts that will best complement your existing countertops, cabinets, and overall kitchen style."
   }
 ] as const;
 
@@ -73,207 +68,176 @@ export default function KitchenBacksplashesPage() {
         dangerouslySetInnerHTML={{ __html: JSON.stringify(faqJsonLd) }}
       />
 
-      <section id="hero" className="bg-slate-900 py-20 text-white">
-        <Container className="grid items-center gap-12 lg:grid-cols-[minmax(0,1fr)_minmax(0,0.85fr)]">
-          <div className="space-y-6">
-            <p className="text-xs font-semibold uppercase tracking-[0.4em] text-slate-300">
-              Kitchen Backsplash Installer in Bradenton, FL
+      {/* Hero Section */}
+      <section className="hero relative overflow-hidden" style={{ minHeight: "62vh" }}>
+        <div className="hero-bg absolute inset-0">
+          <Image
+            src="/images/showroom/Kitchen-1.webp"
+            alt="White ceramic subway tile backsplash installation in Bradenton, FL by Fleitz Family Tile"
+            fill
+            className="hero-image object-cover"
+            priority
+          />
+          <div className="hero-overlay absolute inset-0 bg-gradient-to-b from-black/60 via-black/40 to-black/60" />
+        </div>
+        <Container className="relative z-10 flex min-h-[62vh] items-center justify-center">
+          <div className="hero-content mx-auto max-w-3xl space-y-6 text-center text-white">
+            <h1 className="text-4xl font-semibold sm:text-5xl">
+              Expert Kitchen Backsplash Installation in Bradenton
+            </h1>
+            <p className="text-base leading-relaxed text-white/90">
+              Fleitz Family Tile specializes in custom kitchen backsplash installations across Bradenton, Sarasota, Lakewood Ranch, and the greater Gulf Coast area. A well-planned backsplash ties together countertops, cabinetry, and flooring—delivering both protection and standout design.
             </p>
-            <h1 className="text-3xl font-semibold sm:text-4xl">Expert Kitchen Backsplash Installation in Bradenton</h1>
-            <p className="text-base leading-relaxed text-slate-200">
-              Looking for a kitchen backsplash installer in Bradenton who obsesses over tight grout joints and crisp trim? Fleitz
-              Family Tile templates every wall, aligns seams with your cabinets, and delivers clean edge profiles—whether you
-              choose ceramic or porcelain, natural stone, or glass mosaics.
+            <p className="text-base leading-relaxed text-white/90">
+              We understand the demands of Florida homes, from ensuring robust waterproofing against humidity to selecting durable, stain-resistant materials that perform beautifully over time.
             </p>
-            <div className="grid gap-4 sm:grid-cols-3">
-              <div className="rounded-2xl border border-white/20 bg-white/5 p-4">
-                <p className="text-sm font-semibold text-white">Ceramic &amp; Porcelain</p>
-                <p className="mt-2 text-xs text-slate-200">Durable, easy-clean surfaces for everyday Bradenton cooking.</p>
-              </div>
-              <div className="rounded-2xl border border-white/20 bg-white/5 p-4">
-                <p className="text-sm font-semibold text-white">Natural Stone Profiles</p>
-                <p className="mt-2 text-xs text-slate-200">Polished, honed, or leathered finishes with sealed protection.</p>
-              </div>
-              <div className="rounded-2xl border border-white/20 bg-white/5 p-4">
-                <p className="text-sm font-semibold text-white">Glass &amp; Specialty Edges</p>
-                <p className="mt-2 text-xs text-slate-200">Schluter trims, bullnose, and picture-frame borders built to last.</p>
-              </div>
+            <div className="inline-cta">
+              <Link
+                href="/contact"
+                className="inline-flex items-center justify-center rounded-full bg-white px-8 py-3 text-sm font-semibold text-slate-900 transition hover:bg-slate-200"
+              >
+                Plan Your Kitchen Backsplash
+              </Link>
             </div>
+            <p className="text-sm leading-relaxed text-white/80">
+              Let's create a kitchen backsplash that ties your space together and makes daily life easier to clean and enjoy.
+            </p>
           </div>
-          <PlaceholderImage className="h-full min-h-[320px] w-full rounded-3xl border border-slate-700 bg-slate-800" />
         </Container>
       </section>
 
-      <section id="benefits" className="bg-white py-16">
-        <Container className="grid gap-12 lg:grid-cols-[minmax(0,1.1fr)_minmax(0,0.9fr)]">
-          <div className="space-y-6">
-            <h2 className="text-3xl font-semibold text-slate-900">The Perfect Finish for Your Kitchen</h2>
-            <p className="text-base leading-relaxed text-slate-600">
-              Your backsplash is eye-level and under cabinet lighting highlights every cut. We plan layouts that keep outlets
-              centered, align with cabinet reveals, and finish with stain-resistant grout that shrugs off sauce splashes. From
-              Bradenton condos to Lakewood Ranch estates, your backsplash tile installation stays crisp for years.
-            </p>
-            <p className="text-base leading-relaxed text-slate-600">
-              We coordinate with electricians and countertop installers to keep seams symmetrical and ensure your hood, shelves,
-              and windows get clean returns. The result—backsplash tile Bradenton homeowners rave about.
-            </p>
+      {/* Main Content Section */}
+      <section className="main-content bg-white py-20">
+        <Container className="space-y-16">
+          <div className="content-grid grid gap-12 lg:grid-cols-2 lg:items-center">
+            <div className="content-image">
+              <Image
+                src="/images/showroom/Kitchen-2.webp"
+                alt="Natural stone mosaic kitchen backsplash installation in Bradenton, FL by Fleitz Family Tile"
+                width={800}
+                height={600}
+                className="h-auto w-full rounded-3xl object-cover shadow-xl"
+              />
+            </div>
+            <div className="content-text space-y-6">
+              <h2 className="text-3xl font-semibold text-slate-900">The Perfect Finish for Your Kitchen</h2>
+              <p className="text-base leading-relaxed text-slate-600">
+                A kitchen backsplash is more than just a protective surface; it's a design statement. It ties together your countertops, cabinets, and flooring to create a cohesive and beautiful space. At Fleitz Family Tile, we specialize in creating stunning backsplashes that are both functional and a reflection of your personal style.
+              </p>
+              <p className="text-base leading-relaxed text-slate-600">
+                With generations of experience, our meticulous installation process ensures flawless grout lines, stain resistance, and a durable finish that will last for years. We handle everything from classic subway tile to intricate custom tile design mosaics, delivering craftsmanship that elevates the heart of your home.
+              </p>
+              <p className="text-base leading-relaxed text-slate-600">
+                We proudly serve homeowners throughout the Suncoast, including Bradenton, Sarasota, Lakewood Ranch, and nearby communities, bringing our family's tradition of excellence to every project.
+              </p>
+            </div>
           </div>
-          <div className="space-y-4 rounded-3xl border border-slate-200 bg-slate-50 p-6">
-            <h3 className="text-lg font-semibold text-slate-900">Precision You Can See</h3>
-            <ul className="space-y-3 text-sm leading-relaxed text-slate-600">
-              <li>
-                <span className="font-semibold text-slate-900">Outlet &amp; switch plates:</span> Tight cuts and concealed
-                box extensions keep covers flush.
-              </li>
-              <li>
-                <span className="font-semibold text-slate-900">Layout symmetry:</span> Dry-laid mockups align grout lines
-                with cabinet edges and focal points.
-              </li>
-              <li>
-                <span className="font-semibold text-slate-900">Protected grout:</span> High-performance, stain-resistant
-                grout blends color and durability for easy cleaning.
-              </li>
+
+          <section className="kb-materials space-y-6">
+            <h2 className="text-3xl font-semibold text-slate-900">Popular Backsplash Materials</h2>
+            <div className="grid gap-6 md:grid-cols-2">
+              <div className="rounded-3xl border border-slate-200 bg-slate-50 p-6 shadow-sm">
+                <h3 className="text-lg font-semibold text-slate-900">Ceramic & Porcelain</h3>
+                <p className="mt-3 text-sm leading-relaxed text-slate-600">
+                  Durable, budget-friendly, and easy to maintain—great for busy kitchens. Wide color and size options, including classic 3×6 subway tile.
+                </p>
+              </div>
+              <div className="rounded-3xl border border-slate-200 bg-slate-50 p-6 shadow-sm">
+                <h3 className="text-lg font-semibold text-slate-900">Natural Stone (Marble, Travertine)</h3>
+                <p className="mt-3 text-sm leading-relaxed text-slate-600">
+                  Premium look with unique variation. Requires sealing and thoughtful grout selection for stain resistance and long-term performance.
+                </p>
+              </div>
+              <div className="rounded-3xl border border-slate-200 bg-slate-50 p-6 shadow-sm">
+                <h3 className="text-lg font-semibold text-slate-900">Glass & Mosaics</h3>
+                <p className="mt-3 text-sm leading-relaxed text-slate-600">
+                  High visual impact and light play. Excellent for feature walls and accent bands; pairs well with under cabinet lighting.
+                </p>
+              </div>
+              <div className="rounded-3xl border border-slate-200 bg-slate-50 p-6 shadow-sm">
+                <h3 className="text-lg font-semibold text-slate-900">Large-Format & Specialty</h3>
+                <p className="mt-3 text-sm leading-relaxed text-slate-600">
+                  Fewer grout joints and a modern aesthetic. Demands precise layout and surface prep for flat, seamless results.
+                </p>
+              </div>
+            </div>
+          </section>
+
+          <section className="kb-styles space-y-6">
+            <h2 className="text-3xl font-semibold text-slate-900">Trending Backsplash Styles in Bradenton</h2>
+            <p className="text-base leading-relaxed text-slate-600">From timeless to statement-making, we install:</p>
+            <ul className="list-disc space-y-2 pl-6 text-base leading-relaxed text-slate-600">
+              <li><strong>Subway Tile</strong> in classic or elongated formats</li>
+              <li><strong>Herringbone</strong> and <strong>Chevron</strong> patterns</li>
+              <li><strong>Custom mosaics</strong> and mixed-material blends</li>
+              <li>Picture-frame accents and niche features</li>
             </ul>
-          </div>
-        </Container>
-      </section>
+          </section>
 
-      <section id="materials" className="bg-slate-50 py-16">
-        <Container className="space-y-10">
-          <div className="space-y-3 text-center">
-            <h2 className="text-3xl font-semibold text-slate-900">Popular Materials</h2>
-            <p className="mx-auto max-w-2xl text-sm leading-relaxed text-slate-600">
-              We help you select backsplash systems that complement your counters and appliances while meeting Florida humidity
-              demands. Explore the materials Bradenton and Sarasota homeowners request most.
-            </p>
-          </div>
-          <div className="grid gap-6 md:grid-cols-2">
-            <div className="space-y-2 rounded-3xl border border-slate-200 bg-white p-6 shadow-sm">
-              <h3 className="text-lg font-semibold text-slate-900">Ceramic &amp; Porcelain</h3>
-              <p className="text-sm leading-relaxed text-slate-600">
-                Durable and budget-friendly, ceramic and porcelain tile resist stains and make maintenance simple. Ideal for
-                classic subway tile backsplash Sarasota remodels or streamlined slab-look panels.
-              </p>
-            </div>
-            <div className="space-y-2 rounded-3xl border border-slate-200 bg-white p-6 shadow-sm">
-              <h3 className="text-lg font-semibold text-slate-900">Natural Stone</h3>
-              <p className="text-sm leading-relaxed text-slate-600">
-                Marble, travertine, and quartzite deliver high-end texture with veining that pairs with luxury countertops. We
-                seal every stone installation and finish exposed edges with custom bullnose or metal trims.
-              </p>
-            </div>
-            <div className="space-y-2 rounded-3xl border border-slate-200 bg-white p-6 shadow-sm">
-              <h3 className="text-lg font-semibold text-slate-900">Glass &amp; Mosaics</h3>
-              <p className="text-sm leading-relaxed text-slate-600">
-                Reflective glass, artisan mosaics, and blended materials add movement and color. Perfect for feature walls or
-                picture-frame accents behind cooktops.
-              </p>
-            </div>
-            <div className="space-y-2 rounded-3xl border border-slate-200 bg-white p-6 shadow-sm">
-              <h3 className="text-lg font-semibold text-slate-900">Large-Format &amp; Specialty</h3>
-              <p className="text-sm leading-relaxed text-slate-600">
-                Oversized porcelain panels, metal inlays, or handmade zellige tile minimize grout lines and bring bespoke
-                character to contemporary Gulf Coast kitchens.
-              </p>
-            </div>
-          </div>
-        </Container>
-      </section>
-
-      <section id="styles" className="bg-white py-16">
-        <Container className="space-y-6">
-          <div className="space-y-3 text-center">
-            <h2 className="text-3xl font-semibold text-slate-900">Trending Styles on the Suncoast</h2>
-            <p className="mx-auto max-w-2xl text-sm leading-relaxed text-slate-600">
-              Whether you lean coastal, transitional, or modern, we translate inspiration photos into precise tile work that fits
-              your layout and lighting.
-            </p>
-          </div>
-          <ul className="grid gap-4 sm:grid-cols-2 lg:grid-cols-4">
-            <li className="rounded-3xl border border-slate-200 bg-slate-50 p-5 text-center text-sm font-semibold text-slate-700">
-              Subway tile — classic or elongated proportions
-            </li>
-            <li className="rounded-3xl border border-slate-200 bg-slate-50 p-5 text-center text-sm font-semibold text-slate-700">
-              Herringbone &amp; chevron layouts that draw the eye up
-            </li>
-            <li className="rounded-3xl border border-slate-200 bg-slate-50 p-5 text-center text-sm font-semibold text-slate-700">
-              Mosaic fields and mixed finishes for statement walls
-            </li>
-            <li className="rounded-3xl border border-slate-200 bg-slate-50 p-5 text-center text-sm font-semibold text-slate-700">
-              Picture-frame accents highlighting ranges &amp; niches
-            </li>
-          </ul>
-        </Container>
-      </section>
-
-      <section id="process" className="bg-slate-50 py-16">
-        <Container className="grid gap-12 lg:grid-cols-[minmax(0,1.1fr)_minmax(0,0.9fr)]">
-          <div className="space-y-6">
-            <h2 className="text-3xl font-semibold text-slate-900">Our Backsplash Installation Process</h2>
+          <section className="kb-process space-y-6">
+            <h2 className="text-3xl font-semibold text-slate-900">Our Kitchen Backsplash Installation Process</h2>
             <p className="text-base leading-relaxed text-slate-600">
-              Every kitchen starts with on-site measurements, level checks, and substrate prep. We map tile courses to minimize
-              slivers, confirm focal points, and detail edge profiles before the first cut. Premium mortars and high-performance
-              grouts lock everything in place for everyday Florida living.
+              Backsplashes require precision. We plan layouts to avoid awkward cuts, protect countertops and cabinetry, and cut accurately around outlets and corners. We handle exposed edges with profiles (e.g., Schluter®) or bullnose finishes for a clean, professional look. We specify high-quality mortars and stain-resistant grout, then seal stone as needed.
             </p>
             <p className="text-base leading-relaxed text-slate-600">
-              Expect daily updates, dust control, and spotless cleanup when we wrap. Your kitchen is ready for cooking the moment
-              the grout cures.
+              For kitchen remodeling projects, we coordinate with your schedule, other trades, and appliance timelines to keep everything on track.
             </p>
-          </div>
-          <div className="space-y-4 rounded-3xl border border-slate-200 bg-white p-6 shadow-sm">
-            <ol className="space-y-4 text-sm leading-relaxed text-slate-600">
-              <li>
-                <span className="font-semibold text-slate-900">1. Layout &amp; templating:</span> Measure twice, mock up
-                patterns, and align reveals to avoid awkward cuts.
-              </li>
-              <li>
-                <span className="font-semibold text-slate-900">2. Edge detailing:</span> Select Schluter trims, bullnose, or
-                mitered returns that suit your design and protect corners.
-              </li>
-              <li>
-                <span className="font-semibold text-slate-900">3. Installation &amp; finish:</span> Set tile with premium
-                mortars, grout with stain-resistant formulas, and polish the space for turn-key use.
-              </li>
-            </ol>
-          </div>
+          </section>
         </Container>
       </section>
 
-      <section id="cta-form" className="bg-slate-900 py-16 text-white">
-        <Container className="grid gap-12 lg:grid-cols-[minmax(0,0.9fr)_minmax(0,1fr)]">
+      <div className="inline-cta bg-slate-50 py-8 text-center">
+        <Link
+          href="/contact"
+          className="inline-flex items-center justify-center rounded-full bg-slate-900 px-8 py-3 text-sm font-semibold text-white transition hover:bg-slate-700"
+        >
+          Request a Kitchen Backsplash Estimate
+        </Link>
+      </div>
+
+      <section className="kb-testimonial bg-white py-16">
+        <Container className="mx-auto max-w-3xl">
+          <article className="testimonial-card rounded-3xl border border-slate-200 bg-slate-50 p-8 text-center shadow-sm">
+            <p className="quote text-base italic leading-relaxed text-slate-700">
+              "Fleitz Family Tile handled our complex mosaic backsplash perfectly. Best kitchen installers in Bradenton!"
+            </p>
+            <p className="author mt-4 text-sm font-semibold text-slate-900">— Jessica M., Bradenton, FL</p>
+          </article>
+        </Container>
+      </section>
+
+      {/* FAQ Section */}
+      <section className="faq-section bg-slate-50 py-16">
+        <Container className="mx-auto max-w-3xl space-y-8">
+          <div className="section-header space-y-3 text-center">
+            <h2 className="text-3xl font-semibold text-slate-900">Your Questions Answered</h2>
+          </div>
           <div className="space-y-6">
-            <h2 className="text-3xl font-semibold text-white">Ready to Plan Your Backsplash?</h2>
-            <p className="text-base leading-relaxed text-slate-200">
-              Share your inspiration photos, appliance specs, and timeline. We’ll recommend tile, trims, and grout systems that
-              handle Bradenton humidity and daily cooking, then schedule a site visit for precise measurements.
-            </p>
-            <ul className="flex flex-wrap gap-3 text-xs font-semibold uppercase tracking-[0.3em] text-slate-300">
-              <li className="rounded-full border border-white/20 px-4 py-2">Free Estimates</li>
-              <li className="rounded-full border border-white/20 px-4 py-2">Licensed &amp; Insured</li>
-              <li className="rounded-full border border-white/20 px-4 py-2">3rd-Generation Craft</li>
-              <li className="rounded-full border border-white/20 px-4 py-2">Bradenton • Sarasota</li>
-            </ul>
-          </div>
-          <HomeCtaForm />
-        </Container>
-      </section>
-
-      <section id="faq" className="bg-white py-16">
-        <Container className="space-y-8">
-          <div className="space-y-3 text-center">
-            <h2 className="text-3xl font-semibold text-slate-900">Kitchen Backsplash FAQs</h2>
-            <p className="mx-auto max-w-2xl text-sm leading-relaxed text-slate-600">
-              Answers to the most common questions Bradenton and Sarasota homeowners ask before starting a backsplash project.
-            </p>
-          </div>
-          <dl className="grid gap-6 md:grid-cols-2">
-            {faqItems.map((item) => (
-              <div key={item.question} className="space-y-2 rounded-3xl border border-slate-200 bg-slate-50 p-6">
-                <dt className="text-lg font-semibold text-slate-900">{item.question}</dt>
-                <dd className="text-sm leading-relaxed text-slate-600">{item.answer}</dd>
+            {faqItems.map((faq) => (
+              <div key={faq.question} className="faq-item rounded-3xl border border-slate-200 bg-white p-6 shadow-sm">
+                <h3 className="text-base font-semibold text-slate-900">{faq.question}</h3>
+                <p className="mt-3 text-sm leading-relaxed text-slate-600">{faq.answer}</p>
               </div>
             ))}
-          </dl>
+          </div>
+        </Container>
+      </section>
+
+      {/* CTA Section */}
+      <section id="cta-form" className="bg-slate-900 py-16 text-white">
+        <Container className="grid gap-10 lg:grid-cols-[minmax(0,0.9fr)_minmax(0,1fr)]">
+          <div className="space-y-4">
+            <h2 className="text-3xl font-semibold">Ready to Transform Your Kitchen?</h2>
+            <p className="text-sm leading-relaxed text-slate-200">
+              Get a free estimate for your kitchen backsplash project. Professional craftsmanship, competitive pricing, and exceptional service guaranteed.
+            </p>
+            <div className="flex flex-wrap gap-3 text-xs font-semibold uppercase tracking-[0.3em] text-slate-300">
+              <span>Free Estimates</span>
+              <span>Licensed & Insured</span>
+              <span>Quality Guarantee</span>
+            </div>
+          </div>
+          <HomeCtaForm />
         </Container>
       </section>
     </>
