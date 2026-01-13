@@ -26,13 +26,13 @@ export function GalleryGrid({ items }: GalleryGridProps) {
               className="group cursor-pointer overflow-hidden rounded-3xl border border-slate-200 bg-white shadow-lg shadow-slate-900/5"
               onClick={() => setSelectedImage(item)}
             >
-              <div className="relative overflow-hidden">
+              <div className="relative aspect-square overflow-hidden">
                 <Image
                   src={item.src}
                   alt={item.alt}
-                  width={640}
-                  height={640}
-                  className="h-full w-full object-cover transition duration-300 group-hover:scale-105"
+                  fill
+                  sizes="(max-width: 640px) 100vw, (max-width: 1024px) 50vw, 33vw"
+                  className="object-cover transition duration-300 group-hover:scale-105"
                 />
                 <div className="absolute inset-0 grid place-items-center bg-slate-950/30 opacity-0 transition group-hover:opacity-100">
                   <span className="flex size-12 items-center justify-center rounded-full bg-white/90 text-xl font-semibold text-slate-900">

@@ -23,7 +23,7 @@ export const serviceLinks = [
 export const mainNavigation = [
   { href: "/" as Route, label: "Home" },
   { href: "/about" as Route, label: "About Us" },
-  { href: serviceLinks[0]!.href, label: "Services", items: serviceLinks },
+  { href: "/services" as Route, label: "Services", items: serviceLinks },
   { href: "/gallery" as Route, label: "Gallery" },
   { href: "/contact" as Route, label: "Contact" },
   { href: "/blog" as Route, label: "Blog" }

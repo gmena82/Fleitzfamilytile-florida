@@ -24,6 +24,17 @@ type BlogPostCard = {
 
 const posts = [
   {
+    title: "Kicking Off the New Year: Big Goals, New Projects, and the Fleitz Family Promise",
+    date: "January 13, 2026",
+    excerpt:
+      "2026 is here with exciting projects across Bradenton and Sarasota, elevated clean-build standards, and a renewed commitment to third-generation craftsmanship.",
+    slug: "kicking-off-the-new-year-2026",
+    image: {
+      type: "placeholder" as const,
+      label: "Featured Image Placeholder",
+    },
+  },
+  {
     title: "Florida Flooring 101: Why Tile Wins in Bradenton Homes",
     date: "October 14, 2025",
     excerpt:
