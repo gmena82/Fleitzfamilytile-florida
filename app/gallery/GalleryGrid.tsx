@@ -35,7 +35,7 @@ export function GalleryGrid({ items }: GalleryGridProps) {
                   className="object-cover transition duration-300 group-hover:scale-105"
                 />
                 <div className="absolute inset-0 grid place-items-center bg-slate-950/30 opacity-0 transition group-hover:opacity-100">
-                  <span className="flex size-12 items-center justify-center rounded-full bg-white/90 text-xl font-semibold text-slate-900">
+                  <span className="flex size-12 items-center justify-center rounded-full bg-white/90 text-xl font-semibold text-slate-900 transition-transform duration-300 group-hover:scale-110 group-hover:rotate-90">
                     +
                   </span>
                 </div>

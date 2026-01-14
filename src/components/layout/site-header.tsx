@@ -96,9 +96,11 @@ export function SiteHeader() {
               <a
                 key={item.href}
                 href={item.href}
-                className="inline-flex items-center gap-2 rounded-full px-2.5 py-1 transition-colors hover:bg-slate-100 hover:text-slate-900"
+                className="group inline-flex items-center gap-2 rounded-full px-2.5 py-1 transition-colors hover:bg-slate-100 hover:text-slate-900"
               >
-                {item.icon}
+                <span className="transition-transform duration-300 group-hover:scale-110 group-hover:rotate-3">
+                  {item.icon}
+                </span>
                 <span>{item.label}</span>
               </a>
             ))}
@@ -106,9 +108,11 @@ export function SiteHeader() {
               href={instagramLink.href}
               target="_blank"
               rel="noreferrer"
-              className="inline-flex items-center gap-1 rounded-full px-2.5 py-1 transition-colors hover:bg-slate-100 hover:text-slate-900"
+              className="group inline-flex items-center gap-1 rounded-full px-2.5 py-1 transition-colors hover:bg-slate-100 hover:text-slate-900"
             >
-              {instagramLink.icon}
+              <span className="transition-transform duration-300 group-hover:scale-110 group-hover:-rotate-3">
+                {instagramLink.icon}
+              </span>
               <span>{instagramLink.label}</span>
             </a>
           </div>
@@ -120,7 +124,7 @@ export function SiteHeader() {
         <div className="mx-auto flex max-w-7xl items-center justify-between px-6 py-4 md:grid md:grid-cols-[minmax(250px,1fr)_auto_minmax(250px,1fr)] md:items-center md:gap-8">
           <Link
             href="/"
-            className="flex items-center gap-4 md:justify-self-start"
+            className="group flex items-center gap-4 md:justify-self-start"
             aria-label="Fleitz Family Tile home"
           >
             <Image
@@ -128,10 +132,10 @@ export function SiteHeader() {
               alt="Fleitz Family tile installer logo"
               width={80}
               height={80}
-              className="h-[5rem] w-[5rem] object-contain"
+              className="h-[5rem] w-[5rem] object-contain transition-transform duration-300 group-hover:scale-105"
               priority
             />
-            <span className="text-[1.3rem] font-semibold leading-tight text-slate-800 md:text-[1.5rem]">Fleitz Family Tile</span>
+            <span className="text-[1.3rem] font-semibold leading-tight text-slate-800 md:text-[1.5rem] transition-colors duration-300 group-hover:text-slate-900">Fleitz Family Tile</span>
           </Link>
 
           {/* Mobile menu button */}

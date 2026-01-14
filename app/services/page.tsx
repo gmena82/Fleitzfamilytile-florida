@@ -294,9 +294,9 @@ export default function ServicesPage() {
               </p>
               <div className="space-y-3">
                 {CTA_FEATURES.map((feature) => (
-                  <div key={feature} className="flex items-center gap-3">
-                    <CheckCircle2 className="h-5 w-5 text-sky-400" />
-                    <span className="text-sm font-semibold text-white/90">
+                  <div key={feature} className="group/item flex items-center gap-3 transition-colors hover:text-white">
+                    <CheckCircle2 className="h-5 w-5 text-sky-400 transition-transform duration-300 group-hover/item:scale-110" />
+                    <span className="text-sm font-semibold text-white/90 transition-colors duration-300 group-hover/item:text-white">
                       {feature}
                     </span>
                   </div>
@@ -351,10 +351,10 @@ function ServiceContent({ service }: { service: (typeof SERVICE_CARDS)[number] }
       <p className="text-base leading-7 text-slate-600">{service.description}</p>
       <Link
         href={service.href}
-        className="inline-flex items-center gap-2 rounded-full border border-sky-500 px-5 py-2 text-sm font-semibold text-sky-600 transition hover:bg-sky-50"
+        className="group/btn inline-flex items-center gap-2 rounded-full border border-sky-500 px-5 py-2 text-sm font-semibold text-sky-600 transition hover:bg-sky-50"
       >
         {service.cta}
-        <svg className="size-4" viewBox="0 0 20 20" aria-hidden>
+        <svg className="size-4 transition-transform duration-300 group-hover/btn:translate-x-1" viewBox="0 0 20 20" aria-hidden>
           <path
             fill="currentColor"
             d="M7.293 14.707a1 1 0 010-1.414L10.586 10 7.293 6.707a1 1 0 111.414-1.414l4 4a1 1 0 010 1.414l-4 4a1 1 0 01-1.414 0z"

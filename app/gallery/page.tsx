@@ -224,9 +224,9 @@ export default function GalleryPage() {
               </p>
               <div className="space-y-3">
                 {CTA_FEATURES.map((feature) => (
-                  <div key={feature} className="flex items-center gap-3">
-                    <CheckCircle2 className="h-5 w-5 text-white/80" />
-                    <span className="text-sm font-semibold text-white/90">{feature}</span>
+                  <div key={feature} className="group/item flex items-center gap-3 transition-colors hover:text-white">
+                    <CheckCircle2 className="h-5 w-5 text-white/80 transition-transform duration-300 group-hover/item:scale-110" />
+                    <span className="text-sm font-semibold text-white/90 transition-colors duration-300 group-hover/item:text-white">{feature}</span>
                   </div>
                 ))}
               </div>

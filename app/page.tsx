@@ -256,7 +256,7 @@ export default function HomePage() {
               <p style={{ fontSize: '1.0625rem', lineHeight: '1.75', color: '#64748b' }}>
                 Fleitz Family Tile specializes in professional tile installation for residential and commercial projects. With over three generations of experience, we lead the Bradenton area in craftsmanship and precision. From kitchen backsplashes to bathroom renovations, we set the standard in skill, preparation, and finishes that last.
               </p>
-              <Link href="/about" className="btn-secondary" style={{ color: '#0f172a', border: '1px solid #cbd5e1', alignSelf: 'flex-start', marginTop: '0.5rem' }}>
+              <Link href="/about" className="btn-secondary transition-all hover:scale-105" style={{ color: '#0f172a', border: '1px solid #cbd5e1', alignSelf: 'flex-start', marginTop: '0.5rem' }}>
                 About Us
               </Link>
             </div>
@@ -293,9 +293,9 @@ export default function HomePage() {
                 </div>
                 <div style={{ padding: '1.5rem', display: 'flex', flexDirection: 'column', gap: '1rem' }}>
                   <p style={{ fontSize: '0.875rem', lineHeight: '1.6', color: '#64748b', flex: 1 }}>{service.description}</p>
-                  <div style={{ display: 'flex', alignItems: 'center', gap: '0.5rem', fontSize: '0.875rem', fontWeight: '600', color: '#0f172a' }}>
+                  <div className="service-cta-link" style={{ display: 'flex', alignItems: 'center', gap: '0.5rem', fontSize: '0.875rem', fontWeight: '600', color: '#0f172a' }}>
                     <span>{service.cta}</span>
-                    <ArrowRight className="h-4 w-4" />
+                    <ArrowRight className="h-4 w-4 transition-transform duration-300 group-hover:translate-x-1" />
                   </div>
                 </div>
               </Link>
@@ -320,10 +320,10 @@ export default function HomePage() {
           </div>
           <div style={{ display: 'grid', gap: '2rem', gridTemplateColumns: 'repeat(auto-fit, minmax(min(100%, 320px), 1fr))' }}>
             {testimonials.map((testimonial, idx) => (
-              <article key={idx} className="testimonial-card">
-                <div className="stars" aria-label="5 out of 5 stars">
+              <article key={idx} className="testimonial-card group/card">
+                <div className="stars transition-transform duration-300 group-hover/card:scale-110" aria-label="5 out of 5 stars">
                   {Array.from({ length: 5 }).map((_, i) => (
-                    <Star key={i} className="inline h-4 w-4 fill-current" />
+                    <Star key={i} className="inline h-4 w-4 fill-current transition-transform duration-300 group-hover/card:rotate-[15deg]" />
                   ))}
                 </div>
                 <p style={{ fontSize: '0.875rem', lineHeight: '1.6', color: '#475569' }}>{testimonial.quote}</p>
@@ -368,16 +368,16 @@ export default function HomePage() {
                 Get a free estimate for your tile installation project. Professional craftsmanship, competitive pricing, and exceptional service guaranteed.
               </p>
               <div style={{ display: 'flex', flexWrap: 'wrap', gap: '1rem', fontSize: '0.75rem', fontWeight: '600', textTransform: 'uppercase', letterSpacing: '0.1em', color: 'rgba(255,255,255,0.8)' }}>
-                <div style={{ display: 'flex', alignItems: 'center', gap: '0.5rem' }}>
-                  <CheckCircle2 className="h-5 w-5" />
+                <div className="group/item flex items-center gap-2 transition-colors hover:text-white" style={{ display: 'flex', alignItems: 'center', gap: '0.5rem' }}>
+                  <CheckCircle2 className="h-5 w-5 transition-transform duration-300 group-hover/item:scale-110" />
                   <span>Free Estimates</span>
                 </div>
-                <div style={{ display: 'flex', alignItems: 'center', gap: '0.5rem' }}>
-                  <CheckCircle2 className="h-5 w-5" />
+                <div className="group/item flex items-center gap-2 transition-colors hover:text-white" style={{ display: 'flex', alignItems: 'center', gap: '0.5rem' }}>
+                  <CheckCircle2 className="h-5 w-5 transition-transform duration-300 group-hover/item:scale-110" />
                   <span>Licensed & Insured</span>
                 </div>
-                <div style={{ display: 'flex', alignItems: 'center', gap: '0.5rem' }}>
-                  <CheckCircle2 className="h-5 w-5" />
+                <div className="group/item flex items-center gap-2 transition-colors hover:text-white" style={{ display: 'flex', alignItems: 'center', gap: '0.5rem' }}>
+                  <CheckCircle2 className="h-5 w-5 transition-transform duration-300 group-hover/item:scale-110" />
                   <span>Quality Guarantee</span>
                 </div>
               </div>

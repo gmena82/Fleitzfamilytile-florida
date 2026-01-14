@@ -1,7 +1,7 @@
 import Script from "next/script";
 import type { Metadata } from "next";
 
-import { HomeCtaForm } from "@/components/sections/home-cta-form";
+import { QuoteCtaSection } from "@/components/sections/quote-cta";
 import { Container } from "@/components/ui/container";
 import { PlaceholderImage } from "@/components/ui/placeholder-image";
 import { siteConfig } from "@/config/site";
@@ -187,19 +187,7 @@ export default function FireplacesPage() {
         </Container>
       </section>
 
-      <section id="cta-form" className="relative overflow-hidden bg-slate-900 py-20 text-white">
-        <div className="absolute inset-0 bg-[radial-gradient(circle_at_top,_rgba(148,163,184,0.2),_transparent_55%)]" aria-hidden />
-        <Container className="relative grid gap-12 lg:grid-cols-[minmax(0,0.9fr)_minmax(0,1fr)]">
-          <div className="space-y-6">
-            <p className="text-xs font-semibold uppercase tracking-[0.4em] text-slate-300">Schedule Your Fireplace Upgrade</p>
-            <h2 className="text-3xl font-semibold sm:text-4xl">Book a Tile Fireplace Consultation</h2>
-            <p className="text-sm leading-relaxed text-slate-200">
-              Tell us about your fireplace vision and timeline. We will review materials, layout, ventilation needs, and coordinate with your designer or builder to keep the project on pace.
-            </p>
-          </div>
-          <HomeCtaForm />
-        </Container>
-      </section>
+      <QuoteCtaSection />
 
       <section id="faq" className="bg-white py-16">
         <Container className="space-y-10">

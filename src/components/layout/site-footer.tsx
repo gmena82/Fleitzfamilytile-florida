@@ -16,12 +16,28 @@ export function SiteFooter() {
     <footer id="site-footer" className="border-t border-gray-200 bg-slate-950 text-slate-200">
       <div className="mx-auto max-w-[1200px] px-4 py-16 sm:px-6">
         <div className="footer-cols grid gap-12 lg:grid-cols-4">
-          <div className="space-y-4">
+          <div>
             <Logo width={100} height={32} variant="footer" />
-            <p className="text-sm leading-relaxed text-slate-300">
+            <p className="mt-4 text-sm leading-relaxed text-slate-300">
               Professional tile installation in Bradenton with projects across Sarasota &amp; Lakewood Ranch. Expert craftsmanship
               for kitchens, bathrooms, floors &amp; fireplaces.
             </p>
+            <div className="mt-6 flex items-center gap-4">
+              <a
+                href={siteConfig.socialLinks.instagram}
+                target="_blank"
+                rel="noreferrer"
+                className="group flex size-10 items-center justify-center rounded-full border border-slate-800 transition-colors hover:border-slate-700 hover:bg-slate-900"
+                aria-label="Instagram"
+              >
+                <svg className="size-5 transition-transform duration-300 group-hover:scale-110 group-hover:-rotate-6" viewBox="0 0 24 24" aria-hidden>
+                  <path
+                    fill="currentColor"
+                    d="M7 2h10a5 5 0 015 5v10a5 5 0 01-5 5H7a5 5 0 01-5-5V7a5 5 0 015-5zm0 2a3 3 0 00-3 3v10a3 3 0 003 3h10a3 3 0 003-3V7a3 3 0 00-3-3H7zm10.5 1.75a1.25 1.25 0 11-2.5 0 1.25 1.25 0 012.5 0zM12 7a5 5 0 110 10 5 5 0 010-10z"
+                  />
+                </svg>
+              </a>
+            </div>
           </div>
           <div>
             <h3 className="text-sm font-semibold uppercase tracking-[0.3em] text-white">Services</h3>

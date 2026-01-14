@@ -3,7 +3,7 @@ import type { Metadata } from "next";
 import Image from "next/image";
 import Link from "next/link";
 
-import { HomeCtaForm } from "@/components/sections/home-cta-form";
+import { QuoteCtaSection } from "@/components/sections/quote-cta";
 import { Container } from "@/components/ui/container";
 import { siteConfig } from "@/config/site";
 
@@ -223,23 +223,7 @@ export default function BathroomShowerPage() {
         </Container>
       </section>
 
-      <section id="cta-form" className="relative overflow-hidden bg-slate-900 py-20 text-white">
-        <div className="absolute inset-0 bg-[radial-gradient(circle_at_bottom,_rgba(255,255,255,0.08),_transparent_60%)]" aria-hidden />
-        <Container className="relative grid gap-12 lg:grid-cols-[minmax(0,1fr)_minmax(0,0.85fr)]">
-          <div className="space-y-6">
-            <p className="text-xs font-semibold uppercase tracking-[0.4em] text-slate-300">Schedule Your Estimate</p>
-            <h2 className="text-3xl font-semibold sm:text-4xl">Ready for a waterproofed bathroom remodel?</h2>
-            <p className="text-base leading-relaxed text-slate-200">
-              Share your shower or full-bath vision and our team will confirm timelines, tile selections, and waterproofing specs so you can move forward with confidence.
-            </p>
-            <div className="space-y-3 text-sm leading-relaxed text-slate-200">
-              <p><span className="font-semibold text-white">Service Areas:</span> Bradenton, Sarasota, Lakewood Ranch, and nearby Gulf Coast communities.</p>
-              <p><span className="font-semibold text-white">What to expect:</span> Prompt scheduling, transparent pricing, and craftsmen who respect your home.</p>
-            </div>
-          </div>
-          <HomeCtaForm />
-        </Container>
-      </section>
+      <QuoteCtaSection />
 
       <section id="faq" className="bg-white py-16">
         <Container className="space-y-10">

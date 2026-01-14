@@ -37,7 +37,7 @@ export function Logo({
   return (
     <Link
       href={href}
-      className={`inline-block ${className}`.trim()}
+      className={`group inline-block ${className}`.trim()}
       aria-label="Fleitz Family Tile home"
     >
       <Image
@@ -46,7 +46,7 @@ export function Logo({
         width={width}
         height={height}
         priority={priority}
-        className="h-auto w-auto"
+        className="h-auto w-auto transition-transform duration-300 group-hover:scale-105"
       />
     </Link>
   );

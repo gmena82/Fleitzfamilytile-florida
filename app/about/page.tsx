@@ -3,7 +3,7 @@ import type { Metadata } from "next";
 import Image from "next/image";
 
 import { Container } from "@/components/ui/container";
-import { HomeCtaForm } from "@/components/sections/home-cta-form";
+import { QuoteCtaSection } from "@/components/sections/quote-cta";
 import { siteConfig } from "@/config/site";
 
 const differenceHighlights = [
@@ -240,22 +240,7 @@ export default function AboutPage() {
       </section>
 
       {/* CTA Section */}
-      <section id="cta-form" className="bg-slate-900 py-16 text-white">
-        <Container className="grid gap-10 lg:grid-cols-[minmax(0,0.9fr)_minmax(0,1fr)]">
-          <div className="space-y-4">
-            <h2 className="text-3xl font-semibold">Ready to Transform Your Space?</h2>
-            <p className="text-sm leading-relaxed text-slate-200">
-              Get a free estimate for your tile installation project. Professional craftsmanship, competitive pricing, and exceptional service guaranteed.
-            </p>
-            <div className="flex flex-wrap gap-3 text-xs font-semibold uppercase tracking-[0.3em] text-slate-300">
-              <span>Free Estimates</span>
-              <span>Licensed &amp; Insured</span>
-              <span>Quality Guarantee</span>
-            </div>
-          </div>
-          <HomeCtaForm />
-        </Container>
-      </section>
+      <QuoteCtaSection />
     </>
   );
 }

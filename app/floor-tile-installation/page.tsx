@@ -1,7 +1,7 @@
 import Script from "next/script";
 import type { Metadata } from "next";
 
-import { HomeCtaForm } from "@/components/sections/home-cta-form";
+import { QuoteCtaSection } from "@/components/sections/quote-cta";
 import { Container } from "@/components/ui/container";
 import { PlaceholderImage } from "@/components/ui/placeholder-image";
 import { siteConfig } from "@/config/site";
@@ -241,18 +241,7 @@ export default function FloorTileInstallationPage() {
         </Container>
       </section>
 
-      <section id="cta-form" className="bg-slate-900 py-16 text-white">
-        <Container className="space-y-8">
-          <div className="space-y-4 text-center">
-            <h2 className="text-3xl font-semibold">Ready to Level Up Your Floors?</h2>
-            <p className="mx-auto max-w-2xl text-sm leading-relaxed text-slate-200">
-              Connect with a floor tile installer Bradenton homeowners trust. Tell us about your space and we will schedule your
-              in-home consultation.
-            </p>
-          </div>
-          <HomeCtaForm />
-        </Container>
-      </section>
+      <QuoteCtaSection />
 
       <section id="faq" className="bg-white py-16">
         <Container className="space-y-8">

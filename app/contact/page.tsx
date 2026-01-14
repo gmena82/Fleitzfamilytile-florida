@@ -59,32 +59,32 @@ export default function ContactPage() {
               Get a free estimate for your tile installation project. Professional craftsmanship, competitive pricing, and exceptional service guaranteed.
             </p>
             <div className="flex flex-wrap justify-center gap-4">
-              <div className="flex items-center gap-2">
-                <svg className="h-5 w-5" viewBox="0 0 24 24"><path fill="currentColor" d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z"/></svg>
+              <div className="group/item flex items-center gap-2 transition-colors hover:text-white">
+                <svg className="h-5 w-5 transition-transform duration-300 group-hover/item:scale-110" viewBox="0 0 24 24"><path fill="currentColor" d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z"/></svg>
                 <span className="text-sm font-semibold">Free Estimates</span>
               </div>
-              <div className="flex items-center gap-2">
-                <svg className="h-5 w-5" viewBox="0 0 24 24"><path fill="currentColor" d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z"/></svg>
+              <div className="group/item flex items-center gap-2 transition-colors hover:text-white">
+                <svg className="h-5 w-5 transition-transform duration-300 group-hover/item:scale-110" viewBox="0 0 24 24"><path fill="currentColor" d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z"/></svg>
                 <span className="text-sm font-semibold">Licensed & Insured</span>
               </div>
-              <div className="flex items-center gap-2">
-                <svg className="h-5 w-5" viewBox="0 0 24 24"><path fill="currentColor" d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z"/></svg>
+              <div className="group/item flex items-center gap-2 transition-colors hover:text-white">
+                <svg className="h-5 w-5 transition-transform duration-300 group-hover/item:scale-110" viewBox="0 0 24 24"><path fill="currentColor" d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z"/></svg>
                 <span className="text-sm font-semibold">Quality Guarantee</span>
               </div>
             </div>
 
             {/* Contact Information */}
             <div className="mt-8 flex flex-wrap justify-center gap-6 border-t border-white/20 pt-8">
-              <a href={`tel:+1${phoneDigits}`} className="flex items-center gap-2 font-medium text-white transition hover:text-sky-200">
-                <Phone className="h-5 w-5 text-sky-300" />
+              <a href={`tel:+1${phoneDigits}`} className="group flex items-center gap-2 font-medium text-white transition hover:text-sky-200">
+                <Phone className="h-5 w-5 text-sky-300 transition-transform duration-300 group-hover:scale-110 group-hover:rotate-3" />
                 {phoneNumber}
               </a>
-              <a href={`mailto:${siteConfig.contact.email}`} className="flex items-center gap-2 font-medium text-white transition hover:text-sky-200">
-                <Mail className="h-5 w-5 text-sky-300" />
+              <a href={`mailto:${siteConfig.contact.email}`} className="group flex items-center gap-2 font-medium text-white transition hover:text-sky-200">
+                <Mail className="h-5 w-5 text-sky-300 transition-transform duration-300 group-hover:scale-110 group-hover:-rotate-3" />
                 {siteConfig.contact.email}
               </a>
-              <span className="flex items-center gap-2 text-sm text-slate-200">
-                <MapPin className="h-5 w-5 text-sky-300" />
+              <span className="group flex items-center gap-2 text-sm text-slate-200">
+                <MapPin className="h-5 w-5 text-sky-300 transition-transform duration-300 group-hover:scale-110" />
                 {siteConfig.headquarters.city}, {siteConfig.headquarters.state}
               </span>
             </div>
@@ -134,16 +134,16 @@ export default function ContactPage() {
                 Fill out the form and we'll get back to you within 24 hours with a detailed estimate for your project.
               </p>
               <ul className="space-y-3 text-slate-300">
-                <li className="flex items-center gap-3">
-                  <svg className="h-5 w-5 text-sky-400" viewBox="0 0 24 24"><path fill="currentColor" d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z"/></svg>
+                <li className="group/item flex items-center gap-3 transition-colors hover:text-white">
+                  <svg className="h-5 w-5 text-sky-400 transition-transform duration-300 group-hover/item:scale-110" viewBox="0 0 24 24"><path fill="currentColor" d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z"/></svg>
                   No obligation quote
                 </li>
-                <li className="flex items-center gap-3">
-                  <svg className="h-5 w-5 text-sky-400" viewBox="0 0 24 24"><path fill="currentColor" d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z"/></svg>
+                <li className="group/item flex items-center gap-3 transition-colors hover:text-white">
+                  <svg className="h-5 w-5 text-sky-400 transition-transform duration-300 group-hover/item:scale-110" viewBox="0 0 24 24"><path fill="currentColor" d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z"/></svg>
                   Response within 24 hours
                 </li>
-                <li className="flex items-center gap-3">
-                  <svg className="h-5 w-5 text-sky-400" viewBox="0 0 24 24"><path fill="currentColor" d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z"/></svg>
+                <li className="group/item flex items-center gap-3 transition-colors hover:text-white">
+                  <svg className="h-5 w-5 text-sky-400 transition-transform duration-300 group-hover/item:scale-110" viewBox="0 0 24 24"><path fill="currentColor" d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z"/></svg>
                   Professional on-site consultation
                 </li>
               </ul>
