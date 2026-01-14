@@ -2,6 +2,7 @@ import Link from "next/link";
 
 import { Container } from "@/components/ui/container";
 import { PageHeader } from "@/components/sections/page-header";
+import { QuoteCtaSection } from "@/components/sections/quote-cta";
 
 const resourceLinks: {
   title: string;
@@ -64,6 +65,7 @@ export default function ResourcesPage() {
           </article>
         </Container>
       </section>
+      <QuoteCtaSection />
     </>
   );
 }

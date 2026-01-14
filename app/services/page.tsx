@@ -2,10 +2,9 @@ import Image from "next/image";
 import Link from "next/link";
 import Script from "next/script";
 import type { Metadata } from "next";
-import { CheckCircle2 } from "lucide-react";
 
 import { Container } from "@/components/ui/container";
-import { HomeCtaForm } from "@/components/sections/home-cta-form";
+import { QuoteCtaSection } from "@/components/sections/quote-cta";
 import { siteConfig } from "@/config/site";
 
 const SERVICE_CARDS = [
@@ -94,8 +93,6 @@ const SERVICES_FAQS = [
       "We carry full general liability insurance and workers' compensation coverage. All work is performed by licensed, insured professionals to protect your home and our team.",
   },
 ];
-
-const CTA_FEATURES = ["Free Estimates", "Licensed & Insured", "Quality Guarantee"];
 
 const servicesJsonLd = {
   "@context": "https://schema.org",
@@ -272,42 +269,7 @@ export default function ServicesPage() {
       </section>
 
       {/* CTA Section */}
-      <section className="relative overflow-hidden">
-        <div className="absolute inset-0">
-          <Image
-            src="/images/showroom/BG-3-F.png"
-            alt="Tile installation background"
-            fill
-            className="object-cover"
-          />
-          <div className="absolute inset-0 bg-slate-950/75" />
-        </div>
-
-        <Container className="relative py-24">
-          <div className="grid gap-12 lg:grid-cols-2 lg:items-center">
-            <div className="space-y-6 text-white">
-              <h2 className="text-3xl font-semibold">
-                Ready to Transform Your Space?
-              </h2>
-              <p className="text-base leading-7 text-white/80">
-                Get a free estimate for your tile installation project. Professional craftsmanship, competitive pricing, and exceptional service guaranteed.
-              </p>
-              <div className="space-y-3">
-                {CTA_FEATURES.map((feature) => (
-                  <div key={feature} className="group/item flex items-center gap-3 transition-colors hover:text-white">
-                    <CheckCircle2 className="h-5 w-5 text-sky-400 transition-transform duration-300 group-hover/item:scale-110" />
-                    <span className="text-sm font-semibold text-white/90 transition-colors duration-300 group-hover/item:text-white">
-                      {feature}
-                    </span>
-                  </div>
-                ))}
-              </div>
-            </div>
-
-            <HomeCtaForm />
-          </div>
-        </Container>
-      </section>
+      <QuoteCtaSection />
 
       {/* FAQ Section */}
       <section className="bg-slate-50 py-20">

@@ -1,5 +1,6 @@
 import { Container } from "@/components/ui/container";
 import { PageHeader } from "@/components/sections/page-header";
+import { QuoteCtaSection } from "@/components/sections/quote-cta";
 
 const categories = [
   {
@@ -42,6 +43,7 @@ export default function MarketplacePage() {
           ))}
         </Container>
       </section>
+      <QuoteCtaSection />
     </>
   );
 }

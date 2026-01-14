@@ -3,7 +3,7 @@ import Script from "next/script";
 import type { Metadata } from "next";
 import { ArrowUpRight, Mail, MapPin, Phone } from "lucide-react";
 
-import { HomeCtaForm } from "@/components/sections/home-cta-form";
+import { QuoteCtaSection } from "@/components/sections/quote-cta";
 import { Container } from "@/components/ui/container";
 import { siteConfig } from "@/config/site";
 
@@ -116,44 +116,7 @@ export default function ContactPage() {
       </section>
 
       {/* CTA Form Section */}
-      <section id="contact" className="relative overflow-hidden bg-slate-900 py-20 text-white">
-        <div className="absolute inset-0">
-          <Image
-            src="/images/showroom/BG-1-F.png"
-            alt="Tile installation background"
-            fill
-            className="object-cover opacity-30"
-          />
-          <div className="absolute inset-0 bg-gradient-to-b from-slate-900/90 via-slate-900/80 to-slate-900/90" />
-        </div>
-        <Container className="relative z-10">
-          <div className="grid gap-10 lg:grid-cols-[minmax(0,1fr)_minmax(0,1fr)] lg:items-center">
-            <div className="space-y-6">
-              <h2 className="text-3xl font-semibold sm:text-4xl">Get Your Free Estimate</h2>
-              <p className="text-base leading-relaxed text-slate-300">
-                Fill out the form and we'll get back to you within 24 hours with a detailed estimate for your project.
-              </p>
-              <ul className="space-y-3 text-slate-300">
-                <li className="group/item flex items-center gap-3 transition-colors hover:text-white">
-                  <svg className="h-5 w-5 text-sky-400 transition-transform duration-300 group-hover/item:scale-110" viewBox="0 0 24 24"><path fill="currentColor" d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z"/></svg>
-                  No obligation quote
-                </li>
-                <li className="group/item flex items-center gap-3 transition-colors hover:text-white">
-                  <svg className="h-5 w-5 text-sky-400 transition-transform duration-300 group-hover/item:scale-110" viewBox="0 0 24 24"><path fill="currentColor" d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z"/></svg>
-                  Response within 24 hours
-                </li>
-                <li className="group/item flex items-center gap-3 transition-colors hover:text-white">
-                  <svg className="h-5 w-5 text-sky-400 transition-transform duration-300 group-hover/item:scale-110" viewBox="0 0 24 24"><path fill="currentColor" d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z"/></svg>
-                  Professional on-site consultation
-                </li>
-              </ul>
-            </div>
-            <div>
-              <HomeCtaForm />
-            </div>
-          </div>
-        </Container>
-      </section>
+      <QuoteCtaSection />
 
       {/* Map Section */}
       <section className="map-section bg-white py-20">

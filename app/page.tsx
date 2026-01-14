@@ -2,11 +2,11 @@ import Link from "next/link";
 import Script from "next/script";
 import type { Metadata } from "next";
 import Image from "next/image";
-import { ArrowRight, CheckCircle2, Star } from "lucide-react";
+import { ArrowRight, Star } from "lucide-react";
 
 import { Container } from "@/components/ui/container";
 import { siteConfig } from "@/config/site";
-import { HomeCtaForm } from "@/components/sections/home-cta-form";
+import { QuoteCtaSection } from "@/components/sections/quote-cta";
 
 const heroBenefits = [
   "Clean prep, straight lines, and meticulous waterproofing.",
@@ -350,44 +350,7 @@ export default function HomePage() {
       </section>
 
       {/* CTA Section */}
-      <section className="cta-section">
-        <div className="cta-bg">
-          <Image
-            src="/images/showroom/BG-2.png"
-            alt="Luxury kitchen tile backsplash installation"
-            fill
-            className="cta-bg-image"
-          />
-          <div className="cta-overlay" />
-        </div>
-        <div className="container">
-          <div className="cta-content" style={{ display: 'grid', gap: '2.5rem', gridTemplateColumns: 'repeat(auto-fit, minmax(300px, 1fr))', alignItems: 'start' }}>
-            <div style={{ display: 'flex', flexDirection: 'column', gap: '1rem' }}>
-              <h2 style={{ fontSize: '1.875rem', fontWeight: '700' }}>Ready to Transform Your Space?</h2>
-              <p style={{ fontSize: '1rem', color: 'rgba(255,255,255,0.9)' }}>
-                Get a free estimate for your tile installation project. Professional craftsmanship, competitive pricing, and exceptional service guaranteed.
-              </p>
-              <div style={{ display: 'flex', flexWrap: 'wrap', gap: '1rem', fontSize: '0.75rem', fontWeight: '600', textTransform: 'uppercase', letterSpacing: '0.1em', color: 'rgba(255,255,255,0.8)' }}>
-                <div className="group/item flex items-center gap-2 transition-colors hover:text-white" style={{ display: 'flex', alignItems: 'center', gap: '0.5rem' }}>
-                  <CheckCircle2 className="h-5 w-5 transition-transform duration-300 group-hover/item:scale-110" />
-                  <span>Free Estimates</span>
-                </div>
-                <div className="group/item flex items-center gap-2 transition-colors hover:text-white" style={{ display: 'flex', alignItems: 'center', gap: '0.5rem' }}>
-                  <CheckCircle2 className="h-5 w-5 transition-transform duration-300 group-hover/item:scale-110" />
-                  <span>Licensed & Insured</span>
-                </div>
-                <div className="group/item flex items-center gap-2 transition-colors hover:text-white" style={{ display: 'flex', alignItems: 'center', gap: '0.5rem' }}>
-                  <CheckCircle2 className="h-5 w-5 transition-transform duration-300 group-hover/item:scale-110" />
-                  <span>Quality Guarantee</span>
-                </div>
-              </div>
-            </div>
-            <div>
-              <HomeCtaForm />
-            </div>
-          </div>
-        </div>
-      </section>
+      <QuoteCtaSection />
 
       {/* FAQ Section */}
       <section style={{ background: 'white', padding: '5rem 0' }}>

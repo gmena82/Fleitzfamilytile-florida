@@ -2,6 +2,7 @@ import { Star } from "lucide-react";
 
 import { PageHeader } from "@/components/sections/page-header";
 import { Container } from "@/components/ui/container";
+import { QuoteCtaSection } from "@/components/sections/quote-cta";
 
 const testimonials = [
   {
@@ -89,6 +90,8 @@ export default function TestimonialsPage() {
           </div>
         </Container>
       </section>
+
+      <QuoteCtaSection />
     </>
   );
 }

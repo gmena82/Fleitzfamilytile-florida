@@ -1,5 +1,6 @@
 import { ContentGrid } from "@/components/sections/content-grid";
 import { PageHeader } from "@/components/sections/page-header";
+import { QuoteCtaSection } from "@/components/sections/quote-cta";
 
 const buyerSupport = [
   {
@@ -32,6 +33,7 @@ export default function BuyersPage() {
         description="From your first showroom visit to final walkthrough, we make the selection and installation journey simple and inspiring."
       />
       <ContentGrid sections={buyerSupport} />
+      <QuoteCtaSection />
     </>
   );
 }

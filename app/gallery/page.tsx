@@ -2,10 +2,9 @@ import Script from "next/script";
 import type { Metadata } from "next";
 import Image from "next/image";
 import Link from "next/link";
-import { CheckCircle2 } from "lucide-react";
 
 import { siteConfig } from "@/config/site";
-import { HomeCtaForm } from "@/components/sections/home-cta-form";
+import { QuoteCtaSection } from "@/components/sections/quote-cta";
 import { GalleryGrid } from "./GalleryGrid";
 
 const GALLERY_FAQS = [
@@ -109,8 +108,6 @@ const GALLERY_ITEMS = [
   },
 ];
 
-const CTA_FEATURES = ["Free Estimates", "Licensed & Insured", "Quality Guarantee"];
-
 const collectionJsonLd = {
   "@context": "https://schema.org",
   "@type": "CollectionPage",
@@ -204,38 +201,7 @@ export default function GalleryPage() {
       <GalleryGrid items={GALLERY_ITEMS} />
 
       {/* CTA Form Section */}
-      <section className="relative overflow-hidden">
-        <div className="absolute inset-0">
-          <Image
-            src="/images/showroom/BG-2.png"
-            alt="Luxury kitchen tile backsplash installation in Bradenton home"
-            fill
-            className="object-cover"
-          />
-          <div className="absolute inset-0 bg-slate-950/70" />
-        </div>
-
-        <div className="relative mx-auto max-w-6xl px-6 py-24">
-          <div className="grid gap-12 lg:grid-cols-2">
-            <div className="space-y-6 text-white">
-              <h2 className="text-3xl font-semibold">Inspired by What You See?</h2>
-              <p className="text-base leading-7 text-white/80">
-                Let's bring this level of quality and craftsmanship to your home. Share your project ideas and we'll build a tailored estimate.
-              </p>
-              <div className="space-y-3">
-                {CTA_FEATURES.map((feature) => (
-                  <div key={feature} className="group/item flex items-center gap-3 transition-colors hover:text-white">
-                    <CheckCircle2 className="h-5 w-5 text-white/80 transition-transform duration-300 group-hover/item:scale-110" />
-                    <span className="text-sm font-semibold text-white/90 transition-colors duration-300 group-hover/item:text-white">{feature}</span>
-                  </div>
-                ))}
-              </div>
-            </div>
-
-            <HomeCtaForm />
-          </div>
-        </div>
-      </section>
+      <QuoteCtaSection />
 
       {/* FAQ Section */}
       <section className="bg-slate-50 py-20">
