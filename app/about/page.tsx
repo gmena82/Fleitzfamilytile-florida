@@ -129,9 +129,12 @@ export default function AboutPage() {
           <div className="hero-overlay absolute inset-0 bg-gradient-to-b from-black/60 via-black/40 to-black/60" />
         </div>
         <Container className="relative z-10 flex min-h-[62vh] items-center justify-center">
-          <div className="hero-content mx-auto max-w-3xl space-y-6 text-center text-white">
-            <h1 className="text-4xl font-semibold sm:text-5xl">
-              About Fleitz Family Tile: Expert Tile Contractors in Bradenton, FL
+          <div className="hero-content mx-auto max-w-4xl space-y-6 text-center text-white">
+            <h1 className="space-y-4">
+              <span className="block text-4xl font-bold sm:text-6xl">About Fleitz Family Tile</span>
+              <span className="block text-2xl font-medium sm:text-3xl text-white/90">
+                Expert Tile Contractors in Bradenton, FL
+              </span>
             </h1>
             <p className="text-lg leading-relaxed text-white/90">
               Family owned. Florida based. Three generations strong.
