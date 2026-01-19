@@ -7,6 +7,7 @@ import { ArrowRight, Star } from "lucide-react";
 import { Container } from "@/components/ui/container";
 import { siteConfig } from "@/config/site";
 import { QuoteCtaSection } from "@/components/sections/quote-cta";
+import { FaqSection } from "@/components/sections/faq";
 
 const heroBenefits = [
   "Clean prep, straight lines, and meticulous waterproofing.",
@@ -353,30 +354,11 @@ export default function HomePage() {
       <QuoteCtaSection />
 
       {/* FAQ Section */}
-      <section style={{ background: 'white', padding: '5rem 0' }}>
-        <div className="container">
-          <div style={{ textAlign: 'center', marginBottom: '3.5rem', maxWidth: '48rem', margin: '0 auto 3.5rem' }}>
-            <h2 style={{ fontSize: 'clamp(1.75rem, 4vw, 2.25rem)', fontWeight: '700', color: '#0f172a', marginBottom: '1rem', lineHeight: '1.2' }}>
-              Frequently Asked Questions
-            </h2>
-            <p style={{ fontSize: '1.125rem', color: '#64748b', lineHeight: '1.7' }}>
-              Get answers to common tile installation questions from Bradenton homeowners.
-            </p>
-          </div>
-          <div style={{ display: 'grid', gap: '1.75rem', gridTemplateColumns: 'repeat(auto-fit, minmax(min(100%, 340px), 1fr))', maxWidth: '72rem', margin: '0 auto' }}>
-            {homeFaqs.map((faq) => (
-              <div key={faq.question} className="faq-item">
-                <h3 style={{ fontSize: '1rem', fontWeight: '600', color: '#0f172a', marginBottom: '0.75rem' }}>
-                  {faq.question}
-                </h3>
-                <p style={{ fontSize: '0.875rem', lineHeight: '1.6', color: '#64748b' }}>
-                  {faq.answer}
-                </p>
-              </div>
-            ))}
-          </div>
-        </div>
-      </section>
+      <FaqSection 
+        items={homeFaqs}
+        title="Frequently Asked Questions"
+        description="Get answers to common tile installation questions from Bradenton homeowners."
+      />
     </>
   );
 }

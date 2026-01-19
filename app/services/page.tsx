@@ -5,6 +5,7 @@ import type { Metadata } from "next";
 
 import { Container } from "@/components/ui/container";
 import { QuoteCtaSection } from "@/components/sections/quote-cta";
+import { FaqSection } from "@/components/sections/faq";
 import { siteConfig } from "@/config/site";
 
 const SERVICE_CARDS = [
@@ -272,30 +273,7 @@ export default function ServicesPage() {
       <QuoteCtaSection />
 
       {/* FAQ Section */}
-      <section className="bg-slate-50 py-20">
-        <Container className="space-y-10">
-          <div className="text-center">
-            <h2 className="text-3xl font-semibold text-slate-900">
-              Frequently Asked Questions
-            </h2>
-          </div>
-          <div className="grid gap-6 md:grid-cols-2">
-            {SERVICES_FAQS.map((faq) => (
-              <article
-                key={faq.question}
-                className="rounded-2xl border border-white bg-white p-6 shadow-md shadow-slate-900/5"
-              >
-                <h3 className="text-lg font-semibold text-slate-900">
-                  {faq.question}
-                </h3>
-                <p className="mt-3 text-sm leading-6 text-slate-600">
-                  {faq.answer}
-                </p>
-              </article>
-            ))}
-          </div>
-        </Container>
-      </section>
+      <FaqSection items={SERVICES_FAQS} />
 
       <Script
         id="faq-jsonld"

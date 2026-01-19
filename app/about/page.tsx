@@ -4,6 +4,7 @@ import Image from "next/image";
 
 import { Container } from "@/components/ui/container";
 import { QuoteCtaSection } from "@/components/sections/quote-cta";
+import { FaqSection } from "@/components/sections/faq";
 import { siteConfig } from "@/config/site";
 
 const differenceHighlights = [
@@ -223,24 +224,10 @@ export default function AboutPage() {
       </section>
 
       {/* FAQ Section */}
-      <section className="faq-section bg-slate-50 py-16">
-        <Container className="space-y-8">
-          <div className="space-y-3 text-center">
-            <h2 className="text-3xl font-semibold text-slate-900">Frequently Asked Questions</h2>
-            <p className="mx-auto max-w-2xl text-sm leading-relaxed text-slate-600">
-              Get answers to common tile installation questions from Bradenton homeowners before your project begins.
-            </p>
-          </div>
-          <div className="faq-grid grid gap-6 md:grid-cols-2">
-            {faqs.map((faq) => (
-              <div key={faq.question} className="faq-item rounded-3xl border border-slate-200 bg-white p-6 shadow-sm">
-                <h3 className="text-base font-semibold text-slate-900">{faq.question}</h3>
-                <p className="mt-3 text-sm leading-relaxed text-slate-600">{faq.answer}</p>
-              </div>
-            ))}
-          </div>
-        </Container>
-      </section>
+      <FaqSection 
+        items={faqs}
+        description="Get answers to common tile installation questions from Bradenton homeowners before your project begins."
+      />
 
       {/* CTA Section */}
       <QuoteCtaSection />

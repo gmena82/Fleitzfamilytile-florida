@@ -4,6 +4,7 @@ import Image from "next/image";
 import Link from "next/link";
 
 import { QuoteCtaSection } from "@/components/sections/quote-cta";
+import { FaqSection } from "@/components/sections/faq";
 import { Container } from "@/components/ui/container";
 import { siteConfig } from "@/config/site";
 
@@ -223,26 +224,13 @@ export default function BathroomShowerPage() {
         </Container>
       </section>
 
-      <QuoteCtaSection />
+      <FaqSection 
+        items={faqItems} 
+        title="Bathroom & Shower Tile FAQs"
+        description="Answers to the questions Bradenton and Sarasota homeowners ask most about bathroom tile remodels."
+      />
 
-      <section id="faq" className="bg-white py-16">
-        <Container className="space-y-10">
-          <div className="space-y-3 text-center">
-            <h2 className="text-3xl font-semibold text-slate-900">Bathroom &amp; Shower Tile FAQs</h2>
-            <p className="mx-auto max-w-2xl text-sm leading-relaxed text-slate-600">
-              Answers to the questions Bradenton and Sarasota homeowners ask most about bathroom tile remodels.
-            </p>
-          </div>
-          <div className="grid gap-6 md:grid-cols-2">
-            {faqItems.map((item) => (
-              <div key={item.question} className="space-y-2 rounded-3xl border border-slate-200 bg-slate-50 p-6">
-                <h3 className="text-lg font-semibold text-slate-900">{item.question}</h3>
-                <p className="text-sm leading-relaxed text-slate-600">{item.answer}</p>
-              </div>
-            ))}
-          </div>
-        </Container>
-      </section>
+      <QuoteCtaSection />
     </>
   );
 }

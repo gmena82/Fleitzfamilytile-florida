@@ -3,11 +3,35 @@ import Script from "next/script";
 import type { Metadata } from "next";
 
 import { QuoteCtaSection } from "@/components/sections/quote-cta";
+import { FaqSection } from "@/components/sections/faq";
 import { Container } from "@/components/ui/container";
 import { PlaceholderImage } from "@/components/ui/placeholder-image";
 import { siteConfig } from "@/config/site";
 
 const publishedDate = "2025-10-14";
+
+const faqItems = [
+  {
+    question: "How long does tile installation take?",
+    answer: "Single rooms often finish in 2–4 days depending on demo, leveling, tile size, and grout cure times. Whole-home timelines vary—ask for a project-specific schedule.",
+  },
+  {
+    question: "Porcelain or ceramic for floors?",
+    answer: "We typically recommend porcelain for Bradenton floors. It is denser and more water-resistant than ceramic, making it ideal for high-traffic, humid environments.",
+  },
+  {
+    question: "Will grout stain or crack?",
+    answer: "We specify high-quality grout and movement joints to prevent cracking. Sealing cement-based grout helps resist stains; epoxy grout is highly stain-resistant by design.",
+  },
+  {
+    question: "How do I clean tile?",
+    answer: "Sweep or vacuum grit, then mop with a pH-neutral cleaner. Avoid harsh chemicals or oils that leave residue.",
+  },
+  {
+    question: "Can you match the same look outside?",
+    answer: "Yes. Many porcelain lines are rated for patios and lanais. We verify slip resistance and thickness for outdoor use before installation.",
+  },
+];
 
 const articleJsonLd = {
   "@context": "https://schema.org",
@@ -28,48 +52,14 @@ const articleJsonLd = {
 const faqJsonLd = {
   "@context": "https://schema.org",
   "@type": "FAQPage",
-  mainEntity: [
-    {
-      "@type": "Question",
-      name: "How long does tile installation take?",
-      acceptedAnswer: {
-        "@type": "Answer",
-        text: "Single rooms often finish in 2–4 days depending on demo, leveling, tile size, and grout cure times. Whole-home timelines vary—ask for a project-specific schedule.",
-      },
+  mainEntity: faqItems.map((item) => ({
+    "@type": "Question",
+    name: item.question,
+    acceptedAnswer: {
+      "@type": "Answer",
+      text: item.answer,
     },
-    {
-      "@type": "Question",
-      name: "Porcelain or ceramic for floors?",
-      acceptedAnswer: {
-        "@type": "Answer",
-        text: "We typically recommend porcelain for Bradenton floors. It is denser and more water-resistant than ceramic, making it ideal for high-traffic, humid environments.",
-      },
-    },
-    {
-      "@type": "Question",
-      name: "Will grout stain or crack?",
-      acceptedAnswer: {
-        "@type": "Answer",
-        text: "We specify high-quality grout and movement joints to prevent cracking. Sealing cement-based grout helps resist stains; epoxy grout is highly stain-resistant by design.",
-      },
-    },
-    {
-      "@type": "Question",
-      name: "How do I clean tile?",
-      acceptedAnswer: {
-        "@type": "Answer",
-        text: "Sweep or vacuum grit, then mop with a pH-neutral cleaner. Avoid harsh chemicals or oils that leave residue.",
-      },
-    },
-    {
-      "@type": "Question",
-      name: "Can you match the same look outside?",
-      acceptedAnswer: {
-        "@type": "Answer",
-        text: "Yes. Many porcelain lines are rated for patios and lanais. We verify slip resistance and thickness for outdoor use before installation.",
-      },
-    },
-  ],
+  })),
 };
 
 export const metadata: Metadata = {
@@ -220,32 +210,6 @@ export default function WhyTileFlooringBradentonPage() {
               </section>
 
               <section className="space-y-4">
-                <h2 className="text-2xl font-semibold text-slate-900">Frequently Asked Questions</h2>
-                <div className="space-y-6">
-                  <div>
-                    <h3 className="text-xl font-semibold text-slate-900">How long does tile installation take?</h3>
-                    <p>Most single rooms wrap up in two to four days depending on demo, leveling, and tile size. Whole-home projects vary—ask for a timeline with your estimate.</p>
-                  </div>
-                  <div>
-                    <h3 className="text-xl font-semibold text-slate-900">Porcelain or ceramic for floors?</h3>
-                    <p>We usually recommend porcelain for Gulf Coast floors because it&apos;s denser, more water-resistant, and tougher in high-traffic areas. Ceramic still shines on walls and lighter-use spaces.</p>
-                  </div>
-                  <div>
-                    <h3 className="text-xl font-semibold text-slate-900">Will grout stain or crack?</h3>
-                    <p>We specify premium grout and movement joints to prevent cracking. Sealing cementitious grout helps resist stains, and epoxy grout adds even more protection.</p>
-                  </div>
-                  <div>
-                    <h3 className="text-xl font-semibold text-slate-900">How do I clean tile?</h3>
-                    <p>Sweep or vacuum grit, then mop with a pH-neutral cleaner. Skip harsh chemicals and oil soaps—they can leave residue.</p>
-                  </div>
-                  <div>
-                    <h3 className="text-xl font-semibold text-slate-900">Can you match the same look outside?</h3>
-                    <p>Yes. Many porcelain lines are rated for patios and covered lanais. We confirm slip resistance and thickness for exterior use before installation.</p>
-                  </div>
-                </div>
-              </section>
-
-              <section className="space-y-4">
                 <h2 className="text-2xl font-semibold text-slate-900">Plan Your Tile Project with Fleitz Family Tile</h2>
                 <p>
                   Our third-generation installers serve Bradenton, Lakewood Ranch, Sarasota, Palmetto, Parrish, Anna Maria Island, and Holmes Beach. Whether you need a <Link href="/bathroom-shower" className="text-slate-900 underline-offset-4 hover:underline">shower overhaul</Link>,{" "}
@@ -275,6 +239,8 @@ export default function WhyTileFlooringBradentonPage() {
           </Container>
         </div>
       </article>
+
+      <FaqSection items={faqItems} />
 
       <QuoteCtaSection />
     </>

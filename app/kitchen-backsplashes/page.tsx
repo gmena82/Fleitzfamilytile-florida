@@ -4,6 +4,7 @@ import Image from "next/image";
 import Link from "next/link";
 
 import { QuoteCtaSection } from "@/components/sections/quote-cta";
+import { FaqSection } from "@/components/sections/faq";
 import { Container } from "@/components/ui/container";
 import { siteConfig } from "@/config/site";
 
@@ -207,21 +208,10 @@ export default function KitchenBacksplashesPage() {
       </section>
 
       {/* FAQ Section */}
-      <section className="faq-section bg-slate-50 py-16">
-        <Container className="mx-auto max-w-3xl space-y-8">
-          <div className="section-header space-y-3 text-center">
-            <h2 className="text-3xl font-semibold text-slate-900">Your Questions Answered</h2>
-          </div>
-          <div className="space-y-6">
-            {faqItems.map((faq) => (
-              <div key={faq.question} className="faq-item rounded-3xl border border-slate-200 bg-white p-6 shadow-sm">
-                <h3 className="text-base font-semibold text-slate-900">{faq.question}</h3>
-                <p className="mt-3 text-sm leading-relaxed text-slate-600">{faq.answer}</p>
-              </div>
-            ))}
-          </div>
-        </Container>
-      </section>
+      <FaqSection 
+        items={faqItems} 
+        title="Your Questions Answered"
+      />
 
       {/* CTA Section */}
       <QuoteCtaSection />

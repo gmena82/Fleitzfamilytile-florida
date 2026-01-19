@@ -2,6 +2,7 @@ import Script from "next/script";
 import type { Metadata } from "next";
 
 import { QuoteCtaSection } from "@/components/sections/quote-cta";
+import { FaqSection } from "@/components/sections/faq";
 import { Container } from "@/components/ui/container";
 import { PlaceholderImage } from "@/components/ui/placeholder-image";
 import { siteConfig } from "@/config/site";
@@ -187,26 +188,13 @@ export default function FireplacesPage() {
         </Container>
       </section>
 
-      <QuoteCtaSection />
+      <FaqSection 
+        items={faqItems} 
+        title="Fireplace Tile FAQs"
+        description="Answers to the questions Bradenton, Sarasota, and Lakewood Ranch homeowners ask most before we revamp their hearth."
+      />
 
-      <section id="faq" className="bg-white py-16">
-        <Container className="space-y-10">
-          <div className="space-y-3 text-center">
-            <h2 className="text-3xl font-semibold text-slate-900">Fireplace Tile FAQs</h2>
-            <p className="mx-auto max-w-2xl text-sm leading-relaxed text-slate-600">
-              Answers to the questions Bradenton, Sarasota, and Lakewood Ranch homeowners ask most before we revamp their hearth.
-            </p>
-          </div>
-          <div className="grid gap-6 md:grid-cols-3">
-            {faqItems.map((item) => (
-              <div key={item.question} className="space-y-2 rounded-3xl border border-slate-200 bg-slate-50 p-6">
-                <h3 className="text-base font-semibold text-slate-900">{item.question}</h3>
-                <p className="text-sm leading-relaxed text-slate-600">{item.answer}</p>
-              </div>
-            ))}
-          </div>
-        </Container>
-      </section>
+      <QuoteCtaSection />
     </>
   );
 }
