@@ -1,4 +1,5 @@
 import type { HTMLAttributes } from "react";
+import Image from "next/image";
 
 import { cn } from "@/lib/utils";
 
@@ -6,7 +7,7 @@ interface PlaceholderImageProps extends HTMLAttributes<HTMLDivElement> {
   label?: string;
 }
 
-export function PlaceholderImage({ label = "Placeholder Image", className, style, ...props }: PlaceholderImageProps) {
+export function PlaceholderImage({ label = "Project Photo", className, style, ...props }: PlaceholderImageProps) {
   return (
     <div
       className={cn(
@@ -21,7 +22,13 @@ export function PlaceholderImage({ label = "Placeholder Image", className, style
           {label}
         </span>
       </div>
-      <div className="h-full w-full pt-8" aria-hidden />
+      <Image
+        src="/images/generated/tile-project-generic.png"
+        alt={label}
+        fill
+        className="object-cover"
+        sizes="(max-width: 768px) 100vw, 50vw"
+      />
     </div>
   );
 }
